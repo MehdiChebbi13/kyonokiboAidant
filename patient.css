@@ -1,0 +1,422 @@
+/* ══════════════════════════════════════════
+   VARIABLES GLOBALES
+══════════════════════════════════════════ */
+:root {
+  --teal:        #0d9488;
+  --teal-light:  #ccfbf1;
+  --teal-dark:   #0f766e;
+  --navy:        #0f172a;
+  --slate:       #334155;
+  --muted:       #94a3b8;
+  --surface:     #f8fafc;
+  --white:       #ffffff;
+  --border:      #e2e8f0;
+  --red:         #ef4444;
+  --red-light:   #fef2f2;
+  --amber:       #f59e0b;
+  --amber-light: #fffbeb;
+  --shadow:      0 2px 12px rgba(15,23,42,0.07);
+  --shadow-lg:   0 8px 40px rgba(15,23,42,0.12);
+  --radius:      14px;
+}
+
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(150deg, #e0f2f1 0%, #f0f9ff 50%, #f8fafc 100%);
+  min-height: 100vh;
+  color: var(--navy);
+}
+
+/* ══════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════ */
+.app-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  height: 60px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.btn-back:hover {
+  background: var(--teal-light);
+  border-color: var(--teal);
+  color: var(--teal-dark);
+  transform: translateX(-2px);
+}
+
+.back-arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.header-label {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  color: var(--navy);
+  letter-spacing: -0.2px;
+}
+
+.header-spacer {
+  width: 100px; /* équilibre le header */
+}
+
+/* ══════════════════════════════════════════
+   PAGE
+══════════════════════════════════════════ */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ══════════════════════════════════════════
+   CARTE DE BASE
+══════════════════════════════════════════ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Stagger d'animation pour chaque carte */
+#card-identity    { animation-delay: 0.00s; }
+.info-grid .card:nth-child(1) { animation-delay: 0.08s; }
+.info-grid .card:nth-child(2) { animation-delay: 0.12s; }
+.info-grid .card:nth-child(3) { animation-delay: 0.16s; }
+.info-grid .card:nth-child(4) { animation-delay: 0.20s; }
+#card-allergies   { animation-delay: 0.25s; }
+#card-traitements { animation-delay: 0.30s; }
+#card-notes       { animation-delay: 0.35s; }
+
+/* ══════════════════════════════════════════
+   CARTE IDENTITÉ
+══════════════════════════════════════════ */
+.card-identity {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px 32px 28px;
+}
+
+/* Bandeau de couleur en arrière-plan */
+.identity-bg {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 90px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  z-index: 0;
+}
+
+/* Avatar */
+.avatar-wrap {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  margin-top: 16px;
+}
+
+.avatar-wrap img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-status {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid var(--white);
+}
+
+/* Infos identité */
+.identity-info {
+  position: relative;
+  z-index: 1;
+  padding-top: 52px;
+  flex: 1;
+}
+
+.patient-tag {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.patient-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.patient-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: var(--slate);
+  font-weight: 500;
+}
+
+.meta-icon { font-size: 13px; }
+
+/* ══════════════════════════════════════════
+   GRILLE D'INFORMATIONS
+══════════════════════════════════════════ */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card-info:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--surface);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 3px;
+}
+
+.card-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ══════════════════════════════════════════
+   CARTES BLOC (allergies, traitements, notes)
+══════════════════════════════════════════ */
+.card-block {
+  padding: 22px 24px;
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.block-icon { font-size: 18px; }
+
+.block-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px;
+  color: var(--navy);
+  letter-spacing: -0.2px;
+}
+
+/* Tags d'allergies */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tag-allergie {
+  background: var(--red-light);
+  color: var(--red);
+  border: 1px solid #fecaca;
+}
+
+.tag-none {
+  background: var(--surface);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-style: italic;
+}
+
+/* Liste des traitements */
+.treatment-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.treatment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.treatment-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.treatment-name {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.treatment-dose {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.treatment-empty {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Notes */
+.notes-text {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.7;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  white-space: pre-wrap;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 580px) {
+  .card-identity {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px 20px;
+  }
+
+  .identity-info {
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-name {
+    font-size: 24px;
+  }
+
+  .header-spacer {
+    display: none;
+  }
+}
