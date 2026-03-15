@@ -45,10 +45,21 @@ body {
   color: var(--text-primary);
   background-color: var(--bg);
   background-image:
-    url("../soft-background.png"),
-    radial-gradient(circle at 20% 80%, rgba(123, 167, 188, 0.09) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(157, 191, 163, 0.09) 0%, transparent 50%);
-  background-position: center top, 0 0, 0 0;
+    url("./soft-background.png"),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(123, 167, 188, 0.09) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(157, 191, 163, 0.09) 0%,
+      transparent 50%
+    );
+  background-position:
+    center top,
+    0 0,
+    0 0;
   background-repeat: repeat, no-repeat, no-repeat;
   background-size: cover, auto, auto;
 }
@@ -260,7 +271,9 @@ a {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .kpi-card:hover {
@@ -386,7 +399,9 @@ a {
   font-size: 0.86rem;
   font-family: "DM Sans", sans-serif;
   outline: 0;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   background: #ffffff;
 }
 
