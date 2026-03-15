@@ -41,21 +41,21 @@
     {
       key: "hints",
       label: "Ajouter des indices",
-      desc: "Un indice est disponible apres la premiere erreur",
+      desc: "Un indice est disponible après la premiere erreur",
       badge: "Indices",
       tone: "blue",
     },
     {
       key: "truefalse",
       label: "Transformer en vrai/faux",
-      desc: "Les questions ratees reviennent en fin de quiz au format vrai/faux",
+      desc: "Les questions ratées reviennent en fin de quiz au format vrai/faux",
       badge: "Vrai/Faux",
       tone: "gray",
     },
     {
       key: "removeFalse",
       label: "Supprimer des reponses fausses",
-      desc: "Une mauvaise reponse disparait apres la deuxieme erreur",
+      desc: "Une mauvaise réponse disparait apres la deuxième erreur",
       badge: "Elimination",
       tone: "peach",
     },
@@ -853,6 +853,14 @@
             }
           </div>
         </div>
+        <input
+          class="input-field"
+          data-question-field="text"
+          data-question-id="${question.id}"
+          placeholder="Enonce de la question..."
+          value="${AppUtils.escapeHtml(question.text)}"
+          style="margin-bottom:12px"
+        >
         ${
           isQuestionImage(question.type)
             ? `
@@ -862,16 +870,7 @@
               <span>Zone de media prete. Le branchement d'upload reste a connecter.</span>
             </div>
           `
-            : `
-            <input
-              class="input-field"
-              data-question-field="text"
-              data-question-id="${question.id}"
-              placeholder="Enonce de la question..."
-              value="${AppUtils.escapeHtml(question.text)}"
-              style="margin-bottom:12px"
-            >
-          `
+            : ""
         }
         <div class="answer-grid">
           ${question.answers
