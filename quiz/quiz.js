@@ -748,10 +748,16 @@
                   <span>Modifier</span>
                 </span>
               </button>
-              <button class="btn btn-danger" data-action="delete" data-id="${quiz.id}" type="button">
+              <button
+                class="btn btn-danger quiz-delete-btn"
+                data-action="delete"
+                data-id="${quiz.id}"
+                type="button"
+                aria-label="Supprimer le quiz"
+                title="Supprimer"
+              >
                 <span class="btn-label">
                   ${AppUI.iconHTML("trash", { size: 13 })}
-                  <span>Suppr.</span>
                 </span>
               </button>
             </div>

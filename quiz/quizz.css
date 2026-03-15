@@ -335,6 +335,16 @@
   font-size: 0.78rem;
 }
 
+.quiz-actions .quiz-delete-btn {
+  flex: 0 0 36px;
+  width: 36px;
+  padding: 7px 0;
+}
+
+.quiz-actions .quiz-delete-btn .btn-label {
+  gap: 0;
+}
+
 .quiz-empty-state {
   padding: 48px;
   text-align: center;
