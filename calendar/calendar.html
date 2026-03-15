@@ -70,29 +70,51 @@
       <div class="modal-box event-modal">
         <div class="modal-top">
           <h2 class="section-title" id="event-modal-title">Nouvel evenement</h2>
-          <button class="btn btn-ghost" id="close-event-modal" type="button">
+          <button class="btn btn-ghost event-close-btn" id="close-event-modal" type="button" aria-label="Fermer">
             <span class="btn-label">
               <span data-app-icon="close" data-app-icon-size="14"></span>
-              <span>Fermer</span>
             </span>
           </button>
         </div>
 
         <form id="event-form">
-          <div><label class="label">Titre *</label><input class="input-field" name="title" required></div>
+          <div>
+            <label class="label">Titre *</label>
+            <input class="input-field" name="title" required placeholder="Ex : Rendez-vous medecin">
+          </div>
           <div class="event-form-row">
             <div><label class="label">Date</label><input class="input-field" type="date" name="date"></div>
             <div><label class="label">Heure</label><input class="input-field" type="time" name="time"></div>
           </div>
-          <div><label class="label">Lieu</label><input class="input-field" name="lieu"></div>
-          <div><label class="label">Rappels (separes par des virgules)</label><input class="input-field" name="reminders" placeholder="1j, 3h"></div>
-          <div class="event-important-row">
-            <div><strong>Evenement important</strong><p>Affiche avec priorite dans les vues aidees.</p></div>
+          <div>
+            <label class="label">Lieu</label>
+            <input class="input-field" name="lieu" placeholder="Ex : Cabinet Dr. Martin, Nice">
+          </div>
+          <div>
+            <label class="label">Description</label>
+            <textarea class="input-field" name="description" placeholder="Informations complementaires..."></textarea>
+          </div>
+          <div class="event-important-row" id="event-important-row">
+            <div>
+              <strong>Evenement important</strong>
+              <p>Apparaitra cote patient avec des rappels</p>
+            </div>
             <label class="toggle-wrap"><input type="checkbox" name="important"><span class="toggle-slider"></span></label>
           </div>
+
+          <div class="event-reminders hidden" id="event-reminders-group">
+            <label class="label">Rappels</label>
+            <div class="reminder-chip-row">
+              <button class="reminder-chip" type="button" data-reminder="1j">1 jour avant</button>
+              <button class="reminder-chip" type="button" data-reminder="3h">3 heures avant</button>
+              <button class="reminder-chip" type="button" data-reminder="1h">1 heure avant</button>
+              <button class="reminder-chip" type="button" data-reminder="15m">15 min avant</button>
+            </div>
+          </div>
+
           <div class="event-actions">
             <button type="button" class="btn btn-secondary" id="cancel-event">Annuler</button>
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button type="submit" class="btn btn-primary" id="save-event">Creer l'evenement</button>
           </div>
         </form>
       </div>

@@ -203,14 +203,19 @@
 }
 
 .event-modal {
-  max-width: 560px;
+  max-width: 520px;
+  padding: 28px 32px;
 }
 
 .modal-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+.event-close-btn {
+  padding: 6px 10px;
 }
 
 .event-form-row {
@@ -236,24 +241,77 @@
   gap: 12px;
 }
 
+.event-important-row.is-important {
+  background: var(--accent-light);
+  border-color: color-mix(in srgb, var(--accent) 32%, white 68%);
+}
+
 .event-important-row p {
   margin: 4px 0 0;
   color: var(--text-muted);
   font-size: 0.78rem;
 }
 
+.event-reminders {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reminder-chip-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reminder-chip {
+  border: 1.5px solid var(--border);
+  background: #ffffff;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 0.83rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.reminder-chip.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
 .event-actions {
   display: flex;
   gap: 10px;
-  margin-top: 4px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #edf3f9;
 }
 
-.event-actions .btn {
+.event-actions .btn-secondary {
   flex: 1;
+}
+
+.event-actions .btn-primary {
+  flex: 2;
+}
+
+.event-actions .btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
 }
 
 @media (max-width: 1100px) {
   .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .event-form-row {
     grid-template-columns: 1fr;
   }
 }
