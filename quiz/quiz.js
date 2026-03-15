@@ -226,17 +226,17 @@
     {
       key: "hints",
       label: "Ajouter des indices",
-      desc: "Un indice apparait apres la premiere mauvaise reponse",
+      desc: "Affiche un indice pour aider l’accueilli après une erreur.",
     },
     {
       key: "truefalse",
       label: "Transformer en vrai / faux",
-      desc: "Les questions echouees sont reproposees en vrai/faux en fin de quiz",
+      desc: "Reprend en fin de quiz les questions échouées au format vrai/faux.",
     },
     {
       key: "removeFalse",
       label: "Supprimer des reponses fausses",
-      desc: "Une mauvaise reponse est supprimee apres la deuxieme erreur",
+      desc: "Retire une mauvaise réponse pour faciliter le choix après une erreur.",
     },
   ];
 
@@ -595,27 +595,27 @@
     const flow = [
       {
         step: 1,
-        text: "Question affichee avec toutes les reponses",
+        text: "Question affichée avec toutes les réponses",
         active: true,
       },
       {
         step: 2,
-        text: "1re erreur -> un indice apparait",
+        text: "1re erreur → un indice apparaît",
         active: state.dailyConfig.hints,
       },
       {
         step: 3,
-        text: "2e erreur -> une mauvaise reponse est supprimee",
+        text: "2e erreur → une mauvaise réponse est supprimée",
         active: state.dailyConfig.removeFalse,
       },
       {
         step: 4,
-        text: "3e erreur -> passage a la question suivante",
+        text: " Erreur suivante → passage à la question suivante",
         active: true,
       },
       {
         step: 5,
-        text: "Fin du quiz -> questions echouees en vrai/faux",
+        text: "Fin du quiz → questions échouées en vrai/faux",
         active: state.dailyConfig.truefalse,
       },
     ];
