@@ -63,7 +63,7 @@
   const chartRangeTabsRoot = document.getElementById("chart-range-tabs");
   const lineChartRoot = document.getElementById("line-chart-root");
   const weeklySummaryRoot = document.getElementById("weekly-summary");
-  const ringsRoot = document.getElementById("rings-root");
+  const radarRoot = document.getElementById("radar-root");
   const breakdownBody = document.getElementById("breakdown-body");
   const indicatorsRoot = document.getElementById("indicators-root");
   const insightsRoot = document.getElementById("insights-root");
@@ -212,27 +212,136 @@
     renderWeeklySummary();
   }
 
-  function renderRings() {
-    const ringData = [
-      { label: "Questions texte", correct: 58, color: "var(--primary)" },
-      { label: "Questions image", correct: 81, color: "var(--secondary)" },
-      { label: "Avec indice", correct: 74, color: "var(--accent-alt)" },
-      { label: "Apres erreur", correct: 62, color: "var(--accent)" }
-    ];
+  function pointOnCircle(cx, cy, radius, angle) {
+    return {
+      x: cx + Math.cos(angle) * radius,
+      y: cy + Math.sin(angle) * radius
+    };
+  }
 
-    ringsRoot.innerHTML = ringData
-      .map((item) => {
+  function labelAnchor(angle) {
+    const x = Math.cos(angle);
+    if (x > 0.35) return "start";
+    if (x < -0.35) return "end";
+    return "middle";
+  }
+
+  function renderRadarChart(data, color = CHART_COLOR) {
+    const width = 280;
+    const height = 250;
+    const cx = width / 2;
+    const cy = 118;
+    const radius = 82;
+    const levels = [25, 50, 75, 100];
+    const angles = data.map((_, index) => -Math.PI / 2 + (Math.PI * 2 * index) / data.length);
+
+    const gridPolygons = levels
+      .map((level) => {
+        const points = angles
+          .map((angle) => {
+            const point = pointOnCircle(cx, cy, radius * (level / 100), angle);
+            return `${point.x},${point.y}`;
+          })
+          .join(" ");
+
+        return `<polygon points="${points}" fill="none" stroke="#E7EEF4" stroke-width="1"></polygon>`;
+      })
+      .join("");
+
+    const axisLines = angles
+      .map((angle) => {
+        const point = pointOnCircle(cx, cy, radius, angle);
+        return `<line x1="${cx}" y1="${cy}" x2="${point.x}" y2="${point.y}" stroke="#E7EEF4" stroke-width="1"></line>`;
+      })
+      .join("");
+
+    const areaPoints = data.map((item, index) => pointOnCircle(cx, cy, radius * (item.value / 100), angles[index]));
+    const areaPath = areaPoints.map((point, index) => `${index === 0 ? "M" : "L"}${point.x},${point.y}`).join(" ") + " Z";
+
+    const markers = areaPoints
+      .map((point) => {
         return `
-          <div class="ring-item">
-            ${AppUI.circleProgressHTML({ value: item.correct, color: item.color, size: 58, stroke: 6 })}
-            <p>
-              <strong>${AppUtils.escapeHtml(item.label)}</strong>
-              <span>de bonnes rep.</span>
-            </p>
-          </div>
+          <circle cx="${point.x}" cy="${point.y}" r="4.5" fill="#ffffff" stroke="${color}" stroke-width="2.5"></circle>
         `;
       })
       .join("");
+
+    const labels = data
+      .map((item, index) => {
+        const labelPoint = pointOnCircle(cx, cy, radius + 24, angles[index]);
+        const dy = Math.sin(angles[index]) > 0.35 ? 10 : Math.sin(angles[index]) < -0.35 ? -8 : 4;
+        return `
+          <text
+            x="${labelPoint.x}"
+            y="${labelPoint.y + dy}"
+            font-size="10"
+            fill="#8FA1B1"
+            text-anchor="${labelAnchor(angles[index])}"
+          >${AppUtils.escapeHtml(item.shortLabel)}</text>
+        `;
+      })
+      .join("");
+
+    const guides = levels
+      .map((level) => {
+        const y = cy - radius * (level / 100);
+        return `
+          <text x="${cx}" y="${y - 6}" font-size="9" fill="#C0CDD8" text-anchor="middle">${level}</text>
+        `;
+      })
+      .join("");
+
+    return `
+      <svg viewBox="0 0 ${width} ${height}" aria-label="Radar des reponses">
+        ${gridPolygons}
+        ${axisLines}
+        ${guides}
+        <path d="${areaPath}" fill="${color}" opacity="0.18"></path>
+        <path
+          d="${areaPath}"
+          fill="none"
+          stroke="${color}"
+          stroke-width="2.5"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+        ${markers}
+        ${labels}
+      </svg>
+    `;
+  }
+
+  function renderRadar() {
+    const radarData = [
+      { label: "Questions texte", shortLabel: "Texte", value: 58, color: "var(--primary)" },
+      { label: "Questions image", shortLabel: "Image", value: 81, color: "var(--secondary)" },
+      { label: "Avec indice", shortLabel: "Indice", value: 74, color: "var(--accent-alt)" },
+      { label: "Apres erreur", shortLabel: "Relance", value: 62, color: "var(--accent)" }
+    ];
+
+    radarRoot.innerHTML = `
+      <div class="radar-chart-shell">
+        <div class="radar-visual">
+          ${renderRadarChart(radarData)}
+        </div>
+        <div class="radar-legend">
+          ${radarData
+            .map((item) => {
+              return `
+                <div class="radar-legend-item">
+                  <span class="radar-legend-swatch" style="background:${item.color}"></span>
+                  <div class="radar-legend-copy">
+                    <strong>${AppUtils.escapeHtml(item.label)}</strong>
+                    <span>de bonnes rep.</span>
+                  </div>
+                  <strong class="radar-legend-score">${item.value}%</strong>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `;
   }
 
   function scoreColor(score) {
@@ -295,7 +404,7 @@
   function renderAll() {
     renderKpis();
     renderLineChartPanel();
-    renderRings();
+    renderRadar();
     renderBreakdown();
     renderIndicators();
     renderInsights();
