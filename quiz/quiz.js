@@ -64,7 +64,6 @@
     { id: "text-text", label: "Texte -> Texte", icon: "📝" },
     { id: "text-image", label: "Texte -> Images", icon: "📝🖼" },
     { id: "image-text", label: "Image -> Texte", icon: "🖼📝" },
-    { id: "image-image", label: "Image -> Images", icon: "🖼🖼" },
   ];
   const PRESET_QUIZ_DETAILS = {
     1: {
