@@ -43,10 +43,14 @@ body {
   min-height: 100vh;
   font-family: "DM Sans", sans-serif;
   color: var(--text-primary);
-  background: var(--bg);
+  background-color: var(--bg);
   background-image:
+    url("../soft-background.png"),
     radial-gradient(circle at 20% 80%, rgba(123, 167, 188, 0.09) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(157, 191, 163, 0.09) 0%, transparent 50%);
+  background-position: center top, 0 0, 0 0;
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: cover, auto, auto;
 }
 
 a {
