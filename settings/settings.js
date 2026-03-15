@@ -38,7 +38,7 @@
       <section class="settings-panel">
         <h2 class="section-title">Profil aidant</h2>
         <div class="profile-head neutral">
-          ${AppUI.avatarHTML(AppData.caregiver.name, { sizeClass: "large", bg: "var(--secondary-light)", color: "var(--secondary-dark)" })}
+          ${AppUI.avatarHTML(AppData.caregiver.name, { sizeClass: "large", bg: "var(--secondary-light)", color: "var(--secondary-dark)", imageSrc: AppData.caregiver.avatar })}
           <div>
             <h3 class="profile-name">${AppUtils.escapeHtml(AppData.caregiver.name)}</h3>
             <p class="profile-role">${AppUtils.escapeHtml(AppData.caregiver.role)}</p>
@@ -61,7 +61,7 @@
       <section class="settings-panel">
         <h2 class="section-title">Profil patient</h2>
         <div class="profile-head primary">
-          ${AppUI.avatarHTML(AppData.patient.name, { sizeClass: "large", bg: "var(--primary-light)", color: "var(--primary-dark)" })}
+          ${AppUI.avatarHTML(AppData.patient.name, { sizeClass: "large", bg: "var(--primary-light)", color: "var(--primary-dark)", imageSrc: AppData.patient.avatar })}
           <div>
             <h3 class="profile-name">${AppUtils.escapeHtml(AppData.patient.name)}</h3>
             <p class="profile-role">${AppUtils.escapeHtml(AppData.patient.diagnosis)}</p>

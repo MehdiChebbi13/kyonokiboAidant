@@ -1,15 +1,23 @@
 (() => {
+  const pagePath = window.location.pathname.replace(/\\/g, "/");
+  const isSubpage = /\/(dashboard|calendar|quiz|stats|settings)\//.test(
+    pagePath,
+  );
+  const assetPrefix = isSubpage ? "../" : "";
+
   const AppData = {
     patient: {
       name: "Jean Martin",
       age: 78,
       diagnosis: "Maladie d'Alzheimer - stade leger",
-      since: "Mars 2023"
+      since: "Mars 2023",
+      avatar: `${assetPrefix}public/image-Jean.png`
     },
     caregiver: {
       name: "Sophie Martin",
       role: "Sa fille - Aidante principale",
-      email: "sophie.martin@email.com"
+      email: "sophie.martin@email.com",
+      avatar: `${assetPrefix}public/image-fille2.png`
     },
     todayTasks: [
       { id: 1, time: "08:30", title: "Medicaments du matin", done: true, important: true },
@@ -181,6 +189,16 @@
     const sizeClass = options.sizeClass || "small";
     const bg = options.bg || "var(--primary-light)";
     const color = options.color || "var(--primary-dark)";
+    const imageSrc = String(options.imageSrc || "").trim();
+
+    if (imageSrc) {
+      return `
+        <span class="avatar ${sizeClass}" style="background:${bg};color:${color}">
+          <img class="avatar-image" src="${escapeHtml(imageSrc)}" alt="${escapeHtml(name)}">
+        </span>
+      `;
+    }
+
     return `<span class="avatar ${sizeClass}" style="background:${bg};color:${color}">${initials(name)}</span>`;
   }
 
@@ -271,7 +289,7 @@
       </div>
 
       <div class="person-pill">
-        ${avatarHTML(AppData.patient.name, { bg: "var(--primary-light)", color: "var(--primary-dark)" })}
+        ${avatarHTML(AppData.patient.name, { bg: "var(--primary-light)", color: "var(--primary-dark)", imageSrc: AppData.patient.avatar })}
         <div>
           <div class="person-name">${escapeHtml(AppData.patient.name.split(" ")[0])}</div>
           <div class="person-role">Patient suivi</div>
@@ -281,7 +299,7 @@
       <nav class="sidebar-nav">${links}</nav>
 
       <div class="caregiver-box">
-        ${avatarHTML(AppData.caregiver.name, { bg: "var(--secondary-light)", color: "var(--secondary-dark)" })}
+        ${avatarHTML(AppData.caregiver.name, { bg: "var(--secondary-light)", color: "var(--secondary-dark)", imageSrc: AppData.caregiver.avatar })}
         <div>
           <div class="person-name">${escapeHtml(AppData.caregiver.name.split(" ")[0])}</div>
           <div class="person-role">Aidante</div>
