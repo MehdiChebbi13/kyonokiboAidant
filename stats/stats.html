@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyonokibo Aidant - Stats</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./stats.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="app-sidebar"></aside>
+
+      <main class="main-content">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Statistiques</h1>
+            <p class="page-subtitle">Suivi cognitif de Marguerite Fontaine</p>
+          </div>
+          <div class="stats-head-actions">
+            <div class="tab-switch" id="period-switch">
+              <button class="tab-btn active" data-period="7j">7j</button>
+              <button class="tab-btn" data-period="30j">30j</button>
+              <button class="tab-btn" data-period="3m">3m</button>
+            </div>
+            <button class="btn btn-ghost">Exporter</button>
+          </div>
+        </header>
+
+        <section class="kpi-grid" id="stats-kpis"></section>
+
+        <section class="grid-two stats-row">
+          <article class="card stats-card">
+            <div class="stats-card-head">
+              <h2 class="section-title small">Évolution sur 7 jours</h2>
+              <div class="legend">
+                <span><i class="dot normal"></i>Réussite</span>
+                <span><i class="dot normal" style="opacity:0.65"></i>Sans indice</span>
+              </div>
+            </div>
+            <div id="bars-root"></div>
+          </article>
+
+          <article class="card stats-card">
+            <h2 class="section-title small">Répartition des réponses</h2>
+            <div id="rings-root" class="rings-root"></div>
+          </article>
+        </section>
+
+        <section class="grid-two stats-row">
+          <article class="card stats-card">
+            <h2 class="section-title small">Récapitulatif par quiz</h2>
+            <div class="breakdown-table">
+              <div class="breakdown-head">
+                <span>Quiz</span>
+                <span>Score</span>
+                <span>Parties</span>
+                <span>Tendance</span>
+              </div>
+              <div id="breakdown-body"></div>
+            </div>
+          </article>
+
+          <article class="card stats-card">
+            <h2 class="section-title small">Indicateurs clés</h2>
+            <div id="indicators-root"></div>
+          </article>
+        </section>
+
+        <section class="card stats-card">
+          <h2 class="section-title small">Observations</h2>
+          <div class="insight-grid" id="insights-root"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="./stats.js"></script>
+  </body>
+</html>

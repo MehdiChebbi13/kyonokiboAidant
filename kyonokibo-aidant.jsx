@@ -114,16 +114,16 @@ const FontStyle = () => (
       color: ${T.textSecondary}; font-size: 0.87rem; font-weight: 500; text-decoration: none;
       border: none; background: none; width: 100%; text-align: left;
     }
-    .sidebar-link:hover { background: ${T.secondaryLight}; color: ${T.secondary}; }
-    .sidebar-link.active { background: ${T.secondaryLight}; color: ${T.secondary}; font-weight: 600; }
-    .sidebar-link.active .nav-icon { color: ${T.secondary}; }
+    .sidebar-link:hover { background: ${T.primaryLight}; color: ${T.primaryDark}; }
+    .sidebar-link.active { background: ${T.primaryLight}; color: ${T.primaryDark}; font-weight: 600; }
+    .sidebar-link.active .nav-icon { color: ${T.primary}; }
 
     .kpi-card { transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default; }
     .kpi-card:hover { transform: translateY(-2px); box-shadow: ${T.shadowMd}; }
 
     .btn { border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; transition: all 0.18s ease; }
-    .btn-primary { background: ${T.secondary}; color: white; padding: 9px 20px; border-radius: ${T.radiusSm}; font-size: 0.87rem; }
-    .btn-primary:hover { background: ${T.secondaryDark}; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(157,191,163,0.35); }
+    .btn-primary { background: ${T.primary}; color: white; padding: 9px 20px; border-radius: ${T.radiusSm}; font-size: 0.87rem; }
+    .btn-primary:hover { background: ${T.primaryDark}; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(123,167,188,0.35); }
     .btn-secondary { background: ${T.neutral100}; color: ${T.neutral700}; padding: 9px 20px; border-radius: ${T.radiusSm}; font-size: 0.87rem; }
     .btn-secondary:hover { background: ${T.neutral200}; }
     .btn-ghost { background: transparent; color: ${T.textSecondary}; padding: 7px 14px; border-radius: ${T.radiusSm}; font-size: 0.83rem; border: 1px solid ${T.neutral200}; }
@@ -142,16 +142,16 @@ const FontStyle = () => (
     .toggle-wrap input { opacity: 0; width: 0; height: 0; }
     .toggle-slider { position: absolute; cursor: pointer; top:0; left:0; right:0; bottom:0; background: ${T.neutral200}; transition: 0.3s; border-radius: 24px; }
     .toggle-slider:before { position: absolute; content:""; height:18px; width:18px; left:3px; bottom:3px; background:white; transition:0.3s; border-radius:50%; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
-    .toggle-wrap input:checked + .toggle-slider { background: ${T.secondary}; }
+    .toggle-wrap input:checked + .toggle-slider { background: ${T.primary}; }
     .toggle-wrap input:checked + .toggle-slider:before { transform: translateX(20px); }
 
     .tab-btn { padding: 8px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; border: none; cursor: pointer; transition: all 0.18s; background: transparent; color: ${T.textSecondary}; }
-    .tab-btn.active { background: white; color: ${T.secondary}; box-shadow: ${T.shadow}; font-weight: 600; }
-    .tab-btn:not(.active):hover { background: ${T.secondaryLight}; color: ${T.secondary}; }
+    .tab-btn.active { background: white; color: ${T.primary}; box-shadow: ${T.shadow}; font-weight: 600; }
+    .tab-btn:not(.active):hover { background: ${T.primaryLight}; color: ${T.primaryDark}; }
 
     .card { background: white; border-radius: ${T.radius}; box-shadow: ${T.shadow}; }
     .input-field { border: 1.5px solid ${T.neutral200}; border-radius: ${T.radiusSm}; padding: 9px 13px; font-size: 0.87rem; font-family: 'DM Sans',sans-serif; color: ${T.textPrimary}; background: white; outline: none; width: 100%; transition: border-color 0.18s; }
-    .input-field:focus { border-color: ${T.secondary}; box-shadow: 0 0 0 3px rgba(157,191,163,0.15); }
+    .input-field:focus { border-color: ${T.primary}; box-shadow: 0 0 0 3px rgba(123,167,188,0.12); }
     .label { font-size: 0.8rem; font-weight: 600; color: ${T.textSecondary}; margin-bottom: 5px; display: block; text-transform: uppercase; letter-spacing: 0.04em; }
 
     @keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
@@ -160,8 +160,8 @@ const FontStyle = () => (
     @keyframes shimmer { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
 
     .stat-bar-fill { transition: width 1s ease; }
-    .cal-day:hover { background: ${T.secondaryLight} !important; cursor: pointer; }
-    .cal-day.has-event { background: rgba(157,191,163,0.08); }
+    .cal-day:hover { background: ${T.primaryLight} !important; cursor: pointer; }
+    .cal-day.has-event { background: rgba(123,167,188,0.07); }
 
     textarea.input-field { resize: vertical; min-height: 80px; }
     select.input-field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236C757D' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
@@ -172,23 +172,23 @@ const FontStyle = () => (
 
     .progress-ring { transform: rotate(-90deg); }
     .question-type-btn { border: 2px solid ${T.neutral200}; border-radius: ${T.radiusSm}; padding: 10px 14px; cursor:pointer; transition: all 0.18s; background:white; font-size:0.82rem; text-align:center; }
-    .question-type-btn:hover { border-color: ${T.secondary}; background: ${T.secondaryLight}; }
-    .question-type-btn.selected { border-color: ${T.secondary}; background: ${T.secondaryLight}; color: ${T.secondary}; font-weight:600; }
+    .question-type-btn:hover { border-color: ${T.primary}; background: ${T.primaryLight}; }
+    .question-type-btn.selected { border-color: ${T.primary}; background: ${T.primaryLight}; color: ${T.primaryDark}; font-weight:600; }
 
     .step-indicator { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.78rem; font-weight:700; }
-    .step-done { background: ${T.secondary}; color:white; }
-    .step-active { background: white; border: 2px solid ${T.secondary}; color: ${T.secondary}; }
+    .step-done { background: ${T.primary}; color:white; }
+    .step-active { background: white; border: 2px solid ${T.primary}; color: ${T.primary}; }
     .step-todo { background: ${T.neutral100}; color: ${T.textMuted}; }
 
-    .insight-card { border-left: 3px solid ${T.secondary}; padding: 12px 16px; background: ${T.secondaryLight}; border-radius: 0 ${T.radiusSm} ${T.radiusSm} 0; }
-    .insight-card.blue { border-color: ${T.secondary}; background: ${T.secondaryLight}; }
+    .insight-card { border-left: 3px solid ${T.primary}; padding: 12px 16px; background: ${T.primaryLight}; border-radius: 0 ${T.radiusSm} ${T.radiusSm} 0; }
+    .insight-card.blue { border-color: ${T.primary}; background: ${T.primaryLight}; }
     .insight-card.peach { border-color: ${T.accent}; background: ${T.accentLight}; }
 
     .upload-zone { border: 2px dashed ${T.neutral200}; border-radius: ${T.radiusSm}; padding: 24px; text-align:center; cursor:pointer; transition: all 0.18s; }
-    .upload-zone:hover { border-color: ${T.secondary}; background: ${T.secondaryLight}; }
+    .upload-zone:hover { border-color: ${T.primary}; background: ${T.primaryLight}; }
 
     .answer-slot { border: 1.5px solid ${T.neutral200}; border-radius: ${T.radiusSm}; overflow:hidden; transition: border-color 0.18s; }
-    .answer-slot.correct { border-color: ${T.secondary}; background: ${T.secondaryLight}; }
+    .answer-slot.correct { border-color: ${T.primary}; background: ${T.primaryLight}; }
 
     .event-dot { width:7px; height:7px; border-radius:50%; display:inline-block; flex-shrink:0; }
     .event-important { background: ${T.accent}; }
@@ -223,9 +223,9 @@ const todayTasks = [
 ];
 
 const recentActivity = [
-  { id: 1, type: "quiz", icon: "✓", color: T.secondary, text: "Quiz du jour terminé", sub: "Score : 7/10 • 9 min 32 sec", time: "10h42" },
+  { id: 1, type: "quiz", icon: "✓", color: T.primary, text: "Quiz du jour terminé", sub: "Score : 7/10 • 9 min 32 sec", time: "10h42" },
   { id: 2, type: "difficulty", icon: "?", color: T.secondary, text: "Question difficile : « Qui est Pierre ? »", sub: "Quiz personnalisé – Famille proche", time: "hier 15h" },
-  { id: 3, type: "event", icon: "✓", color: T.secondary, text: "Médicaments du matin pris", sub: "Tâche marquée comme réalisée", time: "hier 08h" },
+  { id: 3, type: "event", icon: "✓", color: T.primary, text: "Médicaments du matin pris", sub: "Tâche marquée comme réalisée", time: "hier 08h" },
   { id: 4, type: "warning", icon: "!", color: T.accent, text: "Rendez-vous Dr. Renaud non effectué", sub: "Mercredi 12 mars", time: "il y a 3j" },
   { id: 5, type: "event", icon: "◆", color: T.accentAlt, text: "Anniversaire de Claude approche", sub: "Dans 4 jours", time: "il y a 4j" },
 ];
@@ -316,7 +316,7 @@ const Toggle = ({ checked, onChange }) => (
   </label>
 );
 
-const Avatar = ({ name, size = 40, photo, bg = T.secondaryLight, color = T.secondary }) => {
+const Avatar = ({ name, size = 40, photo, bg = T.primaryLight, color = T.primary }) => {
   const initials = name.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
   return (
     <div style={{ width: size, height: size, borderRadius: "50%", background: bg, display: "flex", alignItems: "center", justifyContent: "center", color, fontSize: size * 0.36, fontWeight: 700, fontFamily: "'Cormorant Garamond', serif", flexShrink: 0, border: `2px solid ${T.surface}`, boxShadow: T.shadow }}>
@@ -325,7 +325,7 @@ const Avatar = ({ name, size = 40, photo, bg = T.secondaryLight, color = T.secon
   );
 };
 
-const CircleProgress = ({ value, size = 72, stroke = 7, color = T.secondary, label }) => {
+const CircleProgress = ({ value, size = 72, stroke = 7, color = T.primary, label }) => {
   const r = (size - stroke * 2) / 2;
   const circ = 2 * Math.PI * r;
   const offset = circ - (value / 100) * circ;
@@ -350,7 +350,7 @@ const BarChart = ({ data, height = 120 }) => {
       {data.map((d, i) => (
         <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
           <div style={{ width: "100%", display: "flex", gap: 2, alignItems: "flex-end", height: height - 20 }}>
-            <div style={{ flex: 1, background: T.secondary, borderRadius: "3px 3px 0 0", height: `${(d.score / max) * 100}%`, opacity: 0.85, minHeight: 4 }} />
+            <div style={{ flex: 1, background: T.primary, borderRadius: "3px 3px 0 0", height: `${(d.score / max) * 100}%`, opacity: 0.85, minHeight: 4 }} />
             <div style={{ flex: 1, background: T.secondary, borderRadius: "3px 3px 0 0", height: `${(d.noHint / max) * 100}%`, opacity: 0.7, minHeight: 4 }} />
           </div>
           <span style={{ fontSize: "0.7rem", color: T.textMuted, fontWeight: 500 }}>{d.day}</span>
@@ -374,13 +374,13 @@ const Sidebar = ({ page, setPage }) => {
       {/* Logo */}
       <div style={{ padding: "0 8px 24px", borderBottom: `1px solid ${T.neutral100}`, marginBottom: 16 }}>
         <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 700, color: T.textPrimary, letterSpacing: "-0.01em" }}>
-          Kyō<span style={{ color: T.secondary }}>no</span>kibō
+          Kyō<span style={{ color: T.primary }}>no</span>kibō
         </div>
         <div style={{ fontSize: "0.72rem", color: T.textMuted, marginTop: 2, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>Espace aidant</div>
       </div>
 
       {/* Patient pill */}
-      <div style={{ display: "flex", alignItems: "center", gap: 10, background: T.secondaryLight, borderRadius: T.radiusSm, padding: "10px 12px", marginBottom: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, background: T.primaryLight, borderRadius: T.radiusSm, padding: "10px 12px", marginBottom: 20 }}>
         <Avatar name={patient.name} size={34} />
         <div>
           <div style={{ fontSize: "0.78rem", fontWeight: 600, color: T.textPrimary }}>{patient.name.split(" ")[0]}</div>
@@ -400,7 +400,7 @@ const Sidebar = ({ page, setPage }) => {
 
       {/* Caregiver */}
       <div style={{ borderTop: `1px solid ${T.neutral100}`, paddingTop: 16, display: "flex", alignItems: "center", gap: 10 }}>
-        <Avatar name={caregiver.name} size={34} bg={T.secondaryLight} color={T.secondary} />
+        <Avatar name={caregiver.name} size={34} bg={T.primaryLight} color={T.primary} />
         <div>
           <div style={{ fontSize: "0.78rem", fontWeight: 600, color: T.textPrimary }}>{caregiver.name.split(" ")[0]}</div>
           <div style={{ fontSize: "0.7rem", color: T.textMuted }}>Aidante</div>
@@ -422,7 +422,7 @@ const Header = ({ title, subtitle, action }) => (
 );
 
 // ─── KPI CARD ────────────────────────────────────────────────────────────────
-const KpiCard = ({ label, value, sub, icon, accent = T.secondary, accentBg }) => (
+const KpiCard = ({ label, value, sub, icon, accent = T.primary, accentBg }) => (
   <div className="card kpi-card" style={{ padding: "18px 20px", display: "flex", flexDirection: "column", gap: 12 }}>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
       <span style={{ fontSize: "0.75rem", fontWeight: 600, color: T.textMuted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</span>
@@ -451,7 +451,7 @@ const Dashboard = () => {
   return (
     <div className="fade-in">
       {/* Welcome header */}
-      <div className="card" style={{ padding: "24px 28px", marginBottom: 24, background: `linear-gradient(135deg, ${T.secondaryLight} 0%, ${T.primaryLight} 100%)`, border: `1px solid ${T.neutral200}` }}>
+      <div className="card" style={{ padding: "24px 28px", marginBottom: 24, background: `linear-gradient(135deg, ${T.primaryLight} 0%, ${T.secondaryLight} 100%)`, border: `1px solid ${T.neutral200}` }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
           <div>
             <div style={{ fontSize: "0.78rem", color: T.textMuted, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>{dateStr}</div>
@@ -470,7 +470,7 @@ const Dashboard = () => {
 
       {/* KPIs */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 24 }}>
-        <KpiCard label="Quiz du jour" value="Terminé ✓" sub="Score : 7/10 • 9 min 32 s" icon="📝" accent={T.secondary} />
+        <KpiCard label="Quiz du jour" value="Terminé ✓" sub="Score : 7/10 • 9 min 32 s" icon="📝" accent={T.primary} />
         <KpiCard label="Tâches du jour" value={`${doneTasks} / ${tasks.length}`} sub={`${tasks.length - doneTasks} restante(s)`} icon="✓" accent={T.secondary} />
         <KpiCard label="Taux de réussite" value="68 %" sub="Cette semaine • −4% vs semaine passée" icon="📊" accent={T.accent} />
         <KpiCard label="Temps moyen" value="1m 24s" sub="Par question aujourd'hui" icon="⏱" accent={T.accentAlt} />
@@ -483,7 +483,7 @@ const Dashboard = () => {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 600, color: T.textPrimary }}>Checklist du jour</h2>
             <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.secondary }} />
+              <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.primary }} />
               <span style={{ fontSize: "0.78rem", color: T.textMuted }}>{doneTasks} / {tasks.length} effectuées</span>
             </div>
           </div>
@@ -518,7 +518,7 @@ const Dashboard = () => {
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 14 }}>Résumé cognitif</div>
             <div style={{ display: "flex", justifyContent: "space-around", marginBottom: 14 }}>
               <CircleProgress value={68} size={64} label="réussite" color={T.secondary} />
-              <CircleProgress value={45} size={64} label="sans indice" color={T.secondary} />
+              <CircleProgress value={45} size={64} label="sans indice" color={T.primary} />
               <CircleProgress value={52} size={64} label="1er essai" color={T.accent} />
             </div>
             <div style={{ background: T.neutral50, borderRadius: T.radiusSm, padding: "10px 12px", fontSize: "0.8rem", color: T.textSecondary }}>
@@ -719,7 +719,7 @@ const QuizPage = () => {
                   {[
                     [q.questions, "questions", T.neutral50, T.textPrimary, T.textMuted],
                     [`${q.lastScore}%`, "dernier score", T.primaryLight, T.primaryDark, T.primaryDark],
-                    [`${q.played}`, "parties", T.secondaryLight, T.secondary, T.secondary],
+                    [`${q.played}`, "parties", T.primaryLight, T.primary, T.primary],
                   ].map(([val, lbl, bg, valColor, lblColor]) => (
                     <div key={lbl} style={{ background: bg, borderRadius: 8, padding: "7px 12px", flex: 1, textAlign: "center" }}>
                       <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 700, color: valColor }}>{val}</div>
@@ -800,12 +800,12 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                 <div className={`step-indicator ${si + 1 < step ? "step-done" : si + 1 === step ? "step-active" : "step-todo"}`}>
                   {si + 1 < step ? "✓" : si + 1}
                 </div>
-                <span style={{ fontSize: "0.8rem", color: si + 1 === step ? T.secondary : si + 1 < step ? T.secondary : T.textMuted, fontWeight: si + 1 === step ? 600 : 400 }}>
+                <span style={{ fontSize: "0.8rem", color: si + 1 === step ? T.primaryDark : si + 1 < step ? T.primary : T.textMuted, fontWeight: si + 1 === step ? 600 : 400 }}>
                   {label}
                 </span>
               </div>
               {si < stepLabels.length - 1 && (
-                <div style={{ flex: 1, height: 1, background: si + 1 < step ? T.secondary : T.neutral200, marginLeft: 4 }} />
+                <div style={{ flex: 1, height: 1, background: si + 1 < step ? T.primary : T.neutral200, marginLeft: 4 }} />
               )}
             </div>
           ))}
@@ -850,8 +850,8 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                     onClick={() => setEmoji(em)}
                     style={{
                       width: 42, height: 42, borderRadius: 10, fontSize: "1.3rem",
-                      border: `2px solid ${emoji === em ? T.secondary : T.neutral200}`,
-                      background: emoji === em ? T.secondaryLight : "white",
+                      border: `2px solid ${emoji === em ? T.primary : T.neutral200}`,
+                      background: emoji === em ? T.primaryLight : "white",
                       cursor: "pointer", transition: "all 0.15s",
                     }}
                   >{em}</button>
@@ -874,7 +874,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
               {questions.map((q, qi) => (
                 <div key={q.id} style={{ border: `1.5px solid ${T.neutral200}`, borderRadius: T.radius, padding: "18px" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
-                    <span style={{ fontSize: "0.82rem", fontWeight: 700, color: T.secondary, textTransform: "uppercase", letterSpacing: "0.05em" }}>Question {qi + 1}</span>
+                    <span style={{ fontSize: "0.82rem", fontWeight: 700, color: T.primary, textTransform: "uppercase", letterSpacing: "0.05em" }}>Question {qi + 1}</span>
                     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                       <div style={{ display: "flex", gap: 4 }}>
                         {qTypes.map(t => (
@@ -922,8 +922,8 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                           title="Marquer comme bonne réponse"
                           style={{
                             width: 20, height: 20, borderRadius: "50%",
-                            border: `2px solid ${q.correct === ansIdx ? T.secondary : T.neutral200}`,
-                            background: q.correct === ansIdx ? T.secondary : "white",
+                            border: `2px solid ${q.correct === ansIdx ? T.primary : T.neutral200}`,
+                            background: q.correct === ansIdx ? T.primary : "white",
                             cursor: "pointer", flexShrink: 0, transition: "all 0.15s",
                           }}
                         />
@@ -999,7 +999,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
             <div style={{ display: "flex", flexDirection: "column", gap: 10, maxHeight: 300, overflowY: "auto" }}>
               {questions.map((q, qi) => (
                 <div key={qi} style={{ border: `1px solid ${T.neutral200}`, borderRadius: T.radiusSm, padding: "14px" }}>
-                  <div style={{ fontSize: "0.75rem", color: T.secondary, fontWeight: 700, marginBottom: 6 }}>Q{qi + 1}</div>
+                  <div style={{ fontSize: "0.75rem", color: T.primary, fontWeight: 700, marginBottom: 6 }}>Q{qi + 1}</div>
                   <div style={{ fontSize: "0.88rem", color: T.neutral700, marginBottom: 8 }}>{q.text || "(Question image)"}</div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
                     {q.answers.map((a, ai) => (
@@ -1007,10 +1007,10 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                         key={ai}
                         style={{
                           padding: "6px 10px", borderRadius: 8,
-                          background: ai === q.correct ? T.secondaryLight : T.neutral50,
+                          background: ai === q.correct ? T.primaryLight : T.neutral50,
                           fontSize: "0.8rem",
-                          color: ai === q.correct ? T.secondary : T.textSecondary,
-                          border: `1px solid ${ai === q.correct ? T.secondary + "40" : T.neutral200}`,
+                          color: ai === q.correct ? T.primaryDark : T.textSecondary,
+                          border: `1px solid ${ai === q.correct ? T.primary + "40" : T.neutral200}`,
                           fontWeight: ai === q.correct ? 600 : 400,
                         }}
                       >
@@ -1153,12 +1153,12 @@ const CalendarPage = () => {
                   key={d}
                   className={`cal-day ${dayEvents.length ? "has-event" : ""}`}
                   onClick={() => setSelectedDay(isSelected ? null : d)}
-                  style={{ minHeight: 70, padding: "7px 6px", borderRadius: T.radiusSm, border: `1.5px solid ${isSelected ? T.secondary : isToday ? T.secondaryLight : "transparent"}`, background: isSelected ? T.secondaryLight : undefined, cursor: "pointer", transition: "all 0.15s", position: "relative" }}
+                  style={{ minHeight: 70, padding: "7px 6px", borderRadius: T.radiusSm, border: `1.5px solid ${isSelected ? T.primary : isToday ? T.primaryLight : "transparent"}`, background: isSelected ? T.primaryLight : undefined, cursor: "pointer", transition: "all 0.15s", position: "relative" }}
                 >
-                  <div style={{ fontSize: "0.83rem", fontWeight: isToday ? 700 : 400, color: isToday ? T.secondary : T.neutral700, marginBottom: 4 }}>{d}</div>
+                  <div style={{ fontSize: "0.83rem", fontWeight: isToday ? 700 : 400, color: isToday ? T.primary : T.neutral700, marginBottom: 4 }}>{d}</div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                     {dayEvents.slice(0, 2).map(ev => (
-                      <div key={ev.id} style={{ fontSize: "0.67rem", padding: "2px 5px", borderRadius: 4, background: ev.important ? `${T.accent}25` : `${T.secondary}20`, color: ev.important ? T.accent : T.primaryDark, fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 3 }}>
+                      <div key={ev.id} style={{ fontSize: "0.67rem", padding: "2px 5px", borderRadius: 4, background: ev.important ? `${T.accent}25` : `${T.primary}20`, color: ev.important ? T.accent : T.primaryDark, fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: 3 }}>
                         {ev.important && <span style={{ width: 5, height: 5, borderRadius: "50%", background: T.accent, flexShrink: 0, display: "inline-block" }} />}
                         {ev.title}
                       </div>
@@ -1252,7 +1252,7 @@ const CalendarPage = () => {
 };
 
 const EventModal = ({ event, defaultDate, onClose, onSave }) => {
-  const [form, setForm] = useState(event || { title: "", date: defaultDate || "", time: "", lieu: "", description: "", important: false, reminders: [], color: T.secondary });
+  const [form, setForm] = useState(event || { title: "", date: defaultDate || "", time: "", lieu: "", description: "", important: false, reminders: [], color: T.primary });
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
   const toggleReminder = r => set("reminders", form.reminders.includes(r) ? form.reminders.filter(x => x !== r) : [...form.reminders, r]);
 
@@ -1288,7 +1288,7 @@ const EventModal = ({ event, defaultDate, onClose, onSave }) => {
               <label className="label">Rappels</label>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {["1j", "3h", "1h", "15m"].map(r => (
-                  <button key={r} onClick={() => toggleReminder(r)} style={{ padding: "7px 14px", borderRadius: 8, border: `1.5px solid ${form.reminders.includes(r) ? T.secondary : T.neutral200}`, background: form.reminders.includes(r) ? T.secondaryLight : "white", color: form.reminders.includes(r) ? T.secondary : T.textSecondary, fontSize: "0.83rem", fontWeight: form.reminders.includes(r) ? 600 : 400, cursor: "pointer", transition: "all 0.15s" }}>
+                  <button key={r} onClick={() => toggleReminder(r)} style={{ padding: "7px 14px", borderRadius: 8, border: `1.5px solid ${form.reminders.includes(r) ? T.primary : T.neutral200}`, background: form.reminders.includes(r) ? T.primaryLight : "white", color: form.reminders.includes(r) ? T.primaryDark : T.textSecondary, fontSize: "0.83rem", fontWeight: form.reminders.includes(r) ? 600 : 400, cursor: "pointer", transition: "all 0.15s" }}>
                     {r === "1j" ? "1 jour avant" : r === "3h" ? "3 heures avant" : r === "1h" ? "1 heure avant" : "15 min avant"}
                   </button>
                 ))}
@@ -1300,7 +1300,7 @@ const EventModal = ({ event, defaultDate, onClose, onSave }) => {
           <div>
             <label className="label">Catégorie</label>
             <div style={{ display: "flex", gap: 8 }}>
-              {[{ c: T.secondary, l: "Médical" }, { c: T.secondary, l: "Quotidien" }, { c: T.accent, l: "Urgent" }, { c: T.accentAlt, l: "Famille" }].map(({ c, l }) => (
+              {[{ c: T.primary, l: "Médical" }, { c: T.secondary, l: "Quotidien" }, { c: T.accent, l: "Urgent" }, { c: T.accentAlt, l: "Famille" }].map(({ c, l }) => (
                 <button key={c} onClick={() => set("color", c)} style={{ flex: 1, padding: "8px 6px", borderRadius: 8, border: `2px solid ${form.color === c ? c : T.neutral200}`, background: `${c}18`, fontSize: "0.75rem", color: c, fontWeight: form.color === c ? 700 : 400, cursor: "pointer", transition: "all 0.15s" }}>{l}</button>
               ))}
             </div>
@@ -1340,7 +1340,7 @@ const StatsPage = () => {
       {/* KPIs row */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 22 }}>
         <KpiCard label="Taux de réussite" value="68 %" sub="↓ −4% vs semaine passée" icon="🎯" accent={T.secondary} />
-        <KpiCard label="Sans indice" value="45 %" sub="↑ +2% vs semaine passée" icon="💡" accent={T.secondary} />
+        <KpiCard label="Sans indice" value="45 %" sub="↑ +2% vs semaine passée" icon="💡" accent={T.primary} />
         <KpiCard label="Premier essai" value="52 %" sub="↓ −12% vs semaine passée" icon="⚡" accent={T.accent} />
         <KpiCard label="Temps moyen" value="1m 24s" sub="↑ +8s vs semaine passée" icon="⏱" accent={T.accentAlt} />
       </div>
@@ -1352,7 +1352,7 @@ const StatsPage = () => {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
             <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary }}>Évolution sur 7 jours</h3>
             <div style={{ display: "flex", gap: 12 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "0.73rem", color: T.textMuted }}><span style={{ width: 10, height: 10, borderRadius: 2, background: T.secondary, display: "inline-block" }} />Réussite</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "0.73rem", color: T.textMuted }}><span style={{ width: 10, height: 10, borderRadius: 2, background: T.primary, display: "inline-block" }} />Réussite</div>
               <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "0.73rem", color: T.textMuted }}><span style={{ width: 10, height: 10, borderRadius: 2, background: T.secondary, display: "inline-block" }} />Sans indice</div>
             </div>
           </div>
@@ -1364,7 +1364,7 @@ const StatsPage = () => {
           <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 20 }}>Répartition des réponses</h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {[
-              { label: "Questions texte", correct: 58, color: T.secondary },
+              { label: "Questions texte", correct: 58, color: T.primary },
               { label: "Questions image", correct: 81, color: T.secondary },
               { label: "Avec indice", correct: 74, color: T.accentAlt },
               { label: "Après erreur", correct: 62, color: T.accent },
@@ -1395,12 +1395,12 @@ const StatsPage = () => {
                 <span style={{ fontSize: "0.85rem", color: T.neutral700, fontWeight: 500 }}>{q.name}</span>
                 <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
                   <div style={{ flex: 1, height: 6, borderRadius: 3, background: T.neutral100, overflow: "hidden" }}>
-                    <div style={{ width: `${q.score}%`, height: "100%", background: q.score > 80 ? T.secondary : q.score > 65 ? T.primary : T.accent, borderRadius: 3 }} />
+                    <div style={{ width: `${q.score}%`, height: "100%", background: q.score > 80 ? T.primary : q.score > 65 ? T.secondary : T.accent, borderRadius: 3 }} />
                   </div>
                   <span style={{ fontSize: "0.78rem", fontWeight: 700, color: T.neutral700, width: 30 }}>{q.score}%</span>
                 </div>
                 <span style={{ fontSize: "0.83rem", color: T.textMuted }}>{q.plays}×</span>
-                <span style={{ fontSize: "1rem", color: q.trend === "↑" ? T.secondary : q.trend === "↓" ? T.error : T.textMuted }}>{q.trend}</span>
+                <span style={{ fontSize: "1rem", color: q.trend === "↑" ? T.primary : q.trend === "↓" ? T.error : T.textMuted }}>{q.trend}</span>
               </div>
             ))}
           </div>
@@ -1479,7 +1479,7 @@ const SettingsPage = () => {
             <div className="settings-section">
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>Profil aidant</h3>
               <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 28, padding: 20, background: T.neutral50, borderRadius: T.radiusSm }}>
-                <Avatar name={caregiver.name} size={64} bg={T.secondaryLight} color={T.secondary} />
+                <Avatar name={caregiver.name} size={64} bg={T.primaryLight} color={T.primary} />
                 <div>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 600 }}>{caregiver.name}</div>
                   <div style={{ fontSize: "0.85rem", color: T.textMuted, marginTop: 3 }}>{caregiver.role}</div>
@@ -1531,8 +1531,8 @@ const SettingsPage = () => {
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
                   { l: "Langue", ctrl: <select className="input-field" value={lang} onChange={e => setLang(e.target.value)} style={{ maxWidth: 200 }}><option value="fr">Français</option><option value="en">English</option></select> },
-                  { l: "Thème visuel", ctrl: <div style={{ display: "flex", gap: 8 }}>{["clair", "sombre", "contraste"].map(t => <button key={t} onClick={() => setTheme(t)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${theme === t ? T.secondary : T.neutral200}`, background: theme === t ? T.secondaryLight : "white", fontSize: "0.83rem", color: theme === t ? T.secondary : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{t}</button>)}</div> },
-                  { l: "Taille d'affichage", ctrl: <div style={{ display: "flex", gap: 8 }}>{["compact", "normal", "large"].map(fs => <button key={fs} onClick={() => setFontSize(fs)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${fontSize === fs ? T.secondary : T.neutral200}`, background: fontSize === fs ? T.secondaryLight : "white", fontSize: "0.83rem", color: fontSize === fs ? T.secondary : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{fs}</button>)}</div> },
+                  { l: "Thème visuel", ctrl: <div style={{ display: "flex", gap: 8 }}>{["clair", "sombre", "contraste"].map(t => <button key={t} onClick={() => setTheme(t)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${theme === t ? T.primary : T.neutral200}`, background: theme === t ? T.primaryLight : "white", fontSize: "0.83rem", color: theme === t ? T.primaryDark : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{t}</button>)}</div> },
+                  { l: "Taille d'affichage", ctrl: <div style={{ display: "flex", gap: 8 }}>{["compact", "normal", "large"].map(fs => <button key={fs} onClick={() => setFontSize(fs)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${fontSize === fs ? T.primary : T.neutral200}`, background: fontSize === fs ? T.primaryLight : "white", fontSize: "0.83rem", color: fontSize === fs ? T.primaryDark : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{fs}</button>)}</div> },
                 ].map(({ l, ctrl }) => (
                   <div key={l} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0", borderBottom: `1px solid ${T.neutral100}` }}>
                     <label style={{ fontSize: "0.9rem", fontWeight: 500, color: T.neutral700 }}>{l}</label>
@@ -1640,4 +1640,3 @@ export default function App() {
     </>
   );
 }
-

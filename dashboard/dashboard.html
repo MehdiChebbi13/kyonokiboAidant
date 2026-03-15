@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyonokibo Aidant - Dashboard</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./dashbord.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="app-sidebar"></aside>
+
+      <main class="main-content">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Suivi quotidien de Marguerite Fontaine</p>
+          </div>
+          <a class="btn btn-primary" href="../quiz/quiz.html">Ouvrir les quiz</a>
+        </header>
+
+        <section class="card welcome-card" id="welcome-card"></section>
+        <section class="kpi-grid" id="dashboard-kpis"></section>
+
+        <section class="dashboard-main">
+          <article class="card checklist-card">
+            <div class="section-row">
+              <h2 class="section-title">Checklist du jour</h2>
+              <span id="task-count" class="task-count"></span>
+            </div>
+            <div id="task-list" class="task-list"></div>
+          </article>
+
+          <aside class="dashboard-side">
+            <article class="card next-event-card" id="next-event"></article>
+
+          <article class="card memory-card">
+              <h2 class="section-title small">Résumé cognitif</h2>
+              <div id="memory-rings" class="memory-rings"></div>
+              <p class="soft-note">
+                ⏱ Temps moyen : <strong id="avg-time">1m 24s</strong> par question.
+              </p>
+            </article>
+          </aside>
+        </section>
+
+        <section class="card activity-card">
+          <h2 class="section-title">Activite recente</h2>
+          <div id="activity-list" class="activity-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="./dashboard.js"></script>
+  </body>
+</html>

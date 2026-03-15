@@ -1,0 +1,259 @@
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 22px;
+}
+
+.calendar-card {
+  padding: 24px;
+}
+
+.calendar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-month {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.calendar-day {
+  min-height: 72px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 7px 6px;
+  background: transparent;
+  transition: all 0.18s ease;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  background: var(--secondary-light);
+}
+
+.calendar-day.has-events {
+  background: color-mix(in srgb, var(--secondary) 8%, white 92%);
+}
+
+.calendar-day.selected {
+  border-color: var(--secondary);
+  background: var(--secondary-light);
+}
+
+.calendar-day.today {
+  border-color: #c4dce8;
+}
+
+.day-number {
+  font-size: 0.83rem;
+  color: #5a6f84;
+  margin-bottom: 4px;
+}
+
+.day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.day-chip {
+  font-size: 0.67rem;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 2px 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.day-chip.important {
+  background: color-mix(in srgb, var(--accent) 20%, white 80%);
+  color: var(--accent);
+}
+
+.day-chip.normal {
+  background: color-mix(in srgb, var(--secondary) 20%, white 80%);
+  color: var(--secondary-dark);
+}
+
+.calendar-legend {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #edf3f9;
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.dot.important {
+  background: var(--accent);
+}
+
+.dot.normal {
+  background: var(--secondary);
+}
+
+.calendar-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.day-panel {
+  padding: 20px 22px;
+}
+
+.day-panel-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.85rem;
+}
+
+.day-event-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.day-event-card.important {
+  border-color: color-mix(in srgb, var(--accent) 42%, white 58%);
+  background: var(--accent-light);
+}
+
+.day-event-title {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.day-event-meta {
+  margin: 0 0 2px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.day-event-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.upcoming-card {
+  padding: 18px 20px;
+}
+
+.upcoming-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, white 68%);
+  background: var(--accent-light);
+  margin-bottom: 8px;
+}
+
+.upcoming-item time {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.upcoming-item span {
+  font-size: 0.82rem;
+  color: #5f4f44;
+}
+
+.event-modal {
+  max-width: 560px;
+}
+
+.modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.event-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+#event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.event-important-row {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #f8fbfe;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.event-important-row p {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.event-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.event-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+}

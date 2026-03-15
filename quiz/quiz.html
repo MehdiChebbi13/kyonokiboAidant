@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyonokibo Aidant - Quiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./quizz.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="app-sidebar"></aside>
+
+      <main class="main-content">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Quiz</h1>
+            <p class="page-subtitle">Quiz du jour et quiz personnalisés de Marguerite</p>
+          </div>
+          <button class="btn btn-primary hidden" id="create-quiz-top">Créer un quiz</button>
+        </header>
+
+        <nav class="tab-switch" id="quiz-tabs">
+          <button class="tab-btn active" data-tab="daily">Quiz du jour</button>
+          <button class="tab-btn" data-tab="custom">Quiz personnalisés</button>
+        </nav>
+
+        <section class="quiz-section" id="daily-section">
+          <div class="quiz-layout">
+            <div class="quiz-main-column">
+              <article class="card quiz-config-card">
+                <h2 class="section-title">Configuration globale</h2>
+                <div id="daily-config-list"></div>
+              </article>
+
+              <article class="card quiz-today-card">
+                <div class="quiz-today-top">
+                  <h2 class="section-title">Quiz d'aujourd'hui</h2>
+                  <span class="badge badge-green">Terminé</span>
+                </div>
+                <div class="quiz-metrics">
+                  <div><strong>10</strong><span>Prévu</span></div>
+                  <div><strong>7 / 10</strong><span>score</span></div>
+                  <div><strong>9m32</strong><span>duree</span></div>
+                </div>
+                <div class="quiz-lines" id="daily-question-preview"></div>
+              </article>
+            </div>
+
+            <aside class="quiz-side-column">
+              <article class="card flow-card">
+                <h3 class="section-title small">Aperçu du fonctionnement</h3>
+                <div id="daily-flow-list"></div>
+              </article>
+
+              <article class="card week-card">
+                <h3 class="section-title small">Cette semaine</h3>
+                <div id="week-summary-list"></div>
+              </article>
+            </aside>
+          </div>
+        </section>
+
+        <section class="quiz-section hidden" id="custom-section">
+          <div class="custom-header">
+            <p class="custom-count" id="custom-count"></p>
+            <button class="btn btn-primary" id="create-quiz-inline">Créer un quiz</button>
+          </div>
+          <div class="quiz-grid" id="custom-quiz-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay hidden" id="quiz-modal">
+      <div class="modal-box quiz-modal-box">
+        <div class="modal-top">
+          <h2 class="section-title" id="quiz-modal-title">Nouveau quiz</h2>
+          <button class="btn btn-ghost" id="close-quiz-modal">Fermer</button>
+        </div>
+
+        <form id="quiz-form" class="quiz-form">
+          <div>
+            <label class="label">Titre *</label>
+            <input class="input-field" name="title" required>
+          </div>
+
+          <div>
+            <label class="label">Description</label>
+            <textarea class="input-field" name="desc"></textarea>
+          </div>
+
+          <div class="quiz-form-row">
+            <div>
+              <label class="label">Couverture (emoji ou texte court)</label>
+              <input class="input-field" name="cover" placeholder="👨‍👩‍👧‍👦">
+            </div>
+            <div>
+              <label class="label">Nombre de questions</label>
+              <input class="input-field" name="questions" type="number" min="1" value="8">
+            </div>
+          </div>
+
+          <div class="quiz-form-row">
+            <div>
+              <label class="label">Dernier score (%)</label>
+              <input class="input-field" name="lastScore" type="number" min="0" max="100" value="0">
+            </div>
+            <div>
+              <label class="label">Parties jouées</label>
+              <input class="input-field" name="played" type="number" min="0" value="0">
+            </div>
+          </div>
+
+          <div class="event-actions">
+            <button type="button" class="btn btn-secondary" id="cancel-quiz">Annuler</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-overlay hidden" id="preview-modal">
+      <div class="modal-box preview-box">
+        <div class="modal-top">
+          <h2 class="section-title" id="preview-title"></h2>
+          <button class="btn btn-ghost" id="close-preview">Fermer</button>
+        </div>
+        <div id="preview-content"></div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="./quiz.js"></script>
+  </body>
+</html>
