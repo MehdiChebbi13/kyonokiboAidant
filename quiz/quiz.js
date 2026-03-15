@@ -54,7 +54,7 @@
     },
     {
       key: "removeFalse",
-      label: "Supprimer des reponses fausses",
+      label: "Supprimer des réponses fausses",
       desc: "Une mauvaise réponse disparait apres la deuxième erreur",
       badge: "Elimination",
       tone: "peach",
