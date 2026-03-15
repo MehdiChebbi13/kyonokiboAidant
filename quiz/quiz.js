@@ -583,12 +583,6 @@
           })
           .join("")}
       </div>
-      <button class="btn btn-primary preview-launch" type="button">
-        <span class="btn-label">
-          ${AppUI.iconHTML("quiz", { size: 15, color: "currentColor" })}
-          <span>Lancer ce quiz avec Marguerite</span>
-        </span>
-      </button>
     `;
     previewModal.classList.remove("hidden");
   }
