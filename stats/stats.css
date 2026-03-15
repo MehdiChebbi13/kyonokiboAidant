@@ -5,6 +5,21 @@
   justify-content: flex-end;
 }
 
+.stats-head-note {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid #e3edf4;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .stats-kpi-bento {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -19,6 +34,47 @@
   overflow: hidden;
   position: relative;
   background: #ffffff;
+  transition: none;
+}
+
+.stats-kpi-bento .kpi-card:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.stats-kpi-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.range-tabs {
+  display: flex;
+  gap: 4px;
+  background: #f0f4f8;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.range-tab {
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.range-tab.active {
+  background: white;
+  color: #5d8fae;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.range-tab.inactive {
+  background: transparent;
+  color: #9aabbf;
 }
 
 .stats-kpi-bento .kpi-card:nth-child(1) {
@@ -80,6 +136,7 @@
 
 .stats-card-radar {
   grid-column: span 4;
+  grid-row: span 2;
 }
 
 .stats-card-indicators {
@@ -87,11 +144,12 @@
 }
 
 .stats-card-breakdown {
-  grid-column: span 7;
+  grid-column: span 8;
 }
 
 .stats-card-insights {
   grid-column: span 5;
+  grid-row: span 2;
 }
 
 .stats-card-chart .chart-card-head {
@@ -102,34 +160,29 @@
   padding: 16px 24px 12px;
 }
 
-.chart-range-tabs {
+.chart-head-copy {
   display: flex;
+  flex-direction: column;
   gap: 4px;
-  background: #f0f4f8;
-  border-radius: 10px;
-  padding: 3px;
 }
 
-.chart-range-tab {
-  padding: 5px 12px;
-  border-radius: 8px;
-  border: 0;
-  cursor: pointer;
+.chart-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.chart-range-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: #f0f4f8;
+  color: var(--primary-dark);
   font-size: 0.78rem;
   font-weight: 700;
-  font-family: "DM Sans", sans-serif;
-  transition: all 0.15s ease;
-}
-
-.chart-range-tab.active {
-  background: #ffffff;
-  color: var(--primary-dark);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.chart-range-tab.inactive {
-  background: transparent;
-  color: var(--text-muted);
 }
 
 .line-chart-wrap {
@@ -193,7 +246,7 @@
 .radar-chart-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 16px;
+  gap: 12px;
 }
 
 .radar-visual {
@@ -210,20 +263,29 @@
 }
 
 .radar-legend {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.radar-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .radar-legend-item {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 10px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 8px;
   align-items: center;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 1px solid #edf3f9;
-  border-radius: 14px;
+  border-radius: 12px;
   background: #ffffff;
+  white-space: nowrap;
 }
 
 .radar-legend-swatch {
@@ -234,26 +296,27 @@
 
 .radar-legend-copy {
   min-width: 0;
+  display: inline-flex;
+  align-items: center;
 }
 
 .radar-legend-copy strong {
-  display: block;
-  font-size: 0.8rem;
+  display: inline;
+  font-size: 0.74rem;
+  font-weight: 700;
   color: var(--text-secondary);
 }
 
 .radar-legend-copy span {
-  display: block;
-  margin-top: 3px;
-  color: var(--text-muted);
-  font-size: 0.72rem;
+  display: none;
 }
 
 .radar-legend-score {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #31455a;
+  line-height: 1;
 }
 
 .breakdown-table {
@@ -422,6 +485,11 @@
 
   .stats-head-actions {
     width: 100%;
+  }
+
+  .stats-head-note {
+    width: 100%;
+    justify-content: center;
   }
 
   .stats-kpi-bento .kpi-card:nth-child(1),
