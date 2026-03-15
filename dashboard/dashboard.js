@@ -22,16 +22,20 @@
   function renderWelcome() {
     const doneCount = getDoneCount();
     welcomeCard.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
         <div>
-          <div class="welcome-date">${AppUtils.escapeHtml(AppUtils.formatLongDate(new Date()))}</div>
-          <h2 class="welcome-title">Bonjour, Sophie</h2>
-          <p class="welcome-copy">
+          <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">${AppUtils.escapeHtml(AppUtils.formatLongDate(new Date()))}</div>
+          <h1 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1A2535;margin-bottom:6px">
+            Bonjour, Sophie 👋
+          </h1>
+          <p style="color:var(--text-secondary);font-size:0.9rem">
             Jean a complete son quiz du matin avec un bon score.
             <strong>${doneCount}/${state.tasks.length}</strong> taches accomplies aujourd'hui.
           </p>
         </div>
-        <span class="badge badge-green">Journee sereine</span>
+        <div style="text-align:right">
+          <div class="badge badge-green" style="font-size:0.8rem;padding:6px 14px">Journee sereine &#10022;</div>
+        </div>
       </div>
     `;
   }
