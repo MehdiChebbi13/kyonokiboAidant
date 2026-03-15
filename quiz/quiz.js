@@ -235,7 +235,7 @@
     },
     {
       key: "removeFalse",
-      label: "Supprimer des reponses fausses",
+      label: "Supprimer des réponses fausses",
       desc: "Retire une mauvaise réponse pour faciliter le choix après une erreur.",
     },
   ];
@@ -605,7 +605,7 @@
       },
       {
         step: 3,
-        text: "2e erreur → une mauvaise réponse est supprimée",
+        text: "Une mauvaise réponse est supprimée (après l’indice si celui-ci est activé)",
         active: state.dailyConfig.removeFalse,
       },
       {
@@ -634,10 +634,10 @@
 
   function renderWeekSummary() {
     const summary = [
-      ["Quiz completes", "5 / 7"],
-      ["Questions posees", "68"],
+      ["Quiz complétés", "5 / 7"],
+      ["Questions posées", "68"],
       ["Score moyen", "68 %"],
-      ["Indices utilises", "12"],
+      ["Indices utilisés", "12"],
     ];
 
     weekSummaryList.innerHTML = summary
