@@ -17,15 +17,30 @@
             <h1 class="page-title">Calendrier</h1>
             <p class="page-subtitle">Evenements et rappels de Jean</p>
           </div>
-          <button class="btn btn-primary" id="open-event-modal">Ajouter un evenement</button>
+          <button class="btn btn-primary" id="open-event-modal" type="button">
+            <span class="btn-label">
+              <span data-app-icon="plus" data-app-icon-size="15" data-app-icon-color="currentColor"></span>
+              <span>Ajouter un evenement</span>
+            </span>
+          </button>
         </header>
 
         <section class="calendar-layout">
           <article class="card calendar-card">
             <div class="calendar-toolbar">
-              <button class="btn btn-ghost" id="prev-month">Prev</button>
+              <button class="btn btn-ghost" id="prev-month" type="button">
+                <span class="btn-label">
+                  <span data-app-icon="arrowLeft" data-app-icon-size="14"></span>
+                  <span>Prev</span>
+                </span>
+              </button>
               <h2 class="calendar-month" id="month-label"></h2>
-              <button class="btn btn-ghost" id="next-month">Next</button>
+              <button class="btn btn-ghost" id="next-month" type="button">
+                <span class="btn-label">
+                  <span>Next</span>
+                  <span data-app-icon="arrowRight" data-app-icon-size="14"></span>
+                </span>
+              </button>
             </div>
 
             <div class="calendar-weekdays">
@@ -55,7 +70,12 @@
       <div class="modal-box event-modal">
         <div class="modal-top">
           <h2 class="section-title" id="event-modal-title">Nouvel evenement</h2>
-          <button class="btn btn-ghost" id="close-event-modal">Fermer</button>
+          <button class="btn btn-ghost" id="close-event-modal" type="button">
+            <span class="btn-label">
+              <span data-app-icon="close" data-app-icon-size="14"></span>
+              <span>Fermer</span>
+            </span>
+          </button>
         </div>
 
         <form id="event-form">

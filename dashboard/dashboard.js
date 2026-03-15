@@ -39,10 +39,10 @@
   function renderKpis() {
     const doneCount = getDoneCount();
     const cards = [
-      { label: "Quiz du jour", value: "Termine", sub: "Score: 7/10 - 9 min 32 s", icon: "QZ", accent: "var(--primary)" },
-      { label: "Taches du jour", value: `${doneCount} / ${state.tasks.length}`, sub: `${state.tasks.length - doneCount} restante(s)`, icon: "OK", accent: "var(--primary)" },
-      { label: "Taux de reussite", value: "68 %", sub: "Cette semaine -4% vs semaine passee", icon: "ST", accent: "var(--accent)" },
-      { label: "Temps moyen", value: AppData.weekStats.avgTime, sub: "Par question aujourd'hui", icon: "TM", accent: "var(--accent-alt)" }
+      { label: "Quiz du jour", value: "Termine", sub: "Score: 7/10 - 9 min 32 s", icon: "quiz", accent: "var(--primary)" },
+      { label: "Taches du jour", value: `${doneCount} / ${state.tasks.length}`, sub: `${state.tasks.length - doneCount} restante(s)`, icon: "check", accent: "var(--primary)" },
+      { label: "Taux de reussite", value: "68 %", sub: "Cette semaine -4% vs semaine passee", icon: "stats", accent: "var(--accent)" },
+      { label: "Temps moyen", value: AppData.weekStats.avgTime, sub: "Par question aujourd'hui", icon: "time", accent: "var(--accent-alt)" }
     ];
     kpiRoot.innerHTML = cards.map((card) => AppUI.kpiCardHTML(card)).join("");
   }
@@ -99,7 +99,9 @@
       .map((item) => {
         return `
           <div class="activity-item">
-            <span class="activity-icon" style="color:${item.color};background:color-mix(in srgb, ${item.color} 16%, white 84%)">${AppUtils.escapeHtml(item.icon)}</span>
+            <span class="activity-icon" style="color:${item.color};background:color-mix(in srgb, ${item.color} 16%, white 84%)">
+              ${AppUI.iconHTML(item.icon, { size: 14, color: item.color })}
+            </span>
             <div class="activity-text">
               <strong>${AppUtils.escapeHtml(item.text)}</strong>
               <span>${AppUtils.escapeHtml(item.sub)}</span>

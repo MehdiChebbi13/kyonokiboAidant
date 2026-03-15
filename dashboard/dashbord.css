@@ -1,8 +1,12 @@
 .welcome-card {
   padding: 24px 28px;
   margin-bottom: 24px;
-  border: 1px solid var(--border);
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+  background: rgba(77, 217, 222, 0.17);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .welcome-date {

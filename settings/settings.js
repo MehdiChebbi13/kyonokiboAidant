@@ -3,12 +3,12 @@
   AppUI.mountSidebar("settings", { fromSubpage: true });
 
   const sections = [
-    { id: "caregiver", label: "Profil aidant" },
-    { id: "patient", label: "Profil patient" },
-    { id: "prefs", label: "Preferences" },
-    { id: "quiz", label: "Parametres quiz" },
-    { id: "security", label: "Securite" },
-    { id: "export", label: "Export et rapports" }
+    { id: "caregiver", label: "Profil aidant", icon: "user" },
+    { id: "patient", label: "Profil patient", icon: "star" },
+    { id: "prefs", label: "Preferences", icon: "settings" },
+    { id: "quiz", label: "Parametres quiz", icon: "quiz" },
+    { id: "security", label: "Securite", icon: "lock" },
+    { id: "export", label: "Export et rapports", icon: "download" }
   ];
 
   const state = {
@@ -24,7 +24,12 @@
 
   function renderNav() {
     navRoot.innerHTML = sections
-      .map((section) => `<button class="settings-tab ${section.id === state.section ? "active" : ""}" data-section="${section.id}">${AppUtils.escapeHtml(section.label)}</button>`)
+      .map((section) => `
+        <button class="settings-tab ${section.id === state.section ? "active" : ""}" data-section="${section.id}">
+          <span class="settings-tab-icon">${AppUI.iconHTML(section.icon, { size: 15 })}</span>
+          <span>${AppUtils.escapeHtml(section.label)}</span>
+        </button>
+      `)
       .join("");
   }
 
@@ -134,7 +139,12 @@
         <div class="logout-box">
           <h3 class="section-title small">Deconnexion</h3>
           <p>Vous serez redirigee vers l'ecran de connexion.</p>
-          <button class="btn btn-secondary">Se deconnecter</button>
+          <button class="btn btn-secondary">
+            <span class="btn-label">
+              ${AppUI.iconHTML("logout", { size: 15 })}
+              <span>Se deconnecter</span>
+            </span>
+          </button>
         </div>
       </section>
     `;
@@ -142,10 +152,10 @@
 
   function exportPanel() {
     const items = [
-      ["PDF", "Resume hebdomadaire", "Rapport PDF de la semaine en cours", "PDF"],
-      ["CSV", "Export des statistiques", "Toutes les donnees de performance en CSV", "CSV"],
-      ["MTH", "Rapport mensuel", "Vue d'ensemble du mois avec graphiques", "PDF"],
-      ["HIS", "Historique des quiz", "Detail de chaque quiz joue", "XLSX"]
+      ["download", "Resume hebdomadaire", "Rapport PDF de la semaine en cours", "PDF"],
+      ["stats", "Export des statistiques", "Toutes les donnees de performance en CSV", "CSV"],
+      ["calendar", "Rapport mensuel", "Vue d'ensemble du mois avec graphiques", "PDF"],
+      ["quiz", "Historique des quiz", "Detail de chaque quiz joue", "XLSX"]
     ];
 
     return `
@@ -155,7 +165,7 @@
         <div class="export-list">
           ${items.map(([icon, title, desc, badge]) => `
             <div class="export-item">
-              <span class="icon">${icon}</span>
+              <span class="icon">${AppUI.iconHTML(icon, { size: 16 })}</span>
               <div style="flex:1"><h4>${title}</h4><p>${desc}</p></div>
               <span class="badge badge-gray" style="margin-right:8px">${badge}</span>
               <button class="btn btn-primary">Generer</button>

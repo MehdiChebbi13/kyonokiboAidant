@@ -34,7 +34,7 @@
 
   function openModal(event = null, forcedDate = "") {
     state.editingId = event ? event.id : null;
-    modalTitle.textContent = event ? "Modifier l'événement" : "Nouvel événement";
+    modalTitle.textContent = event ? "Modifier l'evenement" : "Nouvel evenement";
 
     eventForm.title.value = event ? event.title : "";
     eventForm.date.value = event ? event.date : forcedDate;
@@ -100,7 +100,7 @@
     if (!state.selectedDay) {
       selectedDayPanel.innerHTML = `
         <div class="day-panel-empty">
-          Cliquez sur un jour pour voir les événements.
+          Cliquez sur un jour pour voir les evenements.
         </div>
       `;
       return;
@@ -126,18 +126,34 @@
 
       ${
         selectedEvents.length === 0
-          ? `<div class="day-panel-empty">Aucun événement sur cette date.</div>`
+          ? `<div class="day-panel-empty">Aucun evenement sur cette date.</div>`
           : selectedEvents
               .map((event) => {
                 return `
                   <div class="day-event-card ${event.important ? "important" : ""}">
-                    ${event.important ? `<span class="badge badge-accent" style="margin-bottom:8px">⚡ Important</span>` : ""}
+                    ${event.important ? `<span class="badge badge-accent" style="margin-bottom:8px">Important</span>` : ""}
                     <h4 class="day-event-title">${AppUtils.escapeHtml(event.title)}</h4>
-                    <p class="day-event-meta">🕐 ${AppUtils.escapeHtml(event.time || "-")}</p>
-                    <p class="day-event-meta">📍 ${AppUtils.escapeHtml(event.lieu || "-")}</p>
+                    <p class="day-event-meta" style="display:flex;align-items:center;gap:6px">
+                      ${AppUI.iconHTML("time", { size: 14 })}
+                      <span>${AppUtils.escapeHtml(event.time || "-")}</span>
+                    </p>
+                    <p class="day-event-meta" style="display:flex;align-items:center;gap:6px">
+                      ${AppUI.iconHTML("location", { size: 14 })}
+                      <span>${AppUtils.escapeHtml(event.lieu || "-")}</span>
+                    </p>
                     <div class="day-event-actions">
-                      <button class="btn btn-ghost" type="button" data-action="edit" data-id="${event.id}">Modifier</button>
-                      <button class="btn btn-danger" type="button" data-action="delete" data-id="${event.id}">Supprimer</button>
+                      <button class="btn btn-ghost" type="button" data-action="edit" data-id="${event.id}">
+                        <span class="btn-label">
+                          ${AppUI.iconHTML("edit", { size: 13 })}
+                          <span>Modifier</span>
+                        </span>
+                      </button>
+                      <button class="btn btn-danger" type="button" data-action="delete" data-id="${event.id}">
+                        <span class="btn-label">
+                          ${AppUI.iconHTML("trash", { size: 13 })}
+                          <span>Supprimer</span>
+                        </span>
+                      </button>
                     </div>
                   </div>
                 `;
@@ -146,7 +162,10 @@
       }
 
       <button type="button" class="btn btn-primary" style="width:100%;margin-top:8px" data-action="add-here" data-date="${dateForCreation}">
-        Ajouter ici
+        <span class="btn-label">
+          ${AppUI.iconHTML("plus", { size: 14, color: "currentColor" })}
+          <span>Ajouter ici</span>
+        </span>
       </button>
     `;
   }
@@ -159,7 +178,7 @@
       .slice(0, 4);
 
     if (important.length === 0) {
-      upcomingList.innerHTML = `<p class="day-event-meta">Aucun événement important.</p>`;
+      upcomingList.innerHTML = `<p class="day-event-meta">Aucun evenement important.</p>`;
       return;
     }
 
@@ -241,9 +260,9 @@
   openEventModalButton.addEventListener("click", () => {
     let date = "";
     if (state.selectedDay) {
-      const y = state.currentDate.getFullYear();
-      const m = state.currentDate.getMonth();
-      date = eventDateKey(y, m, state.selectedDay);
+      const year = state.currentDate.getFullYear();
+      const month = state.currentDate.getMonth();
+      date = eventDateKey(year, month, state.selectedDay);
     }
     openModal(null, date);
   });

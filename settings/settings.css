@@ -18,10 +18,22 @@
   border-radius: var(--radius-sm);
   padding: 10px 12px;
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--text-secondary);
   font-size: 0.86rem;
   font-weight: 500;
   cursor: pointer;
+}
+
+.settings-tab-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .settings-tab:hover {
@@ -155,8 +167,7 @@
   justify-content: center;
   background: #ffffff;
   border: 1px solid var(--border);
-  font-size: 0.72rem;
-  font-weight: 700;
+  color: var(--primary-dark);
 }
 
 .export-item h4 {

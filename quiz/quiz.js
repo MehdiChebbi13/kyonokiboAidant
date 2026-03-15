@@ -558,7 +558,12 @@
           })
           .join("")}
       </div>
-      <button class="btn btn-primary preview-launch" type="button">Lancer ce quiz avec Marguerite -></button>
+      <button class="btn btn-primary preview-launch" type="button">
+        <span class="btn-label">
+          ${AppUI.iconHTML("quiz", { size: 15, color: "currentColor" })}
+          <span>Lancer ce quiz avec Marguerite</span>
+        </span>
+      </button>
     `;
     previewModal.classList.remove("hidden");
   }
@@ -707,9 +712,24 @@
             </div>
             <div class="quiz-badges">${renderConfigPills(quiz.config)}</div>
             <div class="quiz-actions">
-              <button class="btn btn-ghost" data-action="preview" data-id="${quiz.id}" type="button">Apercu</button>
-              <button class="btn btn-ghost" data-action="edit" data-id="${quiz.id}" type="button">Modifier</button>
-              <button class="btn btn-danger" data-action="delete" data-id="${quiz.id}" type="button">Suppr.</button>
+              <button class="btn btn-ghost" data-action="preview" data-id="${quiz.id}" type="button">
+                <span class="btn-label">
+                  ${AppUI.iconHTML("eye", { size: 13 })}
+                  <span>Apercu</span>
+                </span>
+              </button>
+              <button class="btn btn-ghost" data-action="edit" data-id="${quiz.id}" type="button">
+                <span class="btn-label">
+                  ${AppUI.iconHTML("edit", { size: 13 })}
+                  <span>Modifier</span>
+                </span>
+              </button>
+              <button class="btn btn-danger" data-action="delete" data-id="${quiz.id}" type="button">
+                <span class="btn-label">
+                  ${AppUI.iconHTML("trash", { size: 13 })}
+                  <span>Suppr.</span>
+                </span>
+              </button>
             </div>
           </article>
         `;
