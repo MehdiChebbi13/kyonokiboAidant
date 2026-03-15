@@ -78,7 +78,7 @@
   padding: 0;
 }
 
-.stats-card-rings {
+.stats-card-radar {
   grid-column: span 4;
 }
 
@@ -185,37 +185,75 @@
   color: var(--accent);
 }
 
-.rings-root {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.stats-card-rings .rings-root {
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-.ring-item {
+.radar-root {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.radar-chart-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.radar-visual {
+  padding: 12px;
+  border: 1px solid #edf3f9;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.radar-visual svg {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.radar-legend {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
 }
 
-.ring-item p {
-  margin: 0;
+.radar-legend-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #edf3f9;
+  border-radius: 14px;
+  background: #ffffff;
 }
 
-.ring-item p strong {
+.radar-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.radar-legend-copy {
+  min-width: 0;
+}
+
+.radar-legend-copy strong {
   display: block;
   font-size: 0.8rem;
+  color: var(--text-secondary);
 }
 
-.ring-item p span {
+.radar-legend-copy span {
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
   color: var(--text-muted);
   font-size: 0.72rem;
+}
+
+.radar-legend-score {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #31455a;
 }
 
 .breakdown-table {
@@ -370,7 +408,7 @@
     grid-column: span 6;
   }
 
-  .stats-card-rings,
+  .stats-card-radar,
   .stats-card-indicators {
     grid-column: span 3;
   }
@@ -391,7 +429,7 @@
   .stats-kpi-bento .kpi-card:nth-child(3),
   .stats-kpi-bento .kpi-card:nth-child(4),
   .stats-card-chart,
-  .stats-card-rings,
+  .stats-card-radar,
   .stats-card-indicators,
   .stats-card-breakdown,
   .stats-card-insights {
@@ -417,7 +455,7 @@
     border-bottom: 1.5px solid #f5f5f5;
   }
 
-  .stats-card-rings .rings-root,
+  .radar-legend,
   .insight-grid {
     grid-template-columns: 1fr;
   }
