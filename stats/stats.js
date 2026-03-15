@@ -2,9 +2,7 @@
   const { AppData, AppUtils, AppUI } = window;
   AppUI.mountSidebar("stats", { fromSubpage: true });
 
-  const state = {
-    period: "7j"
-  };
+  const state = { period: "7j" };
 
   const periodSwitch = document.getElementById("period-switch");
   const kpisRoot = document.getElementById("stats-kpis");
@@ -22,36 +20,11 @@
 
   function renderKpis() {
     const cards = [
-      {
-        label: "Taux de réussite",
-        value: `${AppData.weekStats.correctRate} %`,
-        sub: "↓ −4% vs semaine passée",
-        icon: "🎯",
-        accent: "var(--primary)"
-      },
-      {
-        label: "Sans indice",
-        value: `${AppData.weekStats.noHintRate} %`,
-        sub: "↑ +2% vs semaine passée",
-        icon: "💡",
-        accent: "var(--secondary)"
-      },
-      {
-        label: "Premier essai",
-        value: `${AppData.weekStats.firstTryRate} %`,
-        sub: "↓ −12% vs semaine passée",
-        icon: "⚡",
-        accent: "var(--accent)"
-      },
-      {
-        label: "Temps moyen",
-        value: AppData.weekStats.avgTime,
-        sub: "↑ +8s vs semaine passée",
-        icon: "⏱",
-        accent: "var(--accent-alt)"
-      }
+      { label: "Taux de reussite", value: `${AppData.weekStats.correctRate} %`, sub: "down -4% vs semaine passee", icon: "TGT", accent: "var(--primary)" },
+      { label: "Sans indice", value: `${AppData.weekStats.noHintRate} %`, sub: "up +2% vs semaine passee", icon: "HINT", accent: "var(--secondary)" },
+      { label: "Premier essai", value: `${AppData.weekStats.firstTryRate} %`, sub: "down -12% vs semaine passee", icon: "1ST", accent: "var(--accent)" },
+      { label: "Temps moyen", value: AppData.weekStats.avgTime, sub: "up +8s vs semaine passee", icon: "TIME", accent: "var(--accent-alt)" }
     ];
-
     kpisRoot.innerHTML = cards.map((card) => AppUI.kpiCardHTML(card)).join("");
   }
 
@@ -64,7 +37,7 @@
       { label: "Questions texte", correct: 58, color: "var(--primary)" },
       { label: "Questions image", correct: 81, color: "var(--secondary)" },
       { label: "Avec indice", correct: 74, color: "var(--accent-alt)" },
-      { label: "Après erreur", correct: 62, color: "var(--accent)" }
+      { label: "Apres erreur", correct: 62, color: "var(--accent)" }
     ];
 
     ringsRoot.innerHTML = ringData
@@ -74,7 +47,7 @@
             ${AppUI.circleProgressHTML({ value: item.correct, color: item.color, size: 58, stroke: 6 })}
             <p>
               <strong>${AppUtils.escapeHtml(item.label)}</strong>
-              <span>de bonnes rép.</span>
+              <span>de bonnes rep.</span>
             </p>
           </div>
         `;
@@ -83,23 +56,21 @@
   }
 
   function scoreColor(score) {
-    if (score > 80) {
-      return "var(--primary)";
-    }
-    if (score > 65) {
-      return "var(--secondary)";
-    }
+    if (score > 80) return "var(--primary)";
+    if (score > 65) return "var(--secondary)";
     return "var(--accent)";
   }
 
   function trendClass(trend) {
-    if (trend === "↑") {
-      return "up";
-    }
-    if (trend === "↓") {
-      return "down";
-    }
+    if (trend === "up") return "up";
+    if (trend === "down") return "down";
     return "flat";
+  }
+
+  function trendLabel(trend) {
+    if (trend === "up") return "UP";
+    if (trend === "down") return "DOWN";
+    return "MID";
   }
 
   function renderBreakdown() {
@@ -115,7 +86,7 @@
               <strong>${row.score}%</strong>
             </span>
             <span class="breakdown-plays">${row.plays}x</span>
-            <span class="trend ${trendClass(row.trend)}">${AppUtils.escapeHtml(row.trend)}</span>
+            <span class="trend ${trendClass(row.trend)}">${trendLabel(row.trend)}</span>
           </div>
         `;
       })
@@ -124,17 +95,15 @@
 
   function renderIndicators() {
     const indicators = [
-      ["Quiz complétés", `${AppData.weekStats.totalQuizzes} / 7`],
-      ["Quiz abandonnés", `${AppData.weekStats.abandoned}`],
-      ["Indices utilisés", `${AppData.weekStats.hintsUsed}`],
-      ["Questions transformées en V/F", "8"],
+      ["Quiz completes", `${AppData.weekStats.totalQuizzes} / 7`],
+      ["Quiz abandonnes", `${AppData.weekStats.abandoned}`],
+      ["Indices utilises", `${AppData.weekStats.hintsUsed}`],
+      ["Questions transformees en V/F", "8"],
       ["Temps total moyen / quiz", "9 min"],
-      ["Questions les + difficiles", "Famille élargie"]
+      ["Questions les plus difficiles", "Famille elargie"]
     ];
 
-    indicatorsRoot.innerHTML = indicators
-      .map(([label, value]) => `<div class="indicator-row"><span>${label}</span><strong>${value}</strong></div>`)
-      .join("");
+    indicatorsRoot.innerHTML = indicators.map(([label, value]) => `<div class="indicator-row"><span>${label}</span><strong>${value}</strong></div>`).join("");
   }
 
   function renderInsights() {
@@ -155,13 +124,10 @@
 
   periodSwitch.addEventListener("click", (event) => {
     const periodButton = event.target.closest("[data-period]");
-    if (!periodButton) {
-      return;
-    }
+    if (!periodButton) return;
     state.period = periodButton.dataset.period;
     renderPeriodButtons();
   });
 
   renderAll();
 })();
-

@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kyonokibo Aidant - Quiz</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="./quizz.css">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./quizz.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -15,14 +15,18 @@
         <header class="page-header">
           <div>
             <h1 class="page-title">Quiz</h1>
-            <p class="page-subtitle">Quiz du jour et quiz personnalis&#233;s de Marguerite</p>
+            <p class="page-subtitle">
+              Quiz du jour et quiz personnalises de Jean
+            </p>
           </div>
-          <button class="btn btn-primary hidden" id="create-quiz-top" type="button">Cr&#233;er un quiz</button>
+          <button class="btn btn-primary hidden" id="create-quiz-top">
+            Creer un quiz
+          </button>
         </header>
 
         <nav class="tab-switch" id="quiz-tabs">
-          <button class="tab-btn active" data-tab="daily" type="button">Quiz du jour</button>
-          <button class="tab-btn" data-tab="custom" type="button">Quiz personnalis&#233;s</button>
+          <button class="tab-btn active" data-tab="daily">Quiz du jour</button>
+          <button class="tab-btn" data-tab="custom">Quiz personnalises</button>
         </nav>
 
         <section class="quiz-section" id="daily-section">
@@ -49,7 +53,9 @@
 
             <aside class="quiz-side-column">
               <article class="card flow-card">
-                <h3 class="section-title small">Aper&#231;u du fonctionnement</h3>
+                <h3 class="section-title small">
+                  Aper&#231;u du fonctionnement
+                </h3>
                 <div id="daily-flow-list"></div>
               </article>
 
@@ -64,7 +70,13 @@
         <section class="quiz-section hidden" id="custom-section">
           <div class="custom-header">
             <p class="custom-count" id="custom-count"></p>
-            <button class="btn btn-primary" id="create-quiz-inline" type="button">Cr&#233;er un quiz</button>
+            <button
+              class="btn btn-primary"
+              id="create-quiz-inline"
+              type="button"
+            >
+              Cr&#233;er un quiz
+            </button>
           </div>
           <div class="quiz-grid" id="custom-quiz-grid"></div>
         </section>
@@ -75,7 +87,9 @@
       <div class="modal-box quiz-modal-box">
         <div class="modal-top">
           <h2 class="section-title" id="quiz-modal-title">Nouveau quiz</h2>
-          <button class="btn btn-ghost" id="close-quiz-modal" type="button">Fermer</button>
+          <button class="btn btn-ghost" id="close-quiz-modal" type="button">
+            Fermer
+          </button>
         </div>
 
         <form id="quiz-form" class="quiz-builder-form" novalidate>
@@ -90,7 +104,9 @@
       <div class="modal-box preview-box">
         <div class="modal-top">
           <h2 class="section-title" id="preview-title"></h2>
-          <button class="btn btn-ghost" id="close-preview" type="button">Fermer</button>
+          <button class="btn btn-ghost" id="close-preview" type="button">
+            Fermer
+          </button>
         </div>
         <div id="preview-content"></div>
       </div>

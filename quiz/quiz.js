@@ -2,12 +2,34 @@
   const { AppData, AppUtils, AppUI } = window;
   AppUI.mountSidebar("quiz", { fromSubpage: true });
 
-  const COVER_EMOJIS = ["👨‍👩‍👧‍👦", "🌸", "🏡", "🐱", "🎵", "🌿", "☀️", "🎨", "📸", "🍰", "🌻", "🐦", "🚗", "📚", "⛵", "🎭"];
-  const BUILDER_STEPS = ["Informations", "Questions", "Configuration", "Apercu"];
+  const COVER_EMOJIS = [
+    "👨‍👩‍👧‍👦",
+    "🌸",
+    "🏡",
+    "🐱",
+    "🎵",
+    "🌿",
+    "☀️",
+    "🎨",
+    "📸",
+    "🍰",
+    "🌻",
+    "🐦",
+    "🚗",
+    "📚",
+    "⛵",
+    "🎭",
+  ];
+  const BUILDER_STEPS = [
+    "Informations",
+    "Questions",
+    "Configuration",
+    "Apercu",
+  ];
   const DEFAULT_QUIZ_CONFIG = {
     hints: true,
     truefalse: false,
-    removeFalse: false
+    removeFalse: false,
   };
   const BUILDER_CONFIG_OPTIONS = [
     {
@@ -15,28 +37,28 @@
       label: "Ajouter des indices",
       desc: "Un indice est disponible apres la premiere erreur",
       badge: "Indices",
-      tone: "blue"
+      tone: "blue",
     },
     {
       key: "truefalse",
       label: "Transformer en vrai/faux",
       desc: "Les questions ratees reviennent en fin de quiz au format vrai/faux",
       badge: "Vrai/Faux",
-      tone: "gray"
+      tone: "gray",
     },
     {
       key: "removeFalse",
       label: "Supprimer des reponses fausses",
       desc: "Une mauvaise reponse disparait apres la deuxieme erreur",
       badge: "Elimination",
-      tone: "peach"
-    }
+      tone: "peach",
+    },
   ];
   const QUESTION_TYPES = [
     { id: "text-text", label: "Texte -> Texte", icon: "📝" },
     { id: "text-image", label: "Texte -> Images", icon: "📝🖼" },
     { id: "image-text", label: "Image -> Texte", icon: "🖼📝" },
-    { id: "image-image", label: "Image -> Images", icon: "🖼🖼" }
+    { id: "image-image", label: "Image -> Images", icon: "🖼🖼" },
   ];
   const PRESET_QUIZ_DETAILS = {
     1: {
@@ -47,23 +69,23 @@
           text: "Qui est le fils de Marguerite ?",
           answers: ["Pierre", "Claude", "Sophie", "Julien"],
           correct: 0,
-          hint: "Il vient souvent le week-end."
+          hint: "Il vient souvent le week-end.",
         },
         {
           type: "text-text",
           text: "Qui appelle souvent Marguerite le dimanche ?",
           answers: ["Pierre", "Le medecin", "La voisine", "Le pharmacien"],
           correct: 0,
-          hint: "C'est un proche de la famille."
+          hint: "C'est un proche de la famille.",
         },
         {
           type: "text-text",
           text: "Quel lien a Sophie avec Marguerite ?",
           answers: ["Sa fille", "Sa cousine", "Sa soeur", "Sa voisine"],
           correct: 0,
-          hint: "C'est l'aidante principale."
-        }
-      ]
+          hint: "C'est l'aidante principale.",
+        },
+      ],
     },
     2: {
       config: { hints: true, truefalse: false, removeFalse: true },
@@ -73,23 +95,28 @@
           text: "Dans quelle ville habitiez-vous enfant ?",
           answers: ["Nice", "Lyon", "Lille", "Bordeaux"],
           correct: 0,
-          hint: "La mer n'etait jamais loin."
+          hint: "La mer n'etait jamais loin.",
         },
         {
           type: "text-image",
           text: "Quelle fleur rappelle le jardin de votre enfance ?",
           answers: ["", "", "", ""],
           correct: 1,
-          hint: "Elle revient au printemps."
+          hint: "Elle revient au printemps.",
         },
         {
           type: "text-text",
           text: "Quel souvenir revient avec l'odeur des gateaux ?",
-          answers: ["Les dimanches en famille", "L'ecole", "Le marche", "Le cinema"],
+          answers: [
+            "Les dimanches en famille",
+            "L'ecole",
+            "Le marche",
+            "Le cinema",
+          ],
           correct: 0,
-          hint: "Cela se passait souvent a la maison."
-        }
-      ]
+          hint: "Cela se passait souvent a la maison.",
+        },
+      ],
     },
     3: {
       config: { hints: false, truefalse: true, removeFalse: true },
@@ -99,23 +126,33 @@
           text: "",
           answers: ["La cuisine", "Le salon", "La chambre", "Le jardin"],
           correct: 0,
-          hint: "On y prepare les repas."
+          hint: "On y prepare les repas.",
         },
         {
           type: "text-text",
           text: "Ou rangez-vous habituellement vos lunettes ?",
-          answers: ["Dans l'entree", "Sur le bureau", "Dans la salle de bain", "Dans la cuisine"],
+          answers: [
+            "Dans l'entree",
+            "Sur le bureau",
+            "Dans la salle de bain",
+            "Dans la cuisine",
+          ],
           correct: 1,
-          hint: "Pres du fauteuil de lecture."
+          hint: "Pres du fauteuil de lecture.",
         },
         {
           type: "image-text",
           text: "",
-          answers: ["Le vase bleu", "Le cadre photo", "La lampe", "Le coussin vert"],
+          answers: [
+            "Le vase bleu",
+            "Le cadre photo",
+            "La lampe",
+            "Le coussin vert",
+          ],
           correct: 0,
-          hint: "Objet decoratif place sur le meuble du salon."
-        }
-      ]
+          hint: "Objet decoratif place sur le meuble du salon.",
+        },
+      ],
     },
     4: {
       config: { hints: true, truefalse: true, removeFalse: false },
@@ -125,24 +162,24 @@
           text: "",
           answers: ["Le chat", "Le lapin", "Le chien", "Le cheval"],
           correct: 0,
-          hint: "Il aimait dormir pres de la fenetre."
+          hint: "Il aimait dormir pres de la fenetre.",
         },
         {
           type: "text-image",
           text: "Retrouvez l'animal prefere de Marguerite.",
           answers: ["", "", "", ""],
           correct: 2,
-          hint: "Il ronronne souvent."
+          hint: "Il ronronne souvent.",
         },
         {
           type: "text-text",
           text: "Quel animal avait un collier rouge ?",
           answers: ["Le chat", "Le poisson", "L'oiseau", "Le lapin"],
           correct: 0,
-          hint: "On le voit souvent sur les photos de famille."
-        }
-      ]
-    }
+          hint: "On le voit souvent sur les photos de famille.",
+        },
+      ],
+    },
   };
 
   let questionSeed = 1000;
@@ -153,26 +190,25 @@
     dailyConfig: {
       hints: true,
       truefalse: true,
-      removeFalse: false
+      removeFalse: false,
     },
     quizzes: AppUtils.clone(AppData.quizList).map(normalizeQuiz),
-    builder: null
+    builder: null,
   };
 
   const tabs = document.getElementById("quiz-tabs");
   const dailySection = document.getElementById("daily-section");
   const customSection = document.getElementById("custom-section");
   const createTop = document.getElementById("create-quiz-top");
-
   const dailyConfigList = document.getElementById("daily-config-list");
   const dailyFlowList = document.getElementById("daily-flow-list");
   const weekSummaryList = document.getElementById("week-summary-list");
-  const dailyQuestionPreview = document.getElementById("daily-question-preview");
-
+  const dailyQuestionPreview = document.getElementById(
+    "daily-question-preview",
+  );
   const customCount = document.getElementById("custom-count");
   const customGrid = document.getElementById("custom-quiz-grid");
   const createInline = document.getElementById("create-quiz-inline");
-
   const quizModal = document.getElementById("quiz-modal");
   const quizModalTitle = document.getElementById("quiz-modal-title");
   const quizForm = document.getElementById("quiz-form");
@@ -190,25 +226,25 @@
     {
       key: "hints",
       label: "Ajouter des indices",
-      desc: "Un indice apparait apres la premiere mauvaise reponse"
+      desc: "Un indice apparait apres la premiere mauvaise reponse",
     },
     {
       key: "truefalse",
       label: "Transformer en vrai / faux",
-      desc: "Les questions echouees sont reproposees en vrai/faux en fin de quiz"
+      desc: "Les questions echouees sont reproposees en vrai/faux en fin de quiz",
     },
     {
       key: "removeFalse",
       label: "Supprimer des reponses fausses",
-      desc: "Une mauvaise reponse est supprimee apres la deuxieme erreur"
-    }
+      desc: "Une mauvaise reponse est supprimee apres la deuxieme erreur",
+    },
   ];
 
   const dailyPreviewLines = [
-    { text: "Qui est le fils de Marguerite ?", ok: true },
+    { text: "Qui est la fille de Jean ?", ok: true },
     { text: "Dans quelle ville habitiez-vous enfant ?", ok: true },
     { text: "Quel animal avez-vous eu ?", ok: true },
-    { text: "Quel jour sommes-nous ?", ok: false }
+    { text: "Quel jour sommes-nous ?", ok: false },
   ];
 
   function nextQuestionId() {
@@ -217,7 +253,12 @@
   }
 
   function getNextQuizId() {
-    return state.quizzes.reduce((max, quiz) => Math.max(max, Number(quiz.id) || 0), 0) + 1;
+    return (
+      state.quizzes.reduce(
+        (max, quiz) => Math.max(max, Number(quiz.id) || 0),
+        0,
+      ) + 1
+    );
   }
 
   function isQuestionImage(type) {
@@ -234,9 +275,18 @@
 
   function normalizeConfig(config) {
     return {
-      hints: typeof config?.hints === "boolean" ? config.hints : DEFAULT_QUIZ_CONFIG.hints,
-      truefalse: typeof config?.truefalse === "boolean" ? config.truefalse : DEFAULT_QUIZ_CONFIG.truefalse,
-      removeFalse: typeof config?.removeFalse === "boolean" ? config.removeFalse : DEFAULT_QUIZ_CONFIG.removeFalse
+      hints:
+        typeof config?.hints === "boolean"
+          ? config.hints
+          : DEFAULT_QUIZ_CONFIG.hints,
+      truefalse:
+        typeof config?.truefalse === "boolean"
+          ? config.truefalse
+          : DEFAULT_QUIZ_CONFIG.truefalse,
+      removeFalse:
+        typeof config?.removeFalse === "boolean"
+          ? config.removeFalse
+          : DEFAULT_QUIZ_CONFIG.removeFalse,
     };
   }
 
@@ -249,8 +299,13 @@
       answers.push("");
     }
 
-    const correctIndex = Number.isInteger(question.correct) ? question.correct : Number(question.correct || 0);
-    const safeCorrect = Math.min(3, Math.max(0, Number.isNaN(correctIndex) ? 0 : correctIndex));
+    const correctIndex = Number.isInteger(question.correct)
+      ? question.correct
+      : Number(question.correct || 0);
+    const safeCorrect = Math.min(
+      3,
+      Math.max(0, Number.isNaN(correctIndex) ? 0 : correctIndex),
+    );
     const type = getQuestionTypeMeta(question.type).id;
 
     return {
@@ -259,7 +314,7 @@
       text: String(question.text || ""),
       answers,
       correct: safeCorrect,
-      hint: String(question.hint || "")
+      hint: String(question.hint || ""),
     };
   }
 
@@ -271,7 +326,7 @@
       answers: ["", "", "", ""],
       correct: 0,
       hint: "",
-      ...overrides
+      ...overrides,
     });
   }
 
@@ -282,22 +337,28 @@
         `Reponse A${index + 1}`,
         `Reponse B${index + 1}`,
         `Reponse C${index + 1}`,
-        `Reponse D${index + 1}`
+        `Reponse D${index + 1}`,
       ],
       correct: 0,
-      hint: title ? `Indice lie au quiz ${title}.` : ""
+      hint: title ? `Indice lie au quiz ${title}.` : "",
     });
   }
 
   function buildSeedQuestions(rawQuiz) {
     const count = Math.max(1, Number(rawQuiz.questions) || 1);
     const preset = PRESET_QUIZ_DETAILS[rawQuiz.id];
-    const presetQuestions = preset?.questions ? preset.questions.map((question) => normalizeQuestion(question)) : [];
+    const presetQuestions = preset?.questions
+      ? preset.questions.map((question) => normalizeQuestion(question))
+      : [];
     const questions = [];
 
     for (let index = 0; index < count; index += 1) {
       const presetQuestion = presetQuestions[index];
-      questions.push(presetQuestion ? normalizeQuestion(AppUtils.clone(presetQuestion)) : createFallbackQuestion(rawQuiz.title, index));
+      questions.push(
+        presetQuestion
+          ? normalizeQuestion(AppUtils.clone(presetQuestion))
+          : createFallbackQuestion(rawQuiz.title, index),
+      );
     }
 
     return questions;
@@ -310,7 +371,9 @@
       : Array.isArray(rawQuiz.questions)
         ? rawQuiz.questions
         : buildSeedQuestions(rawQuiz);
-    const questionItems = sourceQuestions.map((question) => normalizeQuestion(question));
+    const questionItems = sourceQuestions.map((question) =>
+      normalizeQuestion(question),
+    );
 
     return {
       id: rawQuiz.id || getNextQuizId(),
@@ -321,22 +384,26 @@
       questions: questionItems.length,
       config: normalizeConfig(rawQuiz.config || preset?.config),
       lastScore: Number(rawQuiz.lastScore || 0),
-      played: Number(rawQuiz.played || 0)
+      played: Number(rawQuiz.played || 0),
     };
   }
 
   function cloneQuestionList(questions) {
-    return questions.map((question) => normalizeQuestion(AppUtils.clone(question)));
+    return questions.map((question) =>
+      normalizeQuestion(AppUtils.clone(question)),
+    );
   }
 
   function getQuestionCount(quiz) {
-    return Array.isArray(quiz.questionItems) ? quiz.questionItems.length : Math.max(0, Number(quiz.questions) || 0);
+    return Array.isArray(quiz.questionItems)
+      ? quiz.questionItems.length
+      : Math.max(0, Number(quiz.questions) || 0);
   }
 
   function getConfigBadges(config) {
-    return BUILDER_CONFIG_OPTIONS
-      .filter((option) => normalizeConfig(config)[option.key])
-      .map((option) => ({ label: option.badge, tone: option.tone }));
+    return BUILDER_CONFIG_OPTIONS.filter(
+      (option) => normalizeConfig(config)[option.key],
+    ).map((option) => ({ label: option.badge, tone: option.tone }));
   }
 
   function renderConfigPills(config) {
@@ -347,15 +414,22 @@
     }
 
     return badges
-      .map((badge) => `<span class="quiz-config-pill ${badge.tone}">${AppUtils.escapeHtml(badge.label)}</span>`)
+      .map(
+        (badge) =>
+          `<span class="quiz-config-pill ${badge.tone}">${AppUtils.escapeHtml(badge.label)}</span>`,
+      )
       .join("");
   }
 
   function renderPreviewBadges(config, questionCount) {
-    const badges = [`<span class="badge badge-green">${questionCount} question${questionCount > 1 ? "s" : ""}</span>`];
+    const badges = [
+      `<span class="badge badge-green">${questionCount} question${questionCount > 1 ? "s" : ""}</span>`,
+    ];
 
     getConfigBadges(config).forEach((badge) => {
-      badges.push(`<span class="badge badge-${badge.tone}">${AppUtils.escapeHtml(badge.label)}</span>`);
+      badges.push(
+        `<span class="badge badge-${badge.tone}">${AppUtils.escapeHtml(badge.label)}</span>`,
+      );
     });
 
     return badges.join("");
@@ -372,11 +446,15 @@
       return answer;
     }
 
-    return isAnswerImage(question.type) ? `Image ${answerIndex + 1}` : `Reponse ${answerIndex + 1}`;
+    return isAnswerImage(question.type)
+      ? `Image ${answerIndex + 1}`
+      : `Reponse ${answerIndex + 1}`;
   }
 
   function buildConfigSummary(config) {
-    const labels = getConfigBadges(config).map((badge) => badge.label.toLowerCase());
+    const labels = getConfigBadges(config).map((badge) =>
+      badge.label.toLowerCase(),
+    );
     return labels.length > 0
       ? `Aides actives : ${AppUtils.escapeHtml(labels.join(", "))}.`
       : "Mode simple sans aide automatique.";
@@ -388,7 +466,11 @@
         return question;
       }
 
-      return normalizeQuestion(typeof updater === "function" ? updater(question) : { ...question, ...updater });
+      return normalizeQuestion(
+        typeof updater === "function"
+          ? updater(question)
+          : { ...question, ...updater },
+      );
     });
   }
 
@@ -399,8 +481,10 @@
       title: quiz ? quiz.title : "",
       desc: quiz ? quiz.desc || "" : "",
       emoji: quiz ? quiz.cover || "📝" : "📝",
-      questions: quiz ? cloneQuestionList(quiz.questionItems) : [createQuestion()],
-      config: quiz ? normalizeConfig(quiz.config) : { ...DEFAULT_QUIZ_CONFIG }
+      questions: quiz
+        ? cloneQuestionList(quiz.questionItems)
+        : [createQuestion()],
+      config: quiz ? normalizeConfig(quiz.config) : { ...DEFAULT_QUIZ_CONFIG },
     };
 
     quizModal.classList.remove("hidden");
@@ -488,7 +572,6 @@
     Array.from(tabs.querySelectorAll("[data-tab]")).forEach((button) => {
       button.classList.toggle("active", button.dataset.tab === state.tab);
     });
-
     const customActive = state.tab === "custom";
     dailySection.classList.toggle("hidden", customActive);
     customSection.classList.toggle("hidden", !customActive);
@@ -497,38 +580,55 @@
 
   function renderDailyConfig() {
     dailyConfigList.innerHTML = dailyOptions
-      .map((option) => {
-        return `
-          <div class="quiz-config-row">
-            <div>
-              <h4>${AppUtils.escapeHtml(option.label)}</h4>
-              <p>${AppUtils.escapeHtml(option.desc)}</p>
-            </div>
-            ${AppUI.toggleHTML({ checked: state.dailyConfig[option.key], key: option.key })}
-          </div>
-        `;
-      })
+      .map(
+        (option) => `
+        <div class="quiz-config-row">
+          <div><h4>${AppUtils.escapeHtml(option.label)}</h4><p>${AppUtils.escapeHtml(option.desc)}</p></div>
+          ${AppUI.toggleHTML({ checked: state.dailyConfig[option.key], key: option.key })}
+        </div>
+      `,
+      )
       .join("");
   }
 
   function renderDailyFlow() {
     const flow = [
-      { step: 1, text: "Question affichee avec toutes les reponses", active: true },
-      { step: 2, text: "1re erreur -> un indice apparait", active: state.dailyConfig.hints },
-      { step: 3, text: "2e erreur -> une mauvaise reponse est supprimee", active: state.dailyConfig.removeFalse },
-      { step: 4, text: "3e erreur -> passage a la question suivante", active: true },
-      { step: 5, text: "Fin du quiz -> questions echouees en vrai/faux", active: state.dailyConfig.truefalse }
+      {
+        step: 1,
+        text: "Question affichee avec toutes les reponses",
+        active: true,
+      },
+      {
+        step: 2,
+        text: "1re erreur -> un indice apparait",
+        active: state.dailyConfig.hints,
+      },
+      {
+        step: 3,
+        text: "2e erreur -> une mauvaise reponse est supprimee",
+        active: state.dailyConfig.removeFalse,
+      },
+      {
+        step: 4,
+        text: "3e erreur -> passage a la question suivante",
+        active: true,
+      },
+      {
+        step: 5,
+        text: "Fin du quiz -> questions echouees en vrai/faux",
+        active: state.dailyConfig.truefalse,
+      },
     ];
 
     dailyFlowList.innerHTML = flow
-      .map((item) => {
-        return `
-          <div class="flow-step ${item.active ? "active" : ""}" style="${item.active ? "" : "opacity:0.45"}">
-            <span class="flow-step-index">${item.step}</span>
-            <p>${AppUtils.escapeHtml(item.text)}</p>
-          </div>
-        `;
-      })
+      .map(
+        (item) => `
+        <div class="flow-step ${item.active ? "active" : ""}" style="${item.active ? "" : "opacity:0.45"}">
+          <span class="flow-step-index">${item.step}</span>
+          <p>${AppUtils.escapeHtml(item.text)}</p>
+        </div>
+      `,
+      )
       .join("");
   }
 
@@ -537,11 +637,14 @@
       ["Quiz completes", "5 / 7"],
       ["Questions posees", "68"],
       ["Score moyen", "68 %"],
-      ["Indices utilises", "12"]
+      ["Indices utilises", "12"],
     ];
 
     weekSummaryList.innerHTML = summary
-      .map(([label, value]) => `<div class="week-row"><span>${AppUtils.escapeHtml(label)}</span><strong>${AppUtils.escapeHtml(value)}</strong></div>`)
+      .map(
+        ([label, value]) =>
+          `<div class="week-row"><span>${AppUtils.escapeHtml(label)}</span><strong>${AppUtils.escapeHtml(value)}</strong></div>`,
+      )
       .join("");
   }
 
@@ -615,34 +718,38 @@
   }
 
   function renderBuilderStepbar() {
-    return BUILDER_STEPS
-      .map((label, index) => {
-        const stepNumber = index + 1;
-        const statusClass = stepNumber < state.builder.step ? "step-done" : stepNumber === state.builder.step ? "step-active" : "step-todo";
-        const indicator = stepNumber < state.builder.step ? "✓" : String(stepNumber);
-        const canNavigate = stepNumber < state.builder.step;
-        const stepControl = canNavigate
-          ? `
+    return BUILDER_STEPS.map((label, index) => {
+      const stepNumber = index + 1;
+      const statusClass =
+        stepNumber < state.builder.step
+          ? "step-done"
+          : stepNumber === state.builder.step
+            ? "step-active"
+            : "step-todo";
+      const indicator =
+        stepNumber < state.builder.step ? "✓" : String(stepNumber);
+      const canNavigate = stepNumber < state.builder.step;
+      const stepControl = canNavigate
+        ? `
             <button class="step-link clickable" data-builder-nav-step="${stepNumber}" type="button">
               <span class="step-indicator ${statusClass}">${indicator}</span>
               <span class="step-label">${AppUtils.escapeHtml(label)}</span>
             </button>
           `
-          : `
+        : `
             <div class="step-link ${stepNumber === state.builder.step ? "current" : ""}">
               <span class="step-indicator ${statusClass}">${indicator}</span>
               <span class="step-label">${AppUtils.escapeHtml(label)}</span>
             </div>
           `;
 
-        return `
+      return `
           <div class="builder-step">
             ${stepControl}
             ${index < BUILDER_STEPS.length - 1 ? `<span class="step-line ${stepNumber < state.builder.step ? "done" : ""}"></span>` : ""}
           </div>
         `;
-      })
-      .join("");
+    }).join("");
   }
 
   function renderBuilderInfoStep() {
@@ -661,15 +768,13 @@
         <div class="builder-field">
           <label class="label">Icone de couverture</label>
           <div class="emoji-grid">
-            ${COVER_EMOJIS
-              .map((emoji) => {
-                return `
+            ${COVER_EMOJIS.map((emoji) => {
+              return `
                   <button class="emoji-chip ${state.builder.emoji === emoji ? "selected" : ""}" data-builder-action="emoji" data-emoji="${AppUtils.escapeHtml(emoji)}" type="button">
                     ${AppUtils.escapeHtml(emoji)}
                   </button>
                 `;
-              })
-              .join("")}
+            }).join("")}
           </div>
         </div>
       </section>
@@ -683,9 +788,8 @@
           <span class="builder-question-label">Question ${index + 1}</span>
           <div class="builder-question-controls">
             <div class="builder-question-types">
-              ${QUESTION_TYPES
-                .map((type) => {
-                  return `
+              ${QUESTION_TYPES.map((type) => {
+                return `
                     <button
                       class="question-type-btn ${question.type === type.id ? "selected" : ""}"
                       data-builder-action="type"
@@ -697,23 +801,25 @@
                       ${AppUtils.escapeHtml(type.icon)}
                     </button>
                   `;
-                })
-                .join("")}
+              }).join("")}
             </div>
-            ${state.builder.questions.length > 1
-              ? `<button class="btn btn-danger" data-builder-action="remove-question" data-question-id="${question.id}" type="button">Suppr.</button>`
-              : ""}
+            ${
+              state.builder.questions.length > 1
+                ? `<button class="btn btn-danger" data-builder-action="remove-question" data-question-id="${question.id}" type="button">Suppr.</button>`
+                : ""
+            }
           </div>
         </div>
-        ${isQuestionImage(question.type)
-          ? `
+        ${
+          isQuestionImage(question.type)
+            ? `
             <div class="upload-zone">
               <div style="font-size:1.5rem">🖼️</div>
               <strong>Image de la question</strong>
               <span>Zone de media prete. Le branchement d'upload reste a connecter.</span>
             </div>
           `
-          : `
+            : `
             <input
               class="input-field"
               data-question-field="text"
@@ -722,7 +828,8 @@
               value="${AppUtils.escapeHtml(question.text)}"
               style="margin-bottom:12px"
             >
-          `}
+          `
+        }
         <div class="answer-grid">
           ${question.answers
             .map((answer, answerIndex) => {
@@ -738,9 +845,10 @@
                     title="Marquer comme bonne reponse"
                     type="button"
                   ></button>
-                  ${isAnswerImage(question.type)
-                    ? `<div class="answer-image-box">📷 Reponse ${answerIndex + 1}</div>`
-                    : `
+                  ${
+                    isAnswerImage(question.type)
+                      ? `<div class="answer-image-box">📷 Reponse ${answerIndex + 1}</div>`
+                      : `
                       <input
                         class="answer-text"
                         data-question-id="${question.id}"
@@ -748,7 +856,8 @@
                         placeholder="Reponse ${answerIndex + 1}${answerIndex === 0 ? " (bonne reponse)" : ""}"
                         value="${AppUtils.escapeHtml(answer)}"
                       >
-                    `}
+                    `
+                  }
                 </div>
               `;
             })
@@ -784,9 +893,8 @@
     return `
       <section class="builder-section">
         <h3 class="builder-heading">Configuration du quiz</h3>
-        ${BUILDER_CONFIG_OPTIONS
-          .map((option) => {
-            return `
+        ${BUILDER_CONFIG_OPTIONS.map((option) => {
+          return `
               <div class="builder-config-row">
                 <div>
                   <strong>${AppUtils.escapeHtml(option.label)}</strong>
@@ -798,8 +906,7 @@
                 </label>
               </div>
             `;
-          })
-          .join("")}
+        }).join("")}
       </section>
     `;
   }
@@ -876,17 +983,19 @@
       <button class="btn btn-secondary" data-builder-action="back" type="button">
         ${state.builder.step > 1 ? "&larr; Retour" : "Annuler"}
       </button>
-      ${state.builder.step < 4
-        ? `
+      ${
+        state.builder.step < 4
+          ? `
           <button class="btn btn-primary ${canAdvance ? "" : "is-disabled"}" data-builder-action="next" type="button" ${canAdvance ? "" : "disabled"}>
             Continuer &rarr;
           </button>
         `
-        : `
+          : `
           <button class="btn btn-primary" type="submit">
             ${state.editingId ? "Enregistrer les modifications" : "Creer le quiz"}
           </button>
-        `}
+        `
+      }
     `;
   }
 
@@ -895,16 +1004,23 @@
       return;
     }
 
-    quizModalTitle.textContent = state.editingId ? "Modifier le quiz" : "Nouveau quiz";
+    quizModalTitle.textContent = state.editingId
+      ? "Modifier le quiz"
+      : "Nouveau quiz";
     builderStepbar.innerHTML = renderBuilderStepbar();
     builderContent.innerHTML = renderBuilderContent();
     builderActions.innerHTML = renderBuilderActionsMarkup();
   }
 
   function syncTitleValidation() {
-    const validationNote = builderContent.querySelector("[data-title-validation]");
+    const validationNote = builderContent.querySelector(
+      "[data-title-validation]",
+    );
     if (validationNote) {
-      validationNote.classList.toggle("hidden", state.builder.title.trim().length > 0);
+      validationNote.classList.toggle(
+        "hidden",
+        state.builder.title.trim().length > 0,
+      );
     }
   }
 
@@ -917,22 +1033,28 @@
   }
 
   function buildQuizPayload() {
-    const existingQuiz = state.quizzes.find((quiz) => quiz.id === state.editingId);
+    const existingQuiz = state.quizzes.find(
+      (quiz) => quiz.id === state.editingId,
+    );
 
     return normalizeQuiz({
       id: state.editingId || getNextQuizId(),
       title: state.builder.title.trim(),
       desc: state.builder.desc.trim(),
       cover: state.builder.emoji || "📝",
-      questionItems: cloneQuestionList(state.builder.questions).map((question) => ({
-        ...question,
-        text: question.text.trim(),
-        answers: question.answers.map((answer) => String(answer || "").trim()),
-        hint: question.hint.trim()
-      })),
+      questionItems: cloneQuestionList(state.builder.questions).map(
+        (question) => ({
+          ...question,
+          text: question.text.trim(),
+          answers: question.answers.map((answer) =>
+            String(answer || "").trim(),
+          ),
+          hint: question.hint.trim(),
+        }),
+      ),
       config: normalizeConfig(state.builder.config),
       lastScore: existingQuiz ? existingQuiz.lastScore : 0,
-      played: existingQuiz ? existingQuiz.played : 0
+      played: existingQuiz ? existingQuiz.played : 0,
     });
   }
 
@@ -965,9 +1087,9 @@
     renderDailyFlow();
   });
 
-  [createInline, createTop].forEach((button) => {
-    button.addEventListener("click", () => openQuizModal(null));
-  });
+  [createInline, createTop].forEach((button) =>
+    button.addEventListener("click", () => openQuizModal(null)),
+  );
 
   customGrid.addEventListener("click", (event) => {
     const actionButton = event.target.closest("[data-action]");
@@ -1024,27 +1146,38 @@
         renderBuilder();
         break;
       case "add-question":
-        state.builder.questions = [...state.builder.questions, createQuestion()];
+        state.builder.questions = [
+          ...state.builder.questions,
+          createQuestion(),
+        ];
         renderBuilder();
         break;
       case "remove-question": {
         const questionId = Number(actionButton.dataset.questionId);
         if (state.builder.questions.length > 1) {
-          state.builder.questions = state.builder.questions.filter((question) => question.id !== questionId);
+          state.builder.questions = state.builder.questions.filter(
+            (question) => question.id !== questionId,
+          );
           renderBuilder();
         }
         break;
       }
       case "type": {
         const questionId = Number(actionButton.dataset.questionId);
-        updateBuilderQuestion(questionId, (question) => ({ ...question, type: actionButton.dataset.type }));
+        updateBuilderQuestion(questionId, (question) => ({
+          ...question,
+          type: actionButton.dataset.type,
+        }));
         renderBuilder();
         break;
       }
       case "set-correct": {
         const questionId = Number(actionButton.dataset.questionId);
         const answerIndex = Number(actionButton.dataset.answerIndex);
-        updateBuilderQuestion(questionId, (question) => ({ ...question, correct: answerIndex }));
+        updateBuilderQuestion(questionId, (question) => ({
+          ...question,
+          correct: answerIndex,
+        }));
         renderBuilder();
         break;
       }
@@ -1088,13 +1221,19 @@
 
     if (target.matches("[data-question-field='text']")) {
       const questionId = Number(target.dataset.questionId);
-      updateBuilderQuestion(questionId, (question) => ({ ...question, text: target.value }));
+      updateBuilderQuestion(questionId, (question) => ({
+        ...question,
+        text: target.value,
+      }));
       return;
     }
 
     if (target.matches("[data-question-field='hint']")) {
       const questionId = Number(target.dataset.questionId);
-      updateBuilderQuestion(questionId, (question) => ({ ...question, hint: target.value }));
+      updateBuilderQuestion(questionId, (question) => ({
+        ...question,
+        hint: target.value,
+      }));
       return;
     }
 
@@ -1103,7 +1242,9 @@
       const answerIndex = Number(target.dataset.answerIndex);
       updateBuilderQuestion(questionId, (question) => ({
         ...question,
-        answers: question.answers.map((answer, index) => (index === answerIndex ? target.value : answer))
+        answers: question.answers.map((answer, index) =>
+          index === answerIndex ? target.value : answer,
+        ),
       }));
     }
   });
@@ -1147,7 +1288,9 @@
     const payload = buildQuizPayload();
 
     if (state.editingId) {
-      state.quizzes = state.quizzes.map((quiz) => (quiz.id === state.editingId ? payload : quiz));
+      state.quizzes = state.quizzes.map((quiz) =>
+        quiz.id === state.editingId ? payload : quiz,
+      );
     } else {
       state.quizzes = [...state.quizzes, payload];
     }
@@ -1158,16 +1301,12 @@
 
   closeQuizModal.addEventListener("click", closeModal);
   quizModal.addEventListener("click", (event) => {
-    if (event.target === quizModal) {
-      closeModal();
-    }
+    if (event.target === quizModal) closeModal();
   });
 
   closePreview.addEventListener("click", closePreviewModal);
   previewModal.addEventListener("click", (event) => {
-    if (event.target === previewModal) {
-      closePreviewModal();
-    }
+    if (event.target === previewModal) closePreviewModal();
   });
 
   render();

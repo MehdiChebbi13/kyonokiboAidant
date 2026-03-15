@@ -1,61 +1,61 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 
-// ─── DESIGN TOKENS — Kyōnokibō Shared Design System ─────────────────────────
+// â”€â”€â”€ DESIGN TOKENS â€” KyÅnokibÅ Shared Design System â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // These tokens are shared between the patient (accueilli) and caregiver (aidant)
 // interfaces to ensure full visual consistency across the application.
 //
 // Source of truth: patient interface palette
-//   Primary    #7BA7BC  — calm blue, main interactive color
-//   Secondary  #9DBFA3  — soft green, secondary actions & positive states
-//   Accent     #E07840  — warm orange, alerts, urgent events
-//   Accent Alt #C4A882  — warm sand, family/special events
-//   Lilac      #B39BC8  — support color, soft highlights
-//   Background #F5F0E8  — warm ivory, main app background
-//   Surface    #FFFFFF  — pure white for panels
-//   Card       #FBFDFF  — near-white for card surfaces
-//   Border     #D8E5EE  — soft blue-grey borders
-//   Text Pri   #2D3748  — deep navy for headings & body
-//   Text Sec   #8EA0AE  — muted blue-grey for labels
-//   Text Muted #9AABBF  — very muted for placeholders
+//   Primary    #7BA7BC  â€” calm blue, main interactive color
+//   Secondary  #9DBFA3  â€” soft green, secondary actions & positive states
+//   Accent     #E07840  â€” warm orange, alerts, urgent events
+//   Accent Alt #C4A882  â€” warm sand, family/special events
+//   Lilac      #B39BC8  â€” support color, soft highlights
+//   Background #F5F0E8  â€” warm ivory, main app background
+//   Surface    #FFFFFF  â€” pure white for panels
+//   Card       #FBFDFF  â€” near-white for card surfaces
+//   Border     #D8E5EE  â€” soft blue-grey borders
+//   Text Pri   #2D3748  â€” deep navy for headings & body
+//   Text Sec   #8EA0AE  â€” muted blue-grey for labels
+//   Text Muted #9AABBF  â€” very muted for placeholders
 //   Success    #4CAF50
 //   Warning    #E07840  (= accent)
 //   Error      #E07070
 
 const T = {
-  // ── Primary (calm blue — main CTA, active states, links)
+  // â”€â”€ Primary (calm blue â€” main CTA, active states, links)
   primary:      "#7BA7BC",
   primaryLight: "#EEF5FF",
   primaryDark:  "#5D8FAE",
 
-  // ── Secondary (soft green — success, positive, secondary actions)
+  // â”€â”€ Secondary (soft green â€” success, positive, secondary actions)
   secondary:      "#9DBFA3",
   secondaryDark:  "#6A9E74",
   secondaryLight: "#F0F7F3",
 
-  // ── Accent (warm orange — urgent events, warnings, important badges)
+  // â”€â”€ Accent (warm orange â€” urgent events, warnings, important badges)
   accent:      "#E07840",
   accentLight: "#FDF3EC",
 
-  // ── Accent Alt (warm sand — family events, gold highlights)
+  // â”€â”€ Accent Alt (warm sand â€” family events, gold highlights)
   accentAlt:      "#C4A882",
   accentAltLight: "#FAF6EF",
 
-  // ── Support (soft lilac — decorative, soft highlights)
+  // â”€â”€ Support (soft lilac â€” decorative, soft highlights)
   lilac:      "#B39BC8",
   lilacLight: "#F3EEF8",
 
-  // ── Backgrounds & Surfaces
-  bg:      "#F5F0E8",   // warm ivory — app background
-  surface: "#FFFFFF",   // pure white — sidebars, modals
-  card:    "#FBFDFF",   // near-white — card surfaces
-  border:  "#D8E5EE",   // soft blue-grey — dividers, inputs
+  // â”€â”€ Backgrounds & Surfaces
+  bg:      "#F5F0E8",   // warm ivory â€” app background
+  surface: "#FFFFFF",   // pure white â€” sidebars, modals
+  card:    "#FBFDFF",   // near-white â€” card surfaces
+  border:  "#D8E5EE",   // soft blue-grey â€” dividers, inputs
 
-  // ── Text
-  textPrimary:   "#2D3748",  // deep navy — headings, body
-  textSecondary: "#8EA0AE",  // muted — labels, subtitles
-  textMuted:     "#9AABBF",  // very muted — placeholders, timestamps
+  // â”€â”€ Text
+  textPrimary:   "#2D3748",  // deep navy â€” headings, body
+  textSecondary: "#8EA0AE",  // muted â€” labels, subtitles
+  textMuted:     "#9AABBF",  // very muted â€” placeholders, timestamps
 
-  // ── Semantic
+  // â”€â”€ Semantic
   success:    "#4CAF50",
   successBg:  "#F0F7F3",
   warning:    "#E07840",
@@ -64,7 +64,7 @@ const T = {
   errorBg:    "#FFF0F0",
   errorBorder:"#F5C0C0",
 
-  // ── Neutral scale (used for backgrounds, borders, muted text)
+  // â”€â”€ Neutral scale (used for backgrounds, borders, muted text)
   neutral50:  "#F8F9FA",
   neutral100: "#EEF5FF",   // maps to primaryLight for tinted surfaces
   neutral200: "#D8E5EE",   // = border
@@ -74,19 +74,19 @@ const T = {
   neutral800: "#2D3748",   // = textPrimary
   neutral900: "#1A2535",
 
-  // ── Shadows (unchanged — neutral values)
+  // â”€â”€ Shadows (unchanged â€” neutral values)
   shadow:   "0 2px 16px rgba(80,80,100,0.08)",
   shadowMd: "0 4px 24px rgba(80,80,100,0.11)",
   shadowLg: "0 8px 40px rgba(80,80,100,0.15)",
 
-  // ── Radii (unchanged)
+  // â”€â”€ Radii (unchanged)
   radius:   "16px",
   radiusSm: "10px",
   radiusLg: "24px",
 };
 
 
-// ─── GOOGLE FONTS INJECTION ───────────────────────────────────────────────────
+// â”€â”€â”€ GOOGLE FONTS INJECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const FontStyle = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
@@ -198,36 +198,36 @@ const FontStyle = () => (
   `}</style>
 );
 
-// ─── MOCK DATA ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ MOCK DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const patient = {
-  name: "Marguerite Fontaine",
+  name: "Jean Martin",
   age: 78,
   photo: null,
-  diagnosis: "Maladie d'Alzheimer – stade léger",
+  diagnosis: "Maladie d'Alzheimer â€“ stade lÃ©ger",
   since: "Mars 2023",
 };
 
 const caregiver = {
-  name: "Sophie Fontaine",
-  role: "Fille – Aidante principale",
-  email: "sophie.fontaine@email.com",
+  name: "Sophie Martin",
+  role: "Sa fille – Aidante principale",
+  email: "sophie.martin@email.com",
   photo: null,
 };
 
 const todayTasks = [
-  { id: 1, time: "08:30", title: "Médicaments du matin", done: true, important: true },
+  { id: 1, time: "08:30", title: "MÃ©dicaments du matin", done: true, important: true },
   { id: 2, time: "10:00", title: "Quiz du jour", done: true, important: false },
-  { id: 3, time: "14:30", title: "Kinésithérapie – Dr. Martin", done: false, important: true },
+  { id: 3, time: "14:30", title: "KinÃ©sithÃ©rapie â€“ Dr. Martin", done: false, important: true },
   { id: 4, time: "16:00", title: "Appel de Pierre (fils)", done: false, important: false },
-  { id: 5, time: "19:00", title: "Médicaments du soir", done: false, important: true },
+  { id: 5, time: "19:00", title: "MÃ©dicaments du soir", done: false, important: true },
 ];
 
 const recentActivity = [
-  { id: 1, type: "quiz", icon: "✓", color: T.primary, text: "Quiz du jour terminé", sub: "Score : 7/10 • 9 min 32 sec", time: "10h42" },
-  { id: 2, type: "difficulty", icon: "?", color: T.secondary, text: "Question difficile : « Qui est Pierre ? »", sub: "Quiz personnalisé – Famille proche", time: "hier 15h" },
-  { id: 3, type: "event", icon: "✓", color: T.primary, text: "Médicaments du matin pris", sub: "Tâche marquée comme réalisée", time: "hier 08h" },
-  { id: 4, type: "warning", icon: "!", color: T.accent, text: "Rendez-vous Dr. Renaud non effectué", sub: "Mercredi 12 mars", time: "il y a 3j" },
-  { id: 5, type: "event", icon: "◆", color: T.accentAlt, text: "Anniversaire de Claude approche", sub: "Dans 4 jours", time: "il y a 4j" },
+  { id: 1, type: "quiz", icon: "âœ“", color: T.primary, text: "Quiz du jour terminÃ©", sub: "Score : 7/10 â€¢ 9 min 32 sec", time: "10h42" },
+  { id: 2, type: "difficulty", icon: "?", color: T.secondary, text: "Question difficile : Â« Qui est Pierre ? Â»", sub: "Quiz personnalisÃ© â€“ Famille proche", time: "hier 15h" },
+  { id: 3, type: "event", icon: "âœ“", color: T.primary, text: "MÃ©dicaments du matin pris", sub: "TÃ¢che marquÃ©e comme rÃ©alisÃ©e", time: "hier 08h" },
+  { id: 4, type: "warning", icon: "!", color: T.accent, text: "Rendez-vous Dr. Renaud non effectuÃ©", sub: "Mercredi 12 mars", time: "il y a 3j" },
+  { id: 5, type: "event", icon: "â—†", color: T.accentAlt, text: "Anniversaire de Claude approche", sub: "Dans 4 jours", time: "il y a 4j" },
 ];
 
 const weekStats = {
@@ -241,19 +241,19 @@ const weekStats = {
 };
 
 const quizList = [
-  { id: 1, title: "La famille proche", questions: 8, lastScore: 87, played: 14, cover: "👨‍👩‍👧‍👦", desc: "Questions sur les proches : Pierre, Claude, Sophie…" },
-  { id: 2, title: "Souvenirs d'enfance", questions: 6, lastScore: 72, played: 9, cover: "🌸", desc: "Les lieux, les odeurs, les moments d'autrefois" },
-  { id: 3, title: "La maison et les objets", questions: 10, lastScore: 61, played: 7, cover: "🏡", desc: "Reconnaître les pièces, objets du quotidien" },
-  { id: 4, title: "Les animaux favoris", questions: 5, lastScore: 94, played: 11, cover: "🐱", desc: "Photos d'animaux familiers et favoris" },
+  { id: 1, title: "La famille proche", questions: 8, lastScore: 87, played: 14, cover: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§â€ðŸ‘¦", desc: "Questions sur les proches : Pierre, Claude, Sophieâ€¦" },
+  { id: 2, title: "Souvenirs d'enfance", questions: 6, lastScore: 72, played: 9, cover: "ðŸŒ¸", desc: "Les lieux, les odeurs, les moments d'autrefois" },
+  { id: 3, title: "La maison et les objets", questions: 10, lastScore: 61, played: 7, cover: "ðŸ¡", desc: "ReconnaÃ®tre les piÃ¨ces, objets du quotidien" },
+  { id: 4, title: "Les animaux favoris", questions: 5, lastScore: 94, played: 11, cover: "ðŸ±", desc: "Photos d'animaux familiers et favoris" },
 ];
 
 const calendarEvents = [
-  { id: 1, title: "Kinésithérapie", date: "2025-06-03", time: "14:30", lieu: "Cabinet Dr. Martin", important: true, color: T.accent, reminders: ["3h", "1h"] },
+  { id: 1, title: "KinÃ©sithÃ©rapie", date: "2025-06-03", time: "14:30", lieu: "Cabinet Dr. Martin", important: true, color: T.accent, reminders: ["3h", "1h"] },
   { id: 2, title: "Anniversaire de Claude", date: "2025-06-07", time: "15:00", lieu: "Maison familiale", important: true, color: T.accentAlt, reminders: ["1j", "3h"] },
-  { id: 3, title: "Consultation neurologie", date: "2025-06-12", time: "10:00", lieu: "Hôpital Pasteur, Nice", important: true, color: T.accent, reminders: ["1j", "1h"] },
-  { id: 4, title: "Séance musicothérapie", date: "2025-06-10", time: "11:00", lieu: "Centre de jour", important: false, color: T.secondary, reminders: ["1h"] },
+  { id: 3, title: "Consultation neurologie", date: "2025-06-12", time: "10:00", lieu: "HÃ´pital Pasteur, Nice", important: true, color: T.accent, reminders: ["1j", "1h"] },
+  { id: 4, title: "SÃ©ance musicothÃ©rapie", date: "2025-06-10", time: "11:00", lieu: "Centre de jour", important: false, color: T.secondary, reminders: ["1h"] },
   { id: 5, title: "Visite de Sophie", date: "2025-06-15", time: "14:00", lieu: "Domicile", important: false, color: T.primary, reminders: ["15m"] },
-  { id: 6, title: "Kinésithérapie", date: "2025-06-17", time: "14:30", lieu: "Cabinet Dr. Martin", important: false, color: T.secondary, reminders: ["1h"] },
+  { id: 6, title: "KinÃ©sithÃ©rapie", date: "2025-06-17", time: "14:30", lieu: "Cabinet Dr. Martin", important: false, color: T.secondary, reminders: ["1h"] },
   { id: 7, title: "Prise de sang", date: "2025-06-20", time: "08:30", lieu: "Laboratoire Pasteur", important: true, color: T.accent, reminders: ["1j"] },
   { id: 8, title: "Repas en famille", date: "2025-06-22", time: "12:30", lieu: "Restaurant Le Jardin", important: true, color: T.accentAlt, reminders: ["1j", "3h"] },
 ];
@@ -266,20 +266,20 @@ const statsHistory = [
 ];
 
 const quizBreakdown = [
-  { name: "La famille proche", score: 87, plays: 14, trend: "↑" },
-  { name: "Souvenirs d'enfance", score: 72, plays: 9, trend: "→" },
-  { name: "La maison et les objets", score: 61, plays: 7, trend: "↓" },
-  { name: "Les animaux favoris", score: 94, plays: 11, trend: "↑" },
+  { name: "La famille proche", score: 87, plays: 14, trend: "â†‘" },
+  { name: "Souvenirs d'enfance", score: 72, plays: 9, trend: "â†’" },
+  { name: "La maison et les objets", score: 61, plays: 7, trend: "â†“" },
+  { name: "Les animaux favoris", score: 94, plays: 11, trend: "â†‘" },
 ];
 
 const insights = [
   { text: "Les quiz sur la famille proche obtiennent les meilleurs scores (+23% vs moyenne)", type: "green" },
-  { text: "Le taux de bonnes réponses au premier essai est en baisse cette semaine (52% vs 64%)", type: "peach" },
-  { text: "Les questions avec image sont mieux réussies que les questions textuelles (81% vs 58%)", type: "blue" },
-  { text: "Marguerite utilise davantage les indices en après-midi qu'en matinée", type: "peach" },
+  { text: "Le taux de bonnes rÃ©ponses au premier essai est en baisse cette semaine (52% vs 64%)", type: "peach" },
+  { text: "Les questions avec image sont mieux rÃ©ussies que les questions textuelles (81% vs 58%)", type: "blue" },
+  { text: "Jean utilise davantage les indices en aprÃ¨s-midi qu'en matinÃ©e", type: "peach" },
 ];
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Icon = ({ name, size = 16, color }) => {
   const icons = {
     dashboard: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z",
@@ -360,21 +360,21 @@ const BarChart = ({ data, height = 120 }) => {
   );
 };
 
-// ─── SIDEBAR ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ SIDEBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Sidebar = ({ page, setPage }) => {
   const nav = [
     { id: "dashboard", label: "Dashboard", icon: "dashboard" },
     { id: "quiz", label: "Quiz", icon: "quiz" },
     { id: "calendar", label: "Calendrier", icon: "calendar" },
     { id: "stats", label: "Statistiques", icon: "stats" },
-    { id: "settings", label: "Paramètres", icon: "settings" },
+    { id: "settings", label: "ParamÃ¨tres", icon: "settings" },
   ];
   return (
     <aside style={{ width: 220, flexShrink: 0, background: T.surface, borderRight: `1px solid ${T.neutral100}`, display: "flex", flexDirection: "column", padding: "24px 12px", position: "sticky", top: 0, height: "100vh", overflow: "hidden" }}>
       {/* Logo */}
       <div style={{ padding: "0 8px 24px", borderBottom: `1px solid ${T.neutral100}`, marginBottom: 16 }}>
         <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 700, color: T.textPrimary, letterSpacing: "-0.01em" }}>
-          Kyō<span style={{ color: T.primary }}>no</span>kibō
+          KyÅ<span style={{ color: T.primary }}>no</span>kibÅ
         </div>
         <div style={{ fontSize: "0.72rem", color: T.textMuted, marginTop: 2, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>Espace aidant</div>
       </div>
@@ -410,7 +410,7 @@ const Sidebar = ({ page, setPage }) => {
   );
 };
 
-// ─── HEADER ───────────────────────────────────────────────────────────────────
+// â”€â”€â”€ HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Header = ({ title, subtitle, action }) => (
   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 28 }}>
     <div>
@@ -421,7 +421,7 @@ const Header = ({ title, subtitle, action }) => (
   </div>
 );
 
-// ─── KPI CARD ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ KPI CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const KpiCard = ({ label, value, sub, icon, accent = T.primary, accentBg }) => (
   <div className="card kpi-card" style={{ padding: "18px 20px", display: "flex", flexDirection: "column", gap: 12 }}>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -437,7 +437,7 @@ const KpiCard = ({ label, value, sub, icon, accent = T.primary, accentBg }) => (
   </div>
 );
 
-// ─── DASHBOARD PAGE ───────────────────────────────────────────────────────────
+// â”€â”€â”€ DASHBOARD PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Dashboard = () => {
   const [tasks, setTasks] = useState(todayTasks);
   const today = new Date();
@@ -456,24 +456,24 @@ const Dashboard = () => {
           <div>
             <div style={{ fontSize: "0.78rem", color: T.textMuted, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>{dateStr}</div>
             <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 600, color: T.neutral900, marginBottom: 6 }}>
-              Bonjour, Sophie 👋
+              Bonjour, Sophie ðŸ‘‹
             </h1>
             <p style={{ color: T.textSecondary, fontSize: "0.9rem" }}>
-              Marguerite a complété son quiz du matin avec un bon score. <strong>{doneTasks}/{tasks.length}</strong> tâches accomplies aujourd'hui.
+              Jean a complété son quiz du matin avec un bon score. <strong>{doneTasks}/{tasks.length}</strong> tÃ¢ches accomplies aujourd'hui.
             </p>
           </div>
           <div style={{ textAlign: "right" }}>
-            <div className="badge badge-green" style={{ fontSize: "0.8rem", padding: "6px 14px" }}>Journée sereine ✦</div>
+            <div className="badge badge-green" style={{ fontSize: "0.8rem", padding: "6px 14px" }}>JournÃ©e sereine âœ¦</div>
           </div>
         </div>
       </div>
 
       {/* KPIs */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 24 }}>
-        <KpiCard label="Quiz du jour" value="Terminé ✓" sub="Score : 7/10 • 9 min 32 s" icon="📝" accent={T.primary} />
-        <KpiCard label="Tâches du jour" value={`${doneTasks} / ${tasks.length}`} sub={`${tasks.length - doneTasks} restante(s)`} icon="✓" accent={T.secondary} />
-        <KpiCard label="Taux de réussite" value="68 %" sub="Cette semaine • −4% vs semaine passée" icon="📊" accent={T.accent} />
-        <KpiCard label="Temps moyen" value="1m 24s" sub="Par question aujourd'hui" icon="⏱" accent={T.accentAlt} />
+        <KpiCard label="Quiz du jour" value="TerminÃ© âœ“" sub="Score : 7/10 â€¢ 9 min 32 s" icon="ðŸ“" accent={T.primary} />
+        <KpiCard label="TÃ¢ches du jour" value={`${doneTasks} / ${tasks.length}`} sub={`${tasks.length - doneTasks} restante(s)`} icon="âœ“" accent={T.secondary} />
+        <KpiCard label="Taux de rÃ©ussite" value="68 %" sub="Cette semaine â€¢ âˆ’4% vs semaine passÃ©e" icon="ðŸ“Š" accent={T.accent} />
+        <KpiCard label="Temps moyen" value="1m 24s" sub="Par question aujourd'hui" icon="â±" accent={T.accentAlt} />
       </div>
 
       {/* Main columns */}
@@ -484,7 +484,7 @@ const Dashboard = () => {
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 600, color: T.textPrimary }}>Checklist du jour</h2>
             <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
               <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.primary }} />
-              <span style={{ fontSize: "0.78rem", color: T.textMuted }}>{doneTasks} / {tasks.length} effectuées</span>
+              <span style={{ fontSize: "0.78rem", color: T.textMuted }}>{doneTasks} / {tasks.length} effectuÃ©es</span>
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -505,24 +505,24 @@ const Dashboard = () => {
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {/* Next important event */}
           <div className="card" style={{ padding: "18px 20px", border: `1px solid ${T.accent}40` }}>
-            <div style={{ fontSize: "0.72rem", fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>⚡ Prochain événement important</div>
+            <div style={{ fontSize: "0.72rem", fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>âš¡ Prochain Ã©vÃ©nement important</div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", fontWeight: 600, color: T.neutral900, marginBottom: 4 }}>{nextEvent.title}</div>
             <div style={{ fontSize: "0.82rem", color: T.textSecondary, marginBottom: 8 }}>
-              {new Date(nextEvent.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })} à {nextEvent.time}
+              {new Date(nextEvent.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })} Ã  {nextEvent.time}
             </div>
-            <div style={{ fontSize: "0.8rem", color: T.textMuted }}>📍 {nextEvent.lieu}</div>
+            <div style={{ fontSize: "0.8rem", color: T.textMuted }}>ðŸ“ {nextEvent.lieu}</div>
           </div>
 
           {/* Memory summary */}
           <div className="card" style={{ padding: "18px 20px" }}>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 14 }}>Résumé cognitif</div>
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 14 }}>RÃ©sumÃ© cognitif</div>
             <div style={{ display: "flex", justifyContent: "space-around", marginBottom: 14 }}>
-              <CircleProgress value={68} size={64} label="réussite" color={T.secondary} />
+              <CircleProgress value={68} size={64} label="rÃ©ussite" color={T.secondary} />
               <CircleProgress value={45} size={64} label="sans indice" color={T.primary} />
               <CircleProgress value={52} size={64} label="1er essai" color={T.accent} />
             </div>
             <div style={{ background: T.neutral50, borderRadius: T.radiusSm, padding: "10px 12px", fontSize: "0.8rem", color: T.textSecondary }}>
-              ⏱ Temps moyen : <strong style={{ color: T.neutral700 }}>1m 24s</strong> par question
+              â± Temps moyen : <strong style={{ color: T.neutral700 }}>1m 24s</strong> par question
             </div>
           </div>
         </div>
@@ -530,7 +530,7 @@ const Dashboard = () => {
 
       {/* Activity */}
       <div className="card" style={{ padding: "22px 24px" }}>
-        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 600, color: T.textPrimary, marginBottom: 18 }}>Activité récente</h2>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 600, color: T.textPrimary, marginBottom: 18 }}>ActivitÃ© rÃ©cente</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {recentActivity.map((a, i) => (
             <div key={a.id} style={{ display: "flex", gap: 14, paddingBottom: i < recentActivity.length - 1 ? 14 : 0, marginBottom: i < recentActivity.length - 1 ? 14 : 0, borderBottom: i < recentActivity.length - 1 ? `1px solid ${T.neutral100}` : "none", alignItems: "flex-start" }}>
@@ -549,7 +549,7 @@ const Dashboard = () => {
 };
 
 
-// ─── QUIZ PAGE ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ QUIZ PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const QuizPage = () => {
   const [tab, setTab] = useState("daily");
   const [dailyConfig, setDailyConfig] = useState({ hints: true, truefalse: true, removeFalse: false });
@@ -574,7 +574,7 @@ const QuizPage = () => {
         id: Date.now(),
         title,
         desc: desc || "",
-        cover: emoji || "📝",
+        cover: emoji || "ðŸ“",
         questions: questionCount,
         lastScore: 0,
         played: 0,
@@ -589,21 +589,21 @@ const QuizPage = () => {
   const closeBuilder = () => { setShowBuilder(false); setEditQuiz(null); };
 
   const dailyConfigOptions = [
-    { key: "hints",       label: "Ajouter des indices",            desc: "Un indice apparaît après la première mauvaise réponse" },
-    { key: "truefalse",   label: "Transformer en vrai / faux",     desc: "Les questions échouées sont reproposées en format vrai/faux en fin de quiz" },
-    { key: "removeFalse", label: "Supprimer des réponses fausses", desc: "Une mauvaise réponse est supprimée après la deuxième erreur" },
+    { key: "hints",       label: "Ajouter des indices",            desc: "Un indice apparaÃ®t aprÃ¨s la premiÃ¨re mauvaise rÃ©ponse" },
+    { key: "truefalse",   label: "Transformer en vrai / faux",     desc: "Les questions Ã©chouÃ©es sont reproposÃ©es en format vrai/faux en fin de quiz" },
+    { key: "removeFalse", label: "Supprimer des rÃ©ponses fausses", desc: "Une mauvaise rÃ©ponse est supprimÃ©e aprÃ¨s la deuxiÃ¨me erreur" },
   ];
 
   return (
     <div className="fade-in">
-      <Header title="Quiz" subtitle="Quiz du jour et quiz personnalisés de Marguerite" />
+      <Header title="Quiz" subtitle="Quiz du jour et quiz personnalisÃ©s de Jean" />
 
       <div style={{ background: T.neutral100, borderRadius: 12, padding: 4, display: "inline-flex", gap: 2, marginBottom: 28 }}>
         <button className={`tab-btn ${tab === "daily" ? "active" : ""}`} onClick={() => setTab("daily")}>Quiz du jour</button>
-        <button className={`tab-btn ${tab === "custom" ? "active" : ""}`} onClick={() => setTab("custom")}>Quiz personnalisés</button>
+        <button className={`tab-btn ${tab === "custom" ? "active" : ""}`} onClick={() => setTab("custom")}>Quiz personnalisÃ©s</button>
       </div>
 
-      {/* ── QUIZ DU JOUR ── */}
+      {/* â”€â”€ QUIZ DU JOUR â”€â”€ */}
       {tab === "daily" && (
         <div style={{ display: "grid", gridTemplateColumns: "1fr 360px", gap: 22 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
@@ -623,10 +623,10 @@ const QuizPage = () => {
             <div className="card" style={{ padding: "24px 26px" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
                 <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, color: T.textPrimary }}>Quiz d'aujourd'hui</h2>
-                <span className="badge badge-green">Terminé</span>
+                <span className="badge badge-green">TerminÃ©</span>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 16 }}>
-                {[["10 questions", "Prévu"], ["7 / 10", "Score"], ["9 min 32 s", "Durée"]].map(([v, l]) => (
+                {[["10 questions", "PrÃ©vu"], ["7 / 10", "Score"], ["9 min 32 s", "DurÃ©e"]].map(([v, l]) => (
                   <div key={l} style={{ background: T.neutral50, borderRadius: T.radiusSm, padding: "12px 14px", textAlign: "center" }}>
                     <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 600, color: T.neutral900 }}>{v}</div>
                     <div style={{ fontSize: "0.73rem", color: T.textMuted, marginTop: 2 }}>{l}</div>
@@ -635,7 +635,7 @@ const QuizPage = () => {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {[
-                  ["Qui est le fils de Marguerite ?", true],
+                  ["Qui est la fille de Jean ?", true],
                   ["Dans quelle ville habitiez-vous enfant ?", true],
                   ["Quel animal avez-vous eu ?", true],
                   ["Quel jour sommes-nous ?", false],
@@ -643,7 +643,7 @@ const QuizPage = () => {
                   <div key={idx} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", background: correct ? T.primaryLight : T.errorBg, borderRadius: T.radiusSm }}>
                     <div style={{ width: 6, height: 6, borderRadius: "50%", background: correct ? T.secondary : T.error, flexShrink: 0 }} />
                     <span style={{ fontSize: "0.85rem", color: T.neutral700, flex: 1 }}>{q}</span>
-                    <span style={{ fontSize: "0.73rem", color: correct ? T.secondary : T.error, fontWeight: 600 }}>{correct ? "✓ Correct" : "✗ Échoué"}</span>
+                    <span style={{ fontSize: "0.73rem", color: correct ? T.secondary : T.error, fontWeight: 600 }}>{correct ? "âœ“ Correct" : "âœ— Ã‰chouÃ©"}</span>
                   </div>
                 ))}
                 <div style={{ fontSize: "0.78rem", color: T.textMuted, textAlign: "center", paddingTop: 4 }}>+ 6 autres questions</div>
@@ -653,14 +653,14 @@ const QuizPage = () => {
 
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div className="card" style={{ padding: "24px" }}>
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>Aperçu du fonctionnement</h3>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>AperÃ§u du fonctionnement</h3>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 {[
-                  { step: 1, text: "Question affichée avec toutes les réponses", active: true },
-                  { step: 2, text: "1ʳᵉ erreur → un indice apparaît", active: dailyConfig.hints },
-                  { step: 3, text: "2ᵉ erreur → une mauvaise réponse est supprimée", active: dailyConfig.removeFalse },
-                  { step: 4, text: "3ᵉ erreur → passage à la question suivante", active: true },
-                  { step: 5, text: "Fin du quiz → questions échouées en vrai/faux", active: dailyConfig.truefalse },
+                  { step: 1, text: "Question affichÃ©e avec toutes les rÃ©ponses", active: true },
+                  { step: 2, text: "1Ê³áµ‰ erreur â†’ un indice apparaÃ®t", active: dailyConfig.hints },
+                  { step: 3, text: "2áµ‰ erreur â†’ une mauvaise rÃ©ponse est supprimÃ©e", active: dailyConfig.removeFalse },
+                  { step: 4, text: "3áµ‰ erreur â†’ passage Ã  la question suivante", active: true },
+                  { step: 5, text: "Fin du quiz â†’ questions Ã©chouÃ©es en vrai/faux", active: dailyConfig.truefalse },
                 ].map((s, si, arr) => (
                   <div key={s.step} style={{ display: "flex", gap: 12, paddingBottom: si < arr.length - 1 ? 12 : 0, marginBottom: si < arr.length - 1 ? 12 : 0, opacity: s.active ? 1 : 0.35 }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -676,7 +676,7 @@ const QuizPage = () => {
             </div>
             <div className="card" style={{ padding: "20px" }}>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 600, color: T.textPrimary, marginBottom: 12 }}>Cette semaine</h3>
-              {[["Quiz complétés", "5 / 7"], ["Questions posées", "68"], ["Score moyen", "68 %"], ["Indices utilisés", "12"]].map(([l, v]) => (
+              {[["Quiz complÃ©tÃ©s", "5 / 7"], ["Questions posÃ©es", "68"], ["Score moyen", "68 %"], ["Indices utilisÃ©s", "12"]].map(([l, v]) => (
                 <div key={l} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: `1px solid ${T.neutral100}` }}>
                   <span style={{ fontSize: "0.83rem", color: T.textSecondary }}>{l}</span>
                   <span style={{ fontSize: "0.83rem", fontWeight: 600, color: T.textPrimary }}>{v}</span>
@@ -687,21 +687,21 @@ const QuizPage = () => {
         </div>
       )}
 
-      {/* ── QUIZ PERSONNALISÉS ── */}
+      {/* â”€â”€ QUIZ PERSONNALISÃ‰S â”€â”€ */}
       {tab === "custom" && (
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-            <p style={{ color: T.textMuted, fontSize: "0.88rem" }}>{quizzes.length} quiz créé{quizzes.length > 1 ? "s" : ""}</p>
+            <p style={{ color: T.textMuted, fontSize: "0.88rem" }}>{quizzes.length} quiz crÃ©Ã©{quizzes.length > 1 ? "s" : ""}</p>
             <button className="btn btn-primary" onClick={openCreate}>
-              <span style={{ display: "flex", alignItems: "center", gap: 6 }}><Icon name="plus" size={15} color="white" /> Créer un quiz</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 6 }}><Icon name="plus" size={15} color="white" /> CrÃ©er un quiz</span>
             </button>
           </div>
 
           {quizzes.length === 0 && (
             <div className="card" style={{ padding: "48px", textAlign: "center" }}>
-              <div style={{ fontSize: "3rem", marginBottom: 12 }}>📝</div>
-              <div style={{ fontSize: "1rem", fontWeight: 600, color: T.textMuted, marginBottom: 6 }}>Aucun quiz personnalisé</div>
-              <div style={{ fontSize: "0.85rem", color: T.neutral400 }}>Cliquez sur « Créer un quiz » pour commencer</div>
+              <div style={{ fontSize: "3rem", marginBottom: 12 }}>ðŸ“</div>
+              <div style={{ fontSize: "1rem", fontWeight: 600, color: T.textMuted, marginBottom: 6 }}>Aucun quiz personnalisÃ©</div>
+              <div style={{ fontSize: "0.85rem", color: T.neutral400 }}>Cliquez sur Â« CrÃ©er un quiz Â» pour commencer</div>
             </div>
           )}
 
@@ -729,7 +729,7 @@ const QuizPage = () => {
                 </div>
                 <div style={{ display: "flex", gap: 8 }}>
                   <button className="btn btn-ghost" style={{ flex: 1, fontSize: "0.78rem" }} onClick={() => setShowPreview(q)}>
-                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}><Icon name="eye" size={13} /> Aperçu</span>
+                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}><Icon name="eye" size={13} /> AperÃ§u</span>
                   </button>
                   <button className="btn btn-ghost" style={{ flex: 1, fontSize: "0.78rem" }} onClick={() => openEdit(q)}>
                     <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}><Icon name="edit" size={13} /> Modifier</span>
@@ -750,24 +750,24 @@ const QuizPage = () => {
   );
 };
 
-// ─── QUIZ BUILDER ─────────────────────────────────────────────────────────────
-const COVER_EMOJIS = ["👨‍👩‍👧‍👦","🌸","🏡","🐱","🎵","🌿","☀️","🎨","📸","🍰","🌻","🐦","🚗","📚","⛵","🎭"];
+// â”€â”€â”€ QUIZ BUILDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const COVER_EMOJIS = ["ðŸ‘¨â€ðŸ‘©â€ðŸ‘§â€ðŸ‘¦","ðŸŒ¸","ðŸ¡","ðŸ±","ðŸŽµ","ðŸŒ¿","â˜€ï¸","ðŸŽ¨","ðŸ“¸","ðŸ°","ðŸŒ»","ðŸ¦","ðŸš—","ðŸ“š","â›µ","ðŸŽ­"];
 
 const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
   const [step, setStep] = useState(1);
   const [title, setTitle]     = useState(editQuiz ? editQuiz.title : "");
   const [desc, setDesc]       = useState(editQuiz ? (editQuiz.desc || "") : "");
-  const [emoji, setEmoji]     = useState(editQuiz ? (editQuiz.cover || "📝") : "📝");
+  const [emoji, setEmoji]     = useState(editQuiz ? (editQuiz.cover || "ðŸ“") : "ðŸ“");
   const [questions, setQuestions] = useState([
     { id: 1, type: "text-text", text: "", answers: ["", "", "", ""], correct: 0, hint: "" }
   ]);
   const [config, setConfig] = useState({ hints: true, truefalse: false, removeFalse: false });
 
   const qTypes = [
-    { id: "text-text",   label: "Texte → Texte",   icon: "📝"   },
-    { id: "text-image",  label: "Texte → Images",  icon: "📝🖼" },
-    { id: "image-text",  label: "Image → Texte",   icon: "🖼📝" },
-    { id: "image-image", label: "Image → Images",  icon: "🖼🖼" },
+    { id: "text-text",   label: "Texte â†’ Texte",   icon: "ðŸ“"   },
+    { id: "text-image",  label: "Texte â†’ Images",  icon: "ðŸ“ðŸ–¼" },
+    { id: "image-text",  label: "Image â†’ Texte",   icon: "ðŸ–¼ðŸ“" },
+    { id: "image-image", label: "Image â†’ Images",  icon: "ðŸ–¼ðŸ–¼" },
   ];
 
   const addQuestion = () =>
@@ -781,7 +781,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
       q.id === qid ? { ...q, answers: q.answers.map((a, ai) => ai === ansIdx ? val : a) } : q
     ));
 
-  const stepLabels = ["Informations", "Questions", "Configuration", "Aperçu"];
+  const stepLabels = ["Informations", "Questions", "Configuration", "AperÃ§u"];
   const canAdvance = step !== 1 || title.trim().length > 0;
   const handleSubmit = () => onSave({ title, desc, emoji, questions, config });
 
@@ -798,7 +798,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                 onClick={() => { if (si + 1 < step) setStep(si + 1); }}
               >
                 <div className={`step-indicator ${si + 1 < step ? "step-done" : si + 1 === step ? "step-active" : "step-todo"}`}>
-                  {si + 1 < step ? "✓" : si + 1}
+                  {si + 1 < step ? "âœ“" : si + 1}
                 </div>
                 <span style={{ fontSize: "0.8rem", color: si + 1 === step ? T.primaryDark : si + 1 < step ? T.primary : T.textMuted, fontWeight: si + 1 === step ? 600 : 400 }}>
                   {label}
@@ -814,10 +814,10 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
           </button>
         </div>
 
-        {/* ── STEP 1 ── */}
+        {/* â”€â”€ STEP 1 â”€â”€ */}
         {step === 1 && (
           <div>
-            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 600, color: T.neutral900, marginBottom: 20 }}>Informations générales</h3>
+            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 600, color: T.neutral900, marginBottom: 20 }}>Informations gÃ©nÃ©rales</h3>
             <div style={{ marginBottom: 16 }}>
               <label className="label">Titre du quiz *</label>
               <input
@@ -835,14 +835,14 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
               <label className="label">Description courte (optionnel)</label>
               <textarea
                 className="input-field"
-                placeholder="Décrivez brièvement ce quiz…"
+                placeholder="DÃ©crivez briÃ¨vement ce quizâ€¦"
                 value={desc}
                 onChange={e => setDesc(e.target.value)}
                 style={{ minHeight: 70 }}
               />
             </div>
             <div>
-              <label className="label">Icône de couverture</label>
+              <label className="label">IcÃ´ne de couverture</label>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 6 }}>
                 {COVER_EMOJIS.map(em => (
                   <button
@@ -861,7 +861,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
           </div>
         )}
 
-        {/* ── STEP 2 ── */}
+        {/* â”€â”€ STEP 2 â”€â”€ */}
         {step === 2 && (
           <div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
@@ -897,13 +897,13 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
 
                   {q.type.startsWith("image") ? (
                     <div className="upload-zone" style={{ marginBottom: 12, padding: "14px" }}>
-                      <div style={{ fontSize: "1.5rem" }}>🖼️</div>
+                      <div style={{ fontSize: "1.5rem" }}>ðŸ–¼ï¸</div>
                       <div style={{ fontSize: "0.78rem", color: T.textMuted, marginTop: 4 }}>Image de la question</div>
                     </div>
                   ) : (
                     <input
                       className="input-field"
-                      placeholder="Énoncé de la question…"
+                      placeholder="Ã‰noncÃ© de la questionâ€¦"
                       value={q.text}
                       onChange={e => updateQ(q.id, "text", e.target.value)}
                       style={{ marginBottom: 12 }}
@@ -919,7 +919,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                       >
                         <button
                           onClick={() => updateQ(q.id, "correct", ansIdx)}
-                          title="Marquer comme bonne réponse"
+                          title="Marquer comme bonne rÃ©ponse"
                           style={{
                             width: 20, height: 20, borderRadius: "50%",
                             border: `2px solid ${q.correct === ansIdx ? T.primary : T.neutral200}`,
@@ -929,12 +929,12 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                         />
                         {q.type.endsWith("image") ? (
                           <div style={{ flex: 1, height: 40, background: T.neutral50, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7rem", color: T.textMuted, cursor: "pointer" }}>
-                            📷 Réponse {ansIdx + 1}
+                            ðŸ“· RÃ©ponse {ansIdx + 1}
                           </div>
                         ) : (
                           <input
                             className="input-field"
-                            placeholder={`Réponse ${ansIdx + 1}${ansIdx === 0 ? " (bonne réponse)" : ""}`}
+                            placeholder={`RÃ©ponse ${ansIdx + 1}${ansIdx === 0 ? " (bonne rÃ©ponse)" : ""}`}
                             value={a}
                             onChange={e => updateAnswer(q.id, ansIdx, e.target.value)}
                             style={{ border: "none", padding: 0, background: "transparent", fontSize: "0.83rem", outline: "none", flex: 1 }}
@@ -946,7 +946,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
 
                   <input
                     className="input-field"
-                    placeholder="Indice (optionnel)…"
+                    placeholder="Indice (optionnel)â€¦"
                     value={q.hint}
                     onChange={e => updateQ(q.id, "hint", e.target.value)}
                     style={{ fontSize: "0.82rem" }}
@@ -957,14 +957,14 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
           </div>
         )}
 
-        {/* ── STEP 3 ── */}
+        {/* â”€â”€ STEP 3 â”€â”€ */}
         {step === 3 && (
           <div>
             <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 600, color: T.neutral900, marginBottom: 20 }}>Configuration du quiz</h3>
             {[
-              { key: "hints",       label: "Ajouter des indices",            desc: "Un indice est disponible après la première erreur" },
-              { key: "truefalse",   label: "Transformer en vrai / faux",     desc: "Les questions ratées reviennent en fin de quiz au format vrai/faux" },
-              { key: "removeFalse", label: "Supprimer des réponses fausses", desc: "Une mauvaise réponse disparaît après la deuxième erreur" },
+              { key: "hints",       label: "Ajouter des indices",            desc: "Un indice est disponible aprÃ¨s la premiÃ¨re erreur" },
+              { key: "truefalse",   label: "Transformer en vrai / faux",     desc: "Les questions ratÃ©es reviennent en fin de quiz au format vrai/faux" },
+              { key: "removeFalse", label: "Supprimer des rÃ©ponses fausses", desc: "Une mauvaise rÃ©ponse disparaÃ®t aprÃ¨s la deuxiÃ¨me erreur" },
             ].map(opt => (
               <div key={opt.key} style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", padding: "16px 0", borderBottom: `1px solid ${T.neutral100}` }}>
                 <div>
@@ -977,10 +977,10 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
           </div>
         )}
 
-        {/* ── STEP 4 : Aperçu ── */}
+        {/* â”€â”€ STEP 4 : AperÃ§u â”€â”€ */}
         {step === 4 && (
           <div>
-            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 600, color: T.neutral900, marginBottom: 20 }}>Aperçu du quiz</h3>
+            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 600, color: T.neutral900, marginBottom: 20 }}>AperÃ§u du quiz</h3>
             <div style={{ background: T.primaryLight, borderRadius: T.radius, padding: "20px 22px", marginBottom: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 10 }}>
                 <div style={{ fontSize: "2rem" }}>{emoji}</div>
@@ -991,9 +991,9 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
               </div>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 <span className="badge badge-green">{questions.length} question{questions.length > 1 ? "s" : ""}</span>
-                {config.hints       && <span className="badge badge-blue">Indices activés</span>}
+                {config.hints       && <span className="badge badge-blue">Indices activÃ©s</span>}
                 {config.truefalse   && <span className="badge badge-gray">Vrai/Faux</span>}
-                {config.removeFalse && <span className="badge badge-peach">Suppression réponses</span>}
+                {config.removeFalse && <span className="badge badge-peach">Suppression rÃ©ponses</span>}
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10, maxHeight: 300, overflowY: "auto" }}>
@@ -1014,14 +1014,14 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
                           fontWeight: ai === q.correct ? 600 : 400,
                         }}
                       >
-                        {a || (q.type.endsWith("image") ? `Image ${ai + 1}` : `Réponse ${ai + 1}`)}
-                        {ai === q.correct && " ✓"}
+                        {a || (q.type.endsWith("image") ? `Image ${ai + 1}` : `RÃ©ponse ${ai + 1}`)}
+                        {ai === q.correct && " âœ“"}
                       </div>
                     ))}
                   </div>
                   {q.hint && (
                     <div style={{ marginTop: 8, fontSize: "0.78rem", color: T.secondary, background: T.secondaryLight, borderRadius: 6, padding: "5px 10px" }}>
-                      💡 {q.hint}
+                      ðŸ’¡ {q.hint}
                     </div>
                   )}
                 </div>
@@ -1033,7 +1033,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
         {/* Navigation */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 24, paddingTop: 20, borderTop: `1px solid ${T.neutral100}` }}>
           <button className="btn btn-secondary" onClick={() => step > 1 ? setStep(s => s - 1) : onClose()}>
-            {step > 1 ? "← Retour" : "Annuler"}
+            {step > 1 ? "â† Retour" : "Annuler"}
           </button>
           {step < 4 ? (
             <button
@@ -1041,11 +1041,11 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
               onClick={() => { if (canAdvance) setStep(s => s + 1); }}
               style={{ opacity: canAdvance ? 1 : 0.45, cursor: canAdvance ? "pointer" : "not-allowed" }}
             >
-              Continuer →
+              Continuer â†’
             </button>
           ) : (
             <button className="btn btn-primary" onClick={handleSubmit}>
-              {editQuiz ? "✓ Enregistrer les modifications" : "✓ Créer le quiz"}
+              {editQuiz ? "âœ“ Enregistrer les modifications" : "âœ“ CrÃ©er le quiz"}
             </button>
           )}
         </div>
@@ -1054,7 +1054,7 @@ const QuizBuilder = ({ onClose, editQuiz, onSave }) => {
   );
 };
 
-// ─── QUIZ PREVIEW ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ QUIZ PREVIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const QuizPreview = ({ quiz, onClose }) => {
   const questionCount = Array.isArray(quiz.questions) ? quiz.questions.length : (quiz.questions || 0);
   return (
@@ -1065,7 +1065,7 @@ const QuizPreview = ({ quiz, onClose }) => {
           <button className="btn btn-ghost" style={{ padding: "6px 10px" }} onClick={onClose}><Icon name="close" size={16} /></button>
         </div>
         <div style={{ background: T.primaryLight, borderRadius: T.radiusSm, padding: "16px", marginBottom: 20, textAlign: "center", fontSize: "2.5rem" }}>
-          {quiz.cover || "📝"}
+          {quiz.cover || "ðŸ“"}
         </div>
         {quiz.desc && <div style={{ fontSize: "0.88rem", color: T.textSecondary, marginBottom: 16 }}>{quiz.desc}</div>}
         <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>
@@ -1078,18 +1078,18 @@ const QuizPreview = ({ quiz, onClose }) => {
             <div style={{ fontSize: "0.72rem", color: T.primaryDark }}>meilleur score</div>
           </div>
           <div style={{ flex: 1, background: T.secondaryLight, borderRadius: T.radiusSm, padding: "12px", textAlign: "center" }}>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 700, color: T.secondary }}>{quiz.played}×</div>
-            <div style={{ fontSize: "0.72rem", color: T.secondary }}>joué</div>
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 700, color: T.secondary }}>{quiz.played}Ã—</div>
+            <div style={{ fontSize: "0.72rem", color: T.secondary }}>jouÃ©</div>
           </div>
         </div>
-        <button className="btn btn-primary" style={{ width: "100%" }}>Lancer ce quiz avec Marguerite →</button>
+        <button className="btn btn-primary" style={{ width: "100%" }}>Lancer ce quiz avec Jean â†’</button>
       </div>
     </div>
   );
 };
 
 
-// ─── CALENDAR PAGE ────────────────────────────────────────────────────────────
+// â”€â”€â”€ CALENDAR PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const CalendarPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2025, 5, 1));
   const [selectedDay, setSelectedDay] = useState(null);
@@ -1118,8 +1118,8 @@ const CalendarPage = () => {
     <div className="fade-in">
       <Header
         title="Calendrier"
-        subtitle="Événements et rappels de Marguerite"
-        action={<button className="btn btn-primary" onClick={() => { setEditEvent(null); setShowModal(true); }}><span style={{ display: "flex", alignItems: "center", gap: 6 }}><Icon name="plus" size={15} color="white" /> Ajouter un événement</span></button>}
+        subtitle="Ã‰vÃ©nements et rappels de Jean"
+        action={<button className="btn btn-primary" onClick={() => { setEditEvent(null); setShowModal(true); }}><span style={{ display: "flex", alignItems: "center", gap: 6 }}><Icon name="plus" size={15} color="white" /> Ajouter un Ã©vÃ©nement</span></button>}
       />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 22 }}>
@@ -1127,9 +1127,9 @@ const CalendarPage = () => {
         <div className="card" style={{ padding: "24px" }}>
           {/* Nav */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
-            <button className="btn btn-ghost" style={{ padding: "7px 12px" }} onClick={() => setCurrentDate(d => new Date(d.getFullYear(), d.getMonth() - 1, 1))}>‹</button>
+            <button className="btn btn-ghost" style={{ padding: "7px 12px" }} onClick={() => setCurrentDate(d => new Date(d.getFullYear(), d.getMonth() - 1, 1))}>â€¹</button>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 600, color: T.neutral900, textTransform: "capitalize" }}>{monthName}</h2>
-            <button className="btn btn-ghost" style={{ padding: "7px 12px" }} onClick={() => setCurrentDate(d => new Date(d.getFullYear(), d.getMonth() + 1, 1))}>›</button>
+            <button className="btn btn-ghost" style={{ padding: "7px 12px" }} onClick={() => setCurrentDate(d => new Date(d.getFullYear(), d.getMonth() + 1, 1))}>â€º</button>
           </div>
 
           {/* Day headers */}
@@ -1172,8 +1172,8 @@ const CalendarPage = () => {
 
           {/* Legend */}
           <div style={{ display: "flex", gap: 16, marginTop: 16, paddingTop: 14, borderTop: `1px solid ${T.neutral100}` }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.75rem", color: T.textMuted }}><span className="event-dot event-important" />Événement important</div>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.75rem", color: T.textMuted }}><span className="event-dot event-normal" />Événement normal</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.75rem", color: T.textMuted }}><span className="event-dot event-important" />Ã‰vÃ©nement important</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.75rem", color: T.textMuted }}><span className="event-dot event-normal" />Ã‰vÃ©nement normal</div>
           </div>
         </div>
 
@@ -1186,17 +1186,17 @@ const CalendarPage = () => {
               </div>
               {selectedEvents.length === 0 ? (
                 <div style={{ textAlign: "center", padding: "24px 0", color: T.neutral400, fontSize: "0.85rem" }}>
-                  <div style={{ fontSize: "2rem", marginBottom: 8 }}>📅</div>
-                  Aucun événement ce jour
+                  <div style={{ fontSize: "2rem", marginBottom: 8 }}>ðŸ“…</div>
+                  Aucun Ã©vÃ©nement ce jour
                 </div>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {selectedEvents.map(ev => (
                     <div key={ev.id} style={{ border: `1.5px solid ${ev.important ? T.accent + "50" : T.neutral200}`, borderRadius: T.radiusSm, padding: "12px 14px", background: ev.important ? T.accentLight : "white" }}>
-                      {ev.important && <div style={{ fontSize: "0.7rem", fontWeight: 700, color: T.accent, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>⚡ Important</div>}
+                      {ev.important && <div style={{ fontSize: "0.7rem", fontWeight: 700, color: T.accent, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>âš¡ Important</div>}
                       <div style={{ fontWeight: 600, fontSize: "0.9rem", color: T.textPrimary, marginBottom: 4 }}>{ev.title}</div>
-                      <div style={{ fontSize: "0.78rem", color: T.textMuted, marginBottom: 2 }}>🕐 {ev.time}</div>
-                      <div style={{ fontSize: "0.78rem", color: T.textMuted, marginBottom: 8 }}>📍 {ev.lieu}</div>
+                      <div style={{ fontSize: "0.78rem", color: T.textMuted, marginBottom: 2 }}>ðŸ• {ev.time}</div>
+                      <div style={{ fontSize: "0.78rem", color: T.textMuted, marginBottom: 8 }}>ðŸ“ {ev.lieu}</div>
                       <div style={{ display: "flex", gap: 6 }}>
                         <button className="btn btn-ghost" style={{ flex: 1, fontSize: "0.75rem", padding: "5px" }} onClick={() => { setEditEvent(ev); setShowModal(true); }}><Icon name="edit" size={12} /></button>
                         <button className="btn btn-danger" style={{ flex: 1, fontSize: "0.75rem", padding: "5px" }} onClick={() => deleteEvent(ev.id)}><Icon name="trash" size={12} /></button>
@@ -1212,15 +1212,15 @@ const CalendarPage = () => {
           ) : (
             <div className="card" style={{ padding: "20px 22px" }}>
               <div style={{ textAlign: "center", padding: "16px 0", color: T.neutral400 }}>
-                <div style={{ fontSize: "2rem", marginBottom: 8 }}>👆</div>
-                <div style={{ fontSize: "0.85rem" }}>Cliquez sur un jour pour voir les événements</div>
+                <div style={{ fontSize: "2rem", marginBottom: 8 }}>ðŸ‘†</div>
+                <div style={{ fontSize: "0.85rem" }}>Cliquez sur un jour pour voir les Ã©vÃ©nements</div>
               </div>
             </div>
           )}
 
           {/* Upcoming important */}
           <div className="card" style={{ padding: "18px 20px" }}>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 12 }}>Prochains événements importants</div>
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 12 }}>Prochains Ã©vÃ©nements importants</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {events.filter(e => e.important).slice(0, 3).map(ev => (
                 <div key={ev.id} style={{ display: "flex", gap: 10, padding: "10px 12px", background: T.accentLight, borderRadius: T.radiusSm, border: `1px solid ${T.accent}30` }}>
@@ -1260,24 +1260,24 @@ const EventModal = ({ event, defaultDate, onClose, onSave }) => {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal-box" style={{ width: 520, padding: "28px 32px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
-          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 600 }}>{event ? "Modifier l'événement" : "Nouvel événement"}</h3>
+          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 600 }}>{event ? "Modifier l'Ã©vÃ©nement" : "Nouvel Ã©vÃ©nement"}</h3>
           <button className="btn btn-ghost" style={{ padding: "6px 10px" }} onClick={onClose}><Icon name="close" size={16} /></button>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          <div><label className="label">Titre *</label><input className="input-field" value={form.title} onChange={e => set("title", e.target.value)} placeholder="Ex : Rendez-vous médecin" /></div>
+          <div><label className="label">Titre *</label><input className="input-field" value={form.title} onChange={e => set("title", e.target.value)} placeholder="Ex : Rendez-vous mÃ©decin" /></div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             <div><label className="label">Date</label><input type="date" className="input-field" value={form.date} onChange={e => set("date", e.target.value)} /></div>
             <div><label className="label">Heure</label><input type="time" className="input-field" value={form.time} onChange={e => set("time", e.target.value)} /></div>
           </div>
           <div><label className="label">Lieu</label><input className="input-field" value={form.lieu} onChange={e => set("lieu", e.target.value)} placeholder="Ex : Cabinet Dr. Martin, Nice" /></div>
-          <div><label className="label">Description</label><textarea className="input-field" value={form.description} onChange={e => set("description", e.target.value)} placeholder="Informations complémentaires…" /></div>
+          <div><label className="label">Description</label><textarea className="input-field" value={form.description} onChange={e => set("description", e.target.value)} placeholder="Informations complÃ©mentairesâ€¦" /></div>
 
           {/* Important toggle */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 16px", background: form.important ? T.accentLight : T.neutral50, borderRadius: T.radiusSm, border: `1.5px solid ${form.important ? T.accent + "50" : T.neutral200}`, transition: "all 0.2s" }}>
             <div>
-              <div style={{ fontSize: "0.9rem", fontWeight: 600, color: T.textPrimary }}>Événement important</div>
-              <div style={{ fontSize: "0.78rem", color: T.textMuted, marginTop: 2 }}>Apparaîtra côté patient avec des rappels</div>
+              <div style={{ fontSize: "0.9rem", fontWeight: 600, color: T.textPrimary }}>Ã‰vÃ©nement important</div>
+              <div style={{ fontSize: "0.78rem", color: T.textMuted, marginTop: 2 }}>ApparaÃ®tra cÃ´tÃ© patient avec des rappels</div>
             </div>
             <Toggle checked={form.important} onChange={v => set("important", v)} />
           </div>
@@ -1298,9 +1298,9 @@ const EventModal = ({ event, defaultDate, onClose, onSave }) => {
 
           {/* Color */}
           <div>
-            <label className="label">Catégorie</label>
+            <label className="label">CatÃ©gorie</label>
             <div style={{ display: "flex", gap: 8 }}>
-              {[{ c: T.primary, l: "Médical" }, { c: T.secondary, l: "Quotidien" }, { c: T.accent, l: "Urgent" }, { c: T.accentAlt, l: "Famille" }].map(({ c, l }) => (
+              {[{ c: T.primary, l: "MÃ©dical" }, { c: T.secondary, l: "Quotidien" }, { c: T.accent, l: "Urgent" }, { c: T.accentAlt, l: "Famille" }].map(({ c, l }) => (
                 <button key={c} onClick={() => set("color", c)} style={{ flex: 1, padding: "8px 6px", borderRadius: 8, border: `2px solid ${form.color === c ? c : T.neutral200}`, background: `${c}18`, fontSize: "0.75rem", color: c, fontWeight: form.color === c ? 700 : 400, cursor: "pointer", transition: "all 0.15s" }}>{l}</button>
               ))}
             </div>
@@ -1309,14 +1309,14 @@ const EventModal = ({ event, defaultDate, onClose, onSave }) => {
 
         <div style={{ display: "flex", gap: 10, marginTop: 24, paddingTop: 20, borderTop: `1px solid ${T.neutral100}` }}>
           <button className="btn btn-secondary" style={{ flex: 1 }} onClick={onClose}>Annuler</button>
-          <button className="btn btn-primary" style={{ flex: 2 }} onClick={() => onSave(form)} disabled={!form.title}>{event ? "Enregistrer" : "Créer l'événement ✓"}</button>
+          <button className="btn btn-primary" style={{ flex: 2 }} onClick={() => onSave(form)} disabled={!form.title}>{event ? "Enregistrer" : "CrÃ©er l'Ã©vÃ©nement âœ“"}</button>
         </div>
       </div>
     </div>
   );
 };
 
-// ─── STATS PAGE ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ STATS PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const StatsPage = () => {
   const [period, setPeriod] = useState("7j");
 
@@ -1324,7 +1324,7 @@ const StatsPage = () => {
     <div className="fade-in">
       <Header
         title="Statistiques"
-        subtitle="Suivi cognitif de Marguerite Fontaine"
+        subtitle="Suivi cognitif de Jean Martin"
         action={
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <div style={{ background: T.neutral100, borderRadius: 10, padding: 3, display: "flex", gap: 2 }}>
@@ -1339,10 +1339,10 @@ const StatsPage = () => {
 
       {/* KPIs row */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 22 }}>
-        <KpiCard label="Taux de réussite" value="68 %" sub="↓ −4% vs semaine passée" icon="🎯" accent={T.secondary} />
-        <KpiCard label="Sans indice" value="45 %" sub="↑ +2% vs semaine passée" icon="💡" accent={T.primary} />
-        <KpiCard label="Premier essai" value="52 %" sub="↓ −12% vs semaine passée" icon="⚡" accent={T.accent} />
-        <KpiCard label="Temps moyen" value="1m 24s" sub="↑ +8s vs semaine passée" icon="⏱" accent={T.accentAlt} />
+        <KpiCard label="Taux de rÃ©ussite" value="68 %" sub="â†“ âˆ’4% vs semaine passÃ©e" icon="ðŸŽ¯" accent={T.secondary} />
+        <KpiCard label="Sans indice" value="45 %" sub="â†‘ +2% vs semaine passÃ©e" icon="ðŸ’¡" accent={T.primary} />
+        <KpiCard label="Premier essai" value="52 %" sub="â†“ âˆ’12% vs semaine passÃ©e" icon="âš¡" accent={T.accent} />
+        <KpiCard label="Temps moyen" value="1m 24s" sub="â†‘ +8s vs semaine passÃ©e" icon="â±" accent={T.accentAlt} />
       </div>
 
       {/* Charts row */}
@@ -1350,9 +1350,9 @@ const StatsPage = () => {
         {/* Bar chart */}
         <div className="card" style={{ padding: "22px 24px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary }}>Évolution sur 7 jours</h3>
+            <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary }}>Ã‰volution sur 7 jours</h3>
             <div style={{ display: "flex", gap: 12 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "0.73rem", color: T.textMuted }}><span style={{ width: 10, height: 10, borderRadius: 2, background: T.primary, display: "inline-block" }} />Réussite</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "0.73rem", color: T.textMuted }}><span style={{ width: 10, height: 10, borderRadius: 2, background: T.primary, display: "inline-block" }} />RÃ©ussite</div>
               <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "0.73rem", color: T.textMuted }}><span style={{ width: 10, height: 10, borderRadius: 2, background: T.secondary, display: "inline-block" }} />Sans indice</div>
             </div>
           </div>
@@ -1361,19 +1361,19 @@ const StatsPage = () => {
 
         {/* Donut-like rings */}
         <div className="card" style={{ padding: "22px 24px" }}>
-          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 20 }}>Répartition des réponses</h3>
+          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 20 }}>RÃ©partition des rÃ©ponses</h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {[
               { label: "Questions texte", correct: 58, color: T.primary },
               { label: "Questions image", correct: 81, color: T.secondary },
               { label: "Avec indice", correct: 74, color: T.accentAlt },
-              { label: "Après erreur", correct: 62, color: T.accent },
+              { label: "AprÃ¨s erreur", correct: 62, color: T.accent },
             ].map(s => (
               <div key={s.label} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <CircleProgress value={s.correct} size={56} color={s.color} />
                 <div>
                   <div style={{ fontSize: "0.78rem", fontWeight: 600, color: T.neutral700 }}>{s.label}</div>
-                  <div style={{ fontSize: "0.72rem", color: T.textMuted, marginTop: 2 }}>de bonnes rép.</div>
+                  <div style={{ fontSize: "0.72rem", color: T.textMuted, marginTop: 2 }}>de bonnes rÃ©p.</div>
                 </div>
               </div>
             ))}
@@ -1385,7 +1385,7 @@ const StatsPage = () => {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
         {/* Quiz table */}
         <div className="card" style={{ padding: "22px 24px" }}>
-          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>Récapitulatif par quiz</h3>
+          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>RÃ©capitulatif par quiz</h3>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 60px 40px 30px", gap: 8, padding: "6px 10px", borderBottom: `1px solid ${T.neutral100}` }}>
               {["Quiz", "Score", "Parties", "Tendance"].map(h => <span key={h} style={{ fontSize: "0.7rem", fontWeight: 700, color: T.neutral400, textTransform: "uppercase", letterSpacing: "0.05em" }}>{h}</span>)}
@@ -1399,8 +1399,8 @@ const StatsPage = () => {
                   </div>
                   <span style={{ fontSize: "0.78rem", fontWeight: 700, color: T.neutral700, width: 30 }}>{q.score}%</span>
                 </div>
-                <span style={{ fontSize: "0.83rem", color: T.textMuted }}>{q.plays}×</span>
-                <span style={{ fontSize: "1rem", color: q.trend === "↑" ? T.primary : q.trend === "↓" ? T.error : T.textMuted }}>{q.trend}</span>
+                <span style={{ fontSize: "0.83rem", color: T.textMuted }}>{q.plays}Ã—</span>
+                <span style={{ fontSize: "1rem", color: q.trend === "â†‘" ? T.primary : q.trend === "â†“" ? T.error : T.textMuted }}>{q.trend}</span>
               </div>
             ))}
           </div>
@@ -1408,15 +1408,15 @@ const StatsPage = () => {
 
         {/* More stats */}
         <div className="card" style={{ padding: "22px 24px" }}>
-          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>Indicateurs clés</h3>
+          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>Indicateurs clÃ©s</h3>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
-              { label: "Quiz complétés", value: "5", total: "7" },
-              { label: "Quiz abandonnés", value: "1", total: null },
-              { label: "Indices utilisés", value: "12", total: null },
-              { label: "Questions transformées en V/F", value: "8", total: null },
+              { label: "Quiz complÃ©tÃ©s", value: "5", total: "7" },
+              { label: "Quiz abandonnÃ©s", value: "1", total: null },
+              { label: "Indices utilisÃ©s", value: "12", total: null },
+              { label: "Questions transformÃ©es en V/F", value: "8", total: null },
               { label: "Temps total moyen / quiz", value: "9 min", total: null },
-              { label: "Questions les + difficiles", value: "Famille élargie", total: null },
+              { label: "Questions les + difficiles", value: "Famille Ã©largie", total: null },
             ].map((s, i, arr) => (
               <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: i < arr.length - 1 ? `1px solid ${T.neutral100}` : "none" }}>
                 <span style={{ fontSize: "0.85rem", color: T.textSecondary }}>{s.label}</span>
@@ -1429,7 +1429,7 @@ const StatsPage = () => {
 
       {/* Insights */}
       <div className="card" style={{ padding: "22px 24px" }}>
-        <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>Observations ✦</h3>
+        <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, color: T.textPrimary, marginBottom: 16 }}>Observations âœ¦</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           {insights.map((ins, i) => (
             <div key={i} className={`insight-card ${ins.type}`}>
@@ -1442,7 +1442,7 @@ const StatsPage = () => {
   );
 };
 
-// ─── SETTINGS PAGE ────────────────────────────────────────────────────────────
+// â”€â”€â”€ SETTINGS PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const SettingsPage = () => {
   const [activeSection, setActiveSection] = useState("caregiver");
   const [theme, setTheme] = useState("clair");
@@ -1452,15 +1452,15 @@ const SettingsPage = () => {
   const sections = [
     { id: "caregiver", label: "Profil aidant", icon: "user" },
     { id: "patient", label: "Profil patient", icon: "star" },
-    { id: "prefs", label: "Préférences", icon: "settings" },
-    { id: "quiz", label: "Paramètres quiz", icon: "quiz" },
-    { id: "security", label: "Sécurité", icon: "lock" },
+    { id: "prefs", label: "PrÃ©fÃ©rences", icon: "settings" },
+    { id: "quiz", label: "ParamÃ¨tres quiz", icon: "quiz" },
+    { id: "security", label: "SÃ©curitÃ©", icon: "lock" },
     { id: "export", label: "Export & rapports", icon: "download" },
   ];
 
   return (
     <div className="fade-in">
-      <Header title="Paramètres" subtitle="Personnalisez votre espace et celui de Marguerite" />
+      <Header title="ParamÃ¨tres" subtitle="Personnalisez votre espace et celui de Jean" />
 
       <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 22 }}>
         {/* Nav */}
@@ -1487,7 +1487,7 @@ const SettingsPage = () => {
                 </div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {[["Prénom et nom", "Sophie Fontaine"], ["Adresse email", "sophie.fontaine@email.com"], ["Rôle", "Fille – Aidante principale"], ["Téléphone", "+33 6 12 34 56 78"]].map(([l, v]) => (
+                {[["PrÃ©nom et nom", "Sophie Martin"], ["Adresse email", "sophie.martin@email.com"], ["RÃ´le", "Sa fille – Aidante principale"], ["TÃ©lÃ©phone", "+33 6 12 34 56 78"]].map(([l, v]) => (
                   <div key={l}>
                     <label className="label">{l}</label>
                     <input className="input-field" defaultValue={v} />
@@ -1506,11 +1506,11 @@ const SettingsPage = () => {
                 <div>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 600 }}>{patient.name}</div>
                   <div style={{ fontSize: "0.85rem", color: T.textMuted, marginTop: 3 }}>{patient.diagnosis}</div>
-                  <div style={{ fontSize: "0.78rem", color: T.textMuted, marginTop: 2 }}>Suivie depuis {patient.since}</div>
+                  <div style={{ fontSize: "0.78rem", color: T.textMuted, marginTop: 2 }}>Suivi depuis {patient.since}</div>
                 </div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
-                {[["Prénom et nom", patient.name], ["Âge", `${patient.age} ans`], ["Diagnostic", patient.diagnosis], ["Suivi depuis", patient.since]].map(([l, v]) => (
+                {[["PrÃ©nom et nom", patient.name], ["Ã‚ge", `${patient.age} ans`], ["Diagnostic", patient.diagnosis], ["Suivi depuis", patient.since]].map(([l, v]) => (
                   <div key={l}>
                     <label className="label">{l}</label>
                     <input className="input-field" defaultValue={v} />
@@ -1519,7 +1519,7 @@ const SettingsPage = () => {
               </div>
               <div>
                 <label className="label">Notes de contexte</label>
-                <textarea className="input-field" defaultValue="Marguerite vit à son domicile à Nice. Elle apprécie la musique classique et les promenades au jardin. Son fils Pierre lui rend visite le week-end." />
+                <textarea className="input-field" defaultValue="Jean vit à son domicile à Nice. Il apprécie la musique classique et les promenades au jardin. Sa fille Sophie lui rend visite le week-end." />
               </div>
               <button className="btn btn-primary" style={{ marginTop: 20 }}>Enregistrer</button>
             </div>
@@ -1527,11 +1527,11 @@ const SettingsPage = () => {
 
           {activeSection === "prefs" && (
             <div className="settings-section">
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>Préférences générales</h3>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>PrÃ©fÃ©rences gÃ©nÃ©rales</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
-                  { l: "Langue", ctrl: <select className="input-field" value={lang} onChange={e => setLang(e.target.value)} style={{ maxWidth: 200 }}><option value="fr">Français</option><option value="en">English</option></select> },
-                  { l: "Thème visuel", ctrl: <div style={{ display: "flex", gap: 8 }}>{["clair", "sombre", "contraste"].map(t => <button key={t} onClick={() => setTheme(t)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${theme === t ? T.primary : T.neutral200}`, background: theme === t ? T.primaryLight : "white", fontSize: "0.83rem", color: theme === t ? T.primaryDark : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{t}</button>)}</div> },
+                  { l: "Langue", ctrl: <select className="input-field" value={lang} onChange={e => setLang(e.target.value)} style={{ maxWidth: 200 }}><option value="fr">FranÃ§ais</option><option value="en">English</option></select> },
+                  { l: "ThÃ¨me visuel", ctrl: <div style={{ display: "flex", gap: 8 }}>{["clair", "sombre", "contraste"].map(t => <button key={t} onClick={() => setTheme(t)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${theme === t ? T.primary : T.neutral200}`, background: theme === t ? T.primaryLight : "white", fontSize: "0.83rem", color: theme === t ? T.primaryDark : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{t}</button>)}</div> },
                   { l: "Taille d'affichage", ctrl: <div style={{ display: "flex", gap: 8 }}>{["compact", "normal", "large"].map(fs => <button key={fs} onClick={() => setFontSize(fs)} style={{ padding: "7px 16px", borderRadius: 8, border: `2px solid ${fontSize === fs ? T.primary : T.neutral200}`, background: fontSize === fs ? T.primaryLight : "white", fontSize: "0.83rem", color: fontSize === fs ? T.primaryDark : T.textSecondary, cursor: "pointer", textTransform: "capitalize", transition: "all 0.15s" }}>{fs}</button>)}</div> },
                 ].map(({ l, ctrl }) => (
                   <div key={l} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 0", borderBottom: `1px solid ${T.neutral100}` }}>
@@ -1545,15 +1545,15 @@ const SettingsPage = () => {
 
           {activeSection === "quiz" && (
             <div className="settings-section">
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>Paramètres quiz</h3>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>ParamÃ¨tres quiz</h3>
               <div style={{ background: T.primaryLight, borderRadius: T.radiusSm, padding: "14px 16px", marginBottom: 20, fontSize: "0.85rem", color: T.primaryDark }}>
-                Ces paramètres s'appliquent par défaut à tous les nouveaux quiz. Les quiz existants conservent leur configuration individuelle.
+                Ces paramÃ¨tres s'appliquent par dÃ©faut Ã  tous les nouveaux quiz. Les quiz existants conservent leur configuration individuelle.
               </div>
               {[
-                { label: "Activer les indices par défaut", desc: "Pour tous les nouveaux quiz", key: "hints" },
-                { label: "Format vrai/faux activé par défaut", desc: "Pour les questions ratées en fin de quiz", key: "tf" },
-                { label: "Suppression de réponses fausses", desc: "Après la deuxième erreur consécutive", key: "remove" },
-                { label: "Afficher les statistiques après quiz", desc: "Résumé visible dans la vue patient", key: "showStats" },
+                { label: "Activer les indices par dÃ©faut", desc: "Pour tous les nouveaux quiz", key: "hints" },
+                { label: "Format vrai/faux activÃ© par dÃ©faut", desc: "Pour les questions ratÃ©es en fin de quiz", key: "tf" },
+                { label: "Suppression de rÃ©ponses fausses", desc: "AprÃ¨s la deuxiÃ¨me erreur consÃ©cutive", key: "remove" },
+                { label: "Afficher les statistiques aprÃ¨s quiz", desc: "RÃ©sumÃ© visible dans la vue patient", key: "showStats" },
               ].map(opt => (
                 <div key={opt.key} style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", padding: "14px 0", borderBottom: `1px solid ${T.neutral100}` }}>
                   <div>
@@ -1568,20 +1568,20 @@ const SettingsPage = () => {
 
           {activeSection === "security" && (
             <div className="settings-section">
-              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>Sécurité</h3>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 24 }}>SÃ©curitÃ©</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 400 }}>
                 {["Mot de passe actuel", "Nouveau mot de passe", "Confirmer le nouveau mot de passe"].map(l => (
                   <div key={l}>
                     <label className="label">{l}</label>
-                    <input type="password" className="input-field" placeholder="••••••••••" />
+                    <input type="password" className="input-field" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" />
                   </div>
                 ))}
                 <button className="btn btn-primary" style={{ alignSelf: "flex-start" }}>Changer le mot de passe</button>
               </div>
               <div style={{ marginTop: 28, paddingTop: 24, borderTop: `1px solid ${T.neutral100}` }}>
-                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, marginBottom: 12, color: T.textPrimary }}>Déconnexion</h4>
-                <p style={{ fontSize: "0.85rem", color: T.textMuted, marginBottom: 14 }}>Vous serez redirigée vers l'écran de connexion.</p>
-                <button className="btn btn-secondary" style={{ display: "flex", alignItems: "center", gap: 6 }}><Icon name="logout" size={15} /> Se déconnecter</button>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, marginBottom: 12, color: T.textPrimary }}>DÃ©connexion</h4>
+                <p style={{ fontSize: "0.85rem", color: T.textMuted, marginBottom: 14 }}>Vous serez redirigÃ©e vers l'Ã©cran de connexion.</p>
+                <button className="btn btn-secondary" style={{ display: "flex", alignItems: "center", gap: 6 }}><Icon name="logout" size={15} /> Se dÃ©connecter</button>
               </div>
             </div>
           )}
@@ -1589,13 +1589,13 @@ const SettingsPage = () => {
           {activeSection === "export" && (
             <div className="settings-section">
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem", fontWeight: 600, marginBottom: 8 }}>Export & rapports</h3>
-              <p style={{ fontSize: "0.85rem", color: T.textMuted, marginBottom: 24 }}>Générez et partagez des résumés de suivi pour les professionnels de santé ou la famille.</p>
+              <p style={{ fontSize: "0.85rem", color: T.textMuted, marginBottom: 24 }}>GÃ©nÃ©rez et partagez des rÃ©sumÃ©s de suivi pour les professionnels de santÃ© ou la famille.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
-                  { title: "Résumé hebdomadaire", desc: "Rapport PDF de la semaine en cours", icon: "📄", badge: "PDF" },
-                  { title: "Export des statistiques", desc: "Toutes les données de performance en CSV", icon: "📊", badge: "CSV" },
-                  { title: "Rapport mensuel", desc: "Vue d'ensemble du mois avec graphiques", icon: "📅", badge: "PDF" },
-                  { title: "Historique des quiz", desc: "Détail de chaque quiz joué", icon: "📝", badge: "XLSX" },
+                  { title: "RÃ©sumÃ© hebdomadaire", desc: "Rapport PDF de la semaine en cours", icon: "ðŸ“„", badge: "PDF" },
+                  { title: "Export des statistiques", desc: "Toutes les donnÃ©es de performance en CSV", icon: "ðŸ“Š", badge: "CSV" },
+                  { title: "Rapport mensuel", desc: "Vue d'ensemble du mois avec graphiques", icon: "ðŸ“…", badge: "PDF" },
+                  { title: "Historique des quiz", desc: "DÃ©tail de chaque quiz jouÃ©", icon: "ðŸ“", badge: "XLSX" },
                 ].map(item => (
                   <div key={item.title} style={{ display: "flex", alignItems: "center", gap: 16, padding: "16px 18px", border: `1.5px solid ${T.neutral200}`, borderRadius: T.radiusSm, background: T.neutral50 }}>
                     <span style={{ fontSize: "1.5rem" }}>{item.icon}</span>
@@ -1604,7 +1604,7 @@ const SettingsPage = () => {
                       <div style={{ fontSize: "0.78rem", color: T.textMuted, marginTop: 2 }}>{item.desc}</div>
                     </div>
                     <span className="badge badge-gray" style={{ marginRight: 8 }}>{item.badge}</span>
-                    <button className="btn btn-primary" style={{ padding: "7px 14px", fontSize: "0.8rem" }}>Générer</button>
+                    <button className="btn btn-primary" style={{ padding: "7px 14px", fontSize: "0.8rem" }}>GÃ©nÃ©rer</button>
                   </div>
                 ))}
               </div>
@@ -1616,7 +1616,7 @@ const SettingsPage = () => {
   );
 };
 
-// ─── APP ROOT ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ APP ROOT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function App() {
   const [page, setPage] = useState("dashboard");
 
@@ -1640,3 +1640,6 @@ export default function App() {
     </>
   );
 }
+
+
+

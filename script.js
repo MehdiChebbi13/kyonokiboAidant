@@ -1,29 +1,29 @@
 (() => {
   const AppData = {
     patient: {
-      name: "Marguerite Fontaine",
+      name: "Jean Martin",
       age: 78,
-      diagnosis: "Maladie d'Alzheimer – stade léger",
+      diagnosis: "Maladie d'Alzheimer - stade leger",
       since: "Mars 2023"
     },
     caregiver: {
-      name: "Sophie Fontaine",
-      role: "Fille – Aidante principale",
-      email: "sophie.fontaine@email.com"
+      name: "Sophie Martin",
+      role: "Sa fille - Aidante principale",
+      email: "sophie.martin@email.com"
     },
     todayTasks: [
-      { id: 1, time: "08:30", title: "Médicaments du matin", done: true, important: true },
+      { id: 1, time: "08:30", title: "Medicaments du matin", done: true, important: true },
       { id: 2, time: "10:00", title: "Quiz du jour", done: true, important: false },
-      { id: 3, time: "14:30", title: "Kinésithérapie – Dr. Martin", done: false, important: true },
-      { id: 4, time: "16:00", title: "Appel de Pierre (fils)", done: false, important: false },
-      { id: 5, time: "19:00", title: "Médicaments du soir", done: false, important: true }
+      { id: 3, time: "14:30", title: "Kinesitherapie - Dr. Martin", done: false, important: true },
+      { id: 4, time: "16:00", title: "Appel de Sophie (fille)", done: false, important: false },
+      { id: 5, time: "19:00", title: "Medicaments du soir", done: false, important: true }
     ],
     recentActivity: [
-      { id: 1, icon: "✓", color: "#9DBFA3", text: "Quiz du jour terminé", sub: "Score : 7/10 • 9 min 32 sec", time: "10h42" },
-      { id: 2, icon: "?", color: "#9DBFA3", text: "Question difficile : « Qui est Pierre ? »", sub: "Quiz personnalisé – Famille proche", time: "hier 15h" },
-      { id: 3, icon: "✓", color: "#9DBFA3", text: "Médicaments du matin pris", sub: "Tâche marquée comme réalisée", time: "hier 08h" },
-      { id: 4, icon: "!", color: "#E07840", text: "Rendez-vous Dr. Renaud non effectué", sub: "Mercredi 12 mars", time: "il y a 3j" },
-      { id: 5, icon: "◆", color: "#C4A882", text: "Anniversaire de Claude approche", sub: "Dans 4 jours", time: "il y a 4j" }
+      { id: 1, icon: "OK", color: "#9DBFA3", text: "Quiz du jour termine", sub: "Score: 7/10 - 9 min 32 sec", time: "10h42" },
+      { id: 2, icon: "?", color: "#9DBFA3", text: "Question difficile: Qui est Sophie?", sub: "Quiz personnalise - Famille proche", time: "hier 15h" },
+      { id: 3, icon: "OK", color: "#9DBFA3", text: "Medicaments du matin pris", sub: "Tache marquee comme realisee", time: "hier 08h" },
+      { id: 4, icon: "!", color: "#E07840", text: "Rendez-vous Dr. Renaud non effectue", sub: "Mercredi 12 mars", time: "il y a 3j" },
+      { id: 5, icon: "NEWS", color: "#C4A882", text: "Anniversaire de Claude approche", sub: "Dans 4 jours", time: "il y a 4j" }
     ],
     weekStats: {
       correctRate: 68,
@@ -35,50 +35,18 @@
       hintsUsed: 12
     },
     quizList: [
-      {
-        id: 1,
-        title: "La famille proche",
-        questions: 8,
-        lastScore: 87,
-        played: 14,
-        cover: "👨‍👩‍👧‍👦",
-        desc: "Questions sur les proches : Pierre, Claude, Sophie…"
-      },
-      {
-        id: 2,
-        title: "Souvenirs d'enfance",
-        questions: 6,
-        lastScore: 72,
-        played: 9,
-        cover: "🌸",
-        desc: "Les lieux, les odeurs, les moments d'autrefois"
-      },
-      {
-        id: 3,
-        title: "La maison et les objets",
-        questions: 10,
-        lastScore: 61,
-        played: 7,
-        cover: "🏡",
-        desc: "Reconnaître les pièces, objets du quotidien"
-      },
-      {
-        id: 4,
-        title: "Les animaux favoris",
-        questions: 5,
-        lastScore: 94,
-        played: 11,
-        cover: "🐱",
-        desc: "Photos d'animaux familiers et favoris"
-      }
+      { id: 1, title: "La famille proche", questions: 8, lastScore: 87, played: 14, cover: "FAM", desc: "Questions sur les proches: Sophie, Claude..." },
+      { id: 2, title: "Souvenirs d'enfance", questions: 6, lastScore: 72, played: 9, cover: "FLR", desc: "Les lieux, les odeurs, les moments d'autrefois" },
+      { id: 3, title: "La maison et les objets", questions: 10, lastScore: 61, played: 7, cover: "HSE", desc: "Reconnaissance des pieces et objets du quotidien" },
+      { id: 4, title: "Les animaux favoris", questions: 5, lastScore: 94, played: 11, cover: "CAT", desc: "Photos d'animaux familiers et favoris" }
     ],
     calendarEvents: [
-      { id: 1, title: "Kinésithérapie", date: "2025-06-03", time: "14:30", lieu: "Cabinet Dr. Martin", important: true, color: "#E07840", reminders: ["3h", "1h"] },
+      { id: 1, title: "Kinesitherapie", date: "2025-06-03", time: "14:30", lieu: "Cabinet Dr. Martin", important: true, color: "#E07840", reminders: ["3h", "1h"] },
       { id: 2, title: "Anniversaire de Claude", date: "2025-06-07", time: "15:00", lieu: "Maison familiale", important: true, color: "#C4A882", reminders: ["1j", "3h"] },
-      { id: 3, title: "Consultation neurologie", date: "2025-06-12", time: "10:00", lieu: "Hôpital Pasteur, Nice", important: true, color: "#E07840", reminders: ["1j", "1h"] },
-      { id: 4, title: "Séance musicothérapie", date: "2025-06-10", time: "11:00", lieu: "Centre de jour", important: false, color: "#9DBFA3", reminders: ["1h"] },
+      { id: 3, title: "Consultation neurologie", date: "2025-06-12", time: "10:00", lieu: "Hopital Pasteur, Nice", important: true, color: "#E07840", reminders: ["1j", "1h"] },
+      { id: 4, title: "Seance musicotherapie", date: "2025-06-10", time: "11:00", lieu: "Centre de jour", important: false, color: "#9DBFA3", reminders: ["1h"] },
       { id: 5, title: "Visite de Sophie", date: "2025-06-15", time: "14:00", lieu: "Domicile", important: false, color: "#7BA7BC", reminders: ["15m"] },
-      { id: 6, title: "Kinésithérapie", date: "2025-06-17", time: "14:30", lieu: "Cabinet Dr. Martin", important: false, color: "#9DBFA3", reminders: ["1h"] },
+      { id: 6, title: "Kinesitherapie", date: "2025-06-17", time: "14:30", lieu: "Cabinet Dr. Martin", important: false, color: "#9DBFA3", reminders: ["1h"] },
       { id: 7, title: "Prise de sang", date: "2025-06-20", time: "08:30", lieu: "Laboratoire Pasteur", important: true, color: "#E07840", reminders: ["1j"] },
       { id: 8, title: "Repas en famille", date: "2025-06-22", time: "12:30", lieu: "Restaurant Le Jardin", important: true, color: "#C4A882", reminders: ["1j", "3h"] }
     ],
@@ -92,25 +60,25 @@
       { day: "Di", score: 72, noHint: 50 }
     ],
     quizBreakdown: [
-      { name: "La famille proche", score: 87, plays: 14, trend: "↑" },
-      { name: "Souvenirs d'enfance", score: 72, plays: 9, trend: "→" },
-      { name: "La maison et les objets", score: 61, plays: 7, trend: "↓" },
-      { name: "Les animaux favoris", score: 94, plays: 11, trend: "↑" }
+      { name: "La famille proche", score: 87, plays: 14, trend: "up" },
+      { name: "Souvenirs d'enfance", score: 72, plays: 9, trend: "flat" },
+      { name: "La maison et les objets", score: 61, plays: 7, trend: "down" },
+      { name: "Les animaux favoris", score: 94, plays: 11, trend: "up" }
     ],
     insights: [
       { text: "Les quiz sur la famille proche obtiennent les meilleurs scores (+23% vs moyenne)", type: "green" },
-      { text: "Le taux de bonnes réponses au premier essai est en baisse cette semaine (52% vs 64%)", type: "peach" },
-      { text: "Les questions avec image sont mieux réussies que les questions textuelles (81% vs 58%)", type: "blue" },
-      { text: "Marguerite utilise davantage les indices en après-midi qu'en matinée", type: "peach" }
+      { text: "Le taux de bonnes reponses au premier essai est en baisse cette semaine (52% vs 64%)", type: "peach" },
+      { text: "Les questions avec image sont mieux reussies que les questions textuelles (81% vs 58%)", type: "blue" },
+      { text: "Jean utilise davantage les indices en apres-midi qu'en matinee", type: "peach" }
     ]
   };
 
   const NAV_PAGES = [
-    { id: "dashboard", label: "Dashboard", href: "dashboard/dashboard.html", icon: "▦" },
-    { id: "calendar", label: "Calendrier", href: "calendar/calendar.html", icon: "📅" },
-    { id: "quiz", label: "Quiz", href: "quiz/quiz.html", icon: "❓" },
-    { id: "stats", label: "Statistiques", href: "stats/stats.html", icon: "📊" },
-    { id: "settings", label: "Paramètres", href: "settings/settings.html", icon: "⚙" }
+    { id: "dashboard", label: "Dashboard", href: "dashboard/dashboard.html", icon: "DB" },
+    { id: "calendar", label: "Calendrier", href: "calendar/calendar.html", icon: "CAL" },
+    { id: "quiz", label: "Quiz", href: "quiz/quiz.html", icon: "QZ" },
+    { id: "stats", label: "Statistiques", href: "stats/stats.html", icon: "ST" },
+    { id: "settings", label: "Parametres", href: "settings/settings.html", icon: "SET" }
   ];
 
   function clone(value) {
@@ -240,7 +208,7 @@
     target.className = "sidebar";
     target.innerHTML = `
       <div class="brand-wrap">
-        <div class="brand-name">Kyō<span>no</span>kibō</div>
+        <div class="brand-name">Kyo<span>no</span>kibo</div>
         <div class="brand-sub">Espace aidant</div>
       </div>
 
