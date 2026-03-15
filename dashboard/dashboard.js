@@ -25,13 +25,13 @@
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
         <div>
           <div class="welcome-date">${AppUtils.escapeHtml(AppUtils.formatLongDate(new Date()))}</div>
-          <h2 class="welcome-title">Bonjour, Sophie 👋</h2>
+          <h2 class="welcome-title">Bonjour, Sophie</h2>
           <p class="welcome-copy">
-            Marguerite a complété son quiz du matin avec un bon score.
-            <strong>${doneCount}/${state.tasks.length}</strong> tâches accomplies aujourd'hui.
+            Jean a complete son quiz du matin avec un bon score.
+            <strong>${doneCount}/${state.tasks.length}</strong> taches accomplies aujourd'hui.
           </p>
         </div>
-        <span class="badge badge-green">Journée sereine ✦</span>
+        <span class="badge badge-green">Journee sereine</span>
       </div>
     `;
   }
@@ -39,42 +39,17 @@
   function renderKpis() {
     const doneCount = getDoneCount();
     const cards = [
-      {
-        label: "Quiz du jour",
-        value: "Terminé ✓",
-        sub: "Score : 7/10 • 9 min 32 s",
-        icon: "📝",
-        accent: "var(--primary)"
-      },
-      {
-        label: "Tâches du jour",
-        value: `${doneCount} / ${state.tasks.length}`,
-        sub: `${state.tasks.length - doneCount} restante(s)`,
-        icon: "✓",
-        accent: "var(--primary)"
-      },
-      {
-        label: "Taux de réussite",
-        value: "68 %",
-        sub: "Cette semaine • −4% vs semaine passée",
-        icon: "📊",
-        accent: "var(--accent)"
-      },
-      {
-        label: "Temps moyen",
-        value: AppData.weekStats.avgTime,
-        sub: "Par question aujourd'hui",
-        icon: "⏱",
-        accent: "var(--accent-alt)"
-      }
+      { label: "Quiz du jour", value: "Termine", sub: "Score: 7/10 - 9 min 32 s", icon: "QZ", accent: "var(--primary)" },
+      { label: "Taches du jour", value: `${doneCount} / ${state.tasks.length}`, sub: `${state.tasks.length - doneCount} restante(s)`, icon: "OK", accent: "var(--primary)" },
+      { label: "Taux de reussite", value: "68 %", sub: "Cette semaine -4% vs semaine passee", icon: "ST", accent: "var(--accent)" },
+      { label: "Temps moyen", value: AppData.weekStats.avgTime, sub: "Par question aujourd'hui", icon: "TM", accent: "var(--accent-alt)" }
     ];
-
     kpiRoot.innerHTML = cards.map((card) => AppUI.kpiCardHTML(card)).join("");
   }
 
   function renderTasks() {
     const doneCount = getDoneCount();
-    taskCount.textContent = `${doneCount} / ${state.tasks.length} effectuées`;
+    taskCount.textContent = `${doneCount} / ${state.tasks.length} effectuees`;
     taskList.innerHTML = state.tasks
       .map((task) => {
         return `
@@ -96,23 +71,23 @@
       .sort((left, right) => left.date.localeCompare(right.date))[0];
 
     if (!nextImportant) {
-      nextEventRoot.innerHTML = "<p class='next-event-meta'>Aucun événement important.</p>";
+      nextEventRoot.innerHTML = "<p class='next-event-meta'>Aucun evenement important.</p>";
       return;
     }
 
     nextEventRoot.innerHTML = `
-      <div class="next-event-label">⚡ Prochain événement important</div>
+      <div class="next-event-label">Prochain evenement important</div>
       <h3 class="next-event-title">${AppUtils.escapeHtml(nextImportant.title)}</h3>
       <div class="next-event-meta">
-        ${AppUtils.escapeHtml(AppUtils.formatMonthDay(nextImportant.date))} à ${AppUtils.escapeHtml(nextImportant.time)}
+        ${AppUtils.escapeHtml(AppUtils.formatMonthDay(nextImportant.date))} a ${AppUtils.escapeHtml(nextImportant.time)}
       </div>
-      <div class="next-event-place">📍 ${AppUtils.escapeHtml(nextImportant.lieu)}</div>
+      <div class="next-event-place">Lieu: ${AppUtils.escapeHtml(nextImportant.lieu)}</div>
     `;
   }
 
   function renderMemorySummary() {
     memoryRoot.innerHTML = [
-      AppUI.circleProgressHTML({ value: AppData.weekStats.correctRate, label: "réussite", color: "var(--primary)", size: 62 }),
+      AppUI.circleProgressHTML({ value: AppData.weekStats.correctRate, label: "reussite", color: "var(--primary)", size: 62 }),
       AppUI.circleProgressHTML({ value: AppData.weekStats.noHintRate, label: "sans indice", color: "var(--secondary)", size: 62 }),
       AppUI.circleProgressHTML({ value: AppData.weekStats.firstTryRate, label: "1er essai", color: "var(--accent)", size: 62 })
     ].join("");
@@ -151,12 +126,9 @@
       return;
     }
     const taskId = Number(button.dataset.taskId);
-    state.tasks = state.tasks.map((task) =>
-      task.id === taskId ? { ...task, done: !task.done } : task
-    );
+    state.tasks = state.tasks.map((task) => (task.id === taskId ? { ...task, done: !task.done } : task));
     renderAll();
   });
 
   renderAll();
 })();
-

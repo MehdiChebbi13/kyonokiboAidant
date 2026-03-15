@@ -15,14 +15,14 @@
         <header class="page-header">
           <div>
             <h1 class="page-title">Quiz</h1>
-            <p class="page-subtitle">Quiz du jour et quiz personnalisés de Marguerite</p>
+            <p class="page-subtitle">Quiz du jour et quiz personnalises de Jean</p>
           </div>
-          <button class="btn btn-primary hidden" id="create-quiz-top">Créer un quiz</button>
+          <button class="btn btn-primary hidden" id="create-quiz-top">Creer un quiz</button>
         </header>
 
         <nav class="tab-switch" id="quiz-tabs">
           <button class="tab-btn active" data-tab="daily">Quiz du jour</button>
-          <button class="tab-btn" data-tab="custom">Quiz personnalisés</button>
+          <button class="tab-btn" data-tab="custom">Quiz personnalises</button>
         </nav>
 
         <section class="quiz-section" id="daily-section">
@@ -36,10 +36,10 @@
               <article class="card quiz-today-card">
                 <div class="quiz-today-top">
                   <h2 class="section-title">Quiz d'aujourd'hui</h2>
-                  <span class="badge badge-green">Terminé</span>
+                  <span class="badge badge-green">Termine</span>
                 </div>
                 <div class="quiz-metrics">
-                  <div><strong>10</strong><span>Prévu</span></div>
+                  <div><strong>10</strong><span>Prevu</span></div>
                   <div><strong>7 / 10</strong><span>score</span></div>
                   <div><strong>9m32</strong><span>duree</span></div>
                 </div>
@@ -49,7 +49,7 @@
 
             <aside class="quiz-side-column">
               <article class="card flow-card">
-                <h3 class="section-title small">Aperçu du fonctionnement</h3>
+                <h3 class="section-title small">Apercu du fonctionnement</h3>
                 <div id="daily-flow-list"></div>
               </article>
 
@@ -64,7 +64,7 @@
         <section class="quiz-section hidden" id="custom-section">
           <div class="custom-header">
             <p class="custom-count" id="custom-count"></p>
-            <button class="btn btn-primary" id="create-quiz-inline">Créer un quiz</button>
+            <button class="btn btn-primary" id="create-quiz-inline">Creer un quiz</button>
           </div>
           <div class="quiz-grid" id="custom-quiz-grid"></div>
         </section>
@@ -91,8 +91,8 @@
 
           <div class="quiz-form-row">
             <div>
-              <label class="label">Couverture (emoji ou texte court)</label>
-              <input class="input-field" name="cover" placeholder="👨‍👩‍👧‍👦">
+              <label class="label">Couverture (texte court)</label>
+              <input class="input-field" name="cover" placeholder="QZ">
             </div>
             <div>
               <label class="label">Nombre de questions</label>
@@ -106,7 +106,7 @@
               <input class="input-field" name="lastScore" type="number" min="0" max="100" value="0">
             </div>
             <div>
-              <label class="label">Parties jouées</label>
+              <label class="label">Parties jouees</label>
               <input class="input-field" name="played" type="number" min="0" value="0">
             </div>
           </div>

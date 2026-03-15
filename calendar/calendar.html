@@ -15,9 +15,9 @@
         <header class="page-header">
           <div>
             <h1 class="page-title">Calendrier</h1>
-            <p class="page-subtitle">Événements et rappels de Marguerite</p>
+            <p class="page-subtitle">Evenements et rappels de Jean</p>
           </div>
-          <button class="btn btn-primary" id="open-event-modal">Ajouter un événement</button>
+          <button class="btn btn-primary" id="open-event-modal">Ajouter un evenement</button>
         </header>
 
         <section class="calendar-layout">
@@ -29,27 +29,21 @@
             </div>
 
             <div class="calendar-weekdays">
-              <span>Lun</span>
-              <span>Mar</span>
-              <span>Mer</span>
-              <span>Jeu</span>
-              <span>Ven</span>
-              <span>Sam</span>
-              <span>Dim</span>
+              <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
             </div>
 
             <div class="calendar-grid" id="calendar-grid"></div>
 
             <div class="calendar-legend">
-              <span><i class="dot important"></i>Événement important</span>
-              <span><i class="dot normal"></i>Événement normal</span>
+              <span><i class="dot important"></i>Evenement important</span>
+              <span><i class="dot normal"></i>Evenement normal</span>
             </div>
           </article>
 
           <aside class="calendar-side">
             <article class="card day-panel" id="selected-day-panel"></article>
             <article class="card upcoming-card">
-              <h3 class="section-title small">Prochains événements importants</h3>
+              <h3 class="section-title small">Prochains evenements importants</h3>
               <div id="upcoming-list"></div>
             </article>
           </aside>
@@ -60,48 +54,22 @@
     <div class="modal-overlay hidden" id="event-modal">
       <div class="modal-box event-modal">
         <div class="modal-top">
-          <h2 class="section-title" id="event-modal-title">Nouvel événement</h2>
+          <h2 class="section-title" id="event-modal-title">Nouvel evenement</h2>
           <button class="btn btn-ghost" id="close-event-modal">Fermer</button>
         </div>
 
         <form id="event-form">
-          <div>
-            <label class="label">Titre *</label>
-            <input class="input-field" name="title" required>
-          </div>
-
+          <div><label class="label">Titre *</label><input class="input-field" name="title" required></div>
           <div class="event-form-row">
-            <div>
-              <label class="label">Date</label>
-              <input class="input-field" type="date" name="date">
-            </div>
-            <div>
-              <label class="label">Heure</label>
-              <input class="input-field" type="time" name="time">
-            </div>
+            <div><label class="label">Date</label><input class="input-field" type="date" name="date"></div>
+            <div><label class="label">Heure</label><input class="input-field" type="time" name="time"></div>
           </div>
-
-          <div>
-            <label class="label">Lieu</label>
-            <input class="input-field" name="lieu">
-          </div>
-
-          <div>
-            <label class="label">Rappels (séparés par des virgules)</label>
-            <input class="input-field" name="reminders" placeholder="1j, 3h">
-          </div>
-
+          <div><label class="label">Lieu</label><input class="input-field" name="lieu"></div>
+          <div><label class="label">Rappels (separes par des virgules)</label><input class="input-field" name="reminders" placeholder="1j, 3h"></div>
           <div class="event-important-row">
-            <div>
-              <strong>Événement important</strong>
-              <p>Affiché avec priorité dans les vues aidées.</p>
-            </div>
-            <label class="toggle-wrap">
-              <input type="checkbox" name="important">
-              <span class="toggle-slider"></span>
-            </label>
+            <div><strong>Evenement important</strong><p>Affiche avec priorite dans les vues aidees.</p></div>
+            <label class="toggle-wrap"><input type="checkbox" name="important"><span class="toggle-slider"></span></label>
           </div>
-
           <div class="event-actions">
             <button type="button" class="btn btn-secondary" id="cancel-event">Annuler</button>
             <button type="submit" class="btn btn-primary">Enregistrer</button>
