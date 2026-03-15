@@ -20,8 +20,334 @@
         </header>
 
         <section class="settings-layout">
-          <nav class="card settings-nav" id="settings-nav"></nav>
-          <article id="settings-content"></article>
+          <nav class="card settings-nav">
+            <p class="settings-nav-eyebrow">Vue MVP</p>
+            <h2 class="section-title small">Rubriques</h2>
+            <p class="settings-nav-note">
+              Version statique pour cadrer les reglages principaux avant branchement complet.
+            </p>
+
+            <div class="settings-nav-list">
+              <div class="settings-tab active">
+                <span class="settings-tab-icon">
+                  <span data-app-icon="user" data-app-icon-size="16"></span>
+                </span>
+                <div>
+                  <strong>Profil aidant</strong>
+                  <span>Coordonnees et role</span>
+                </div>
+              </div>
+
+              <div class="settings-tab">
+                <span class="settings-tab-icon">
+                  <span data-app-icon="star" data-app-icon-size="16"></span>
+                </span>
+                <div>
+                  <strong>Profil patient</strong>
+                  <span>Informations de suivi</span>
+                </div>
+              </div>
+
+              <div class="settings-tab">
+                <span class="settings-tab-icon">
+                  <span data-app-icon="settings" data-app-icon-size="16"></span>
+                </span>
+                <div>
+                  <strong>Preferences</strong>
+                  <span>Langue et affichage</span>
+                </div>
+              </div>
+
+              <div class="settings-tab">
+                <span class="settings-tab-icon">
+                  <span data-app-icon="quiz" data-app-icon-size="16"></span>
+                </span>
+                <div>
+                  <strong>Quiz</strong>
+                  <span>Reglages par defaut</span>
+                </div>
+              </div>
+
+              <div class="settings-tab">
+                <span class="settings-tab-icon">
+                  <span data-app-icon="lock" data-app-icon-size="16"></span>
+                </span>
+                <div>
+                  <strong>Securite</strong>
+                  <span>Acces et session</span>
+                </div>
+              </div>
+
+              <div class="settings-tab">
+                <span class="settings-tab-icon">
+                  <span data-app-icon="download" data-app-icon-size="16"></span>
+                </span>
+                <div>
+                  <strong>Export</strong>
+                  <span>Rapports et partages</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <div class="settings-content-stack">
+            <section class="settings-panel">
+              <div class="settings-panel-head">
+                <h2 class="section-title">Profil aidant</h2>
+                <span class="badge badge-gray">MVP</span>
+              </div>
+
+              <div class="profile-head neutral">
+                <span class="avatar large" style="background: var(--secondary-light); color: var(--secondary-dark);">SM</span>
+                <div>
+                  <h3 class="profile-name">Sophie Martin</h3>
+                  <p class="profile-role">Sa fille - Aidante principale</p>
+                  <div class="settings-inline-meta">
+                    <span class="badge badge-green">Compte principal</span>
+                    <span class="badge badge-gray">Contact d'urgence</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-grid">
+                <div class="static-field">
+                  <span class="label">Prenom et nom</span>
+                  <strong class="field-value">Sophie Martin</strong>
+                </div>
+                <div class="static-field">
+                  <span class="label">Adresse email</span>
+                  <strong class="field-value">sophie.martin@email.com</strong>
+                </div>
+                <div class="static-field">
+                  <span class="label">Role</span>
+                  <strong class="field-value">Aidante principale</strong>
+                </div>
+                <div class="static-field">
+                  <span class="label">Telephone</span>
+                  <strong class="field-value">+33 6 12 34 56 78</strong>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-panel">
+              <div class="settings-panel-head">
+                <h2 class="section-title">Profil patient</h2>
+                <span class="badge badge-accent">Suivi actif</span>
+              </div>
+
+              <div class="profile-head primary">
+                <span class="avatar large" style="background: var(--primary-light); color: var(--primary-dark);">JM</span>
+                <div>
+                  <h3 class="profile-name">Jean Martin</h3>
+                  <p class="profile-role">Maladie d'Alzheimer - stade leger</p>
+                  <div class="settings-inline-meta">
+                    <span class="badge badge-green">78 ans</span>
+                    <span class="badge badge-gray">Suivi depuis Mars 2023</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-grid">
+                <div class="static-field">
+                  <span class="label">Diagnostic</span>
+                  <strong class="field-value">Troubles cognitifs legers</strong>
+                </div>
+                <div class="static-field">
+                  <span class="label">Cadre de vie</span>
+                  <strong class="field-value">Domicile a Nice</strong>
+                </div>
+                <div class="static-field">
+                  <span class="label">Centres d'interet</span>
+                  <strong class="field-value">Musique classique, jardin, famille</strong>
+                </div>
+                <div class="static-field">
+                  <span class="label">Rythme de visite</span>
+                  <strong class="field-value">Week-end avec Sophie</strong>
+                </div>
+              </div>
+
+              <p class="info-note">
+                Jean reagit mieux aux questions visuelles et aux rappels relies a la famille proche.
+              </p>
+            </section>
+
+            <section class="settings-panel">
+              <div class="settings-panel-head">
+                <h2 class="section-title">Preferences generales</h2>
+                <span class="badge badge-gray">Lecture simple</span>
+              </div>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Langue</strong>
+                  <p>Langue principale de l'interface</p>
+                </div>
+                <div class="pill-group static-pills">
+                  <span class="pill active">Francais</span>
+                  <span class="pill">English</span>
+                </div>
+              </div>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Theme visuel</strong>
+                  <p>Palette recommandee pour la lecture quotidienne</p>
+                </div>
+                <div class="pill-group static-pills">
+                  <span class="pill active">Clair</span>
+                  <span class="pill">Contraste</span>
+                  <span class="pill">Sombre</span>
+                </div>
+              </div>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Taille d'affichage</strong>
+                  <p>Densite de contenu et lisibilite</p>
+                </div>
+                <div class="pill-group static-pills">
+                  <span class="pill">Compact</span>
+                  <span class="pill active">Normal</span>
+                  <span class="pill">Large</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-panel">
+              <div class="settings-panel-head">
+                <h2 class="section-title">Parametres quiz</h2>
+                <span class="badge badge-green">Par defaut</span>
+              </div>
+
+              <p class="info-note">
+                Ces reglages servent de base a la creation des prochains quiz personnalises.
+              </p>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Indices actifs</strong>
+                  <p>Disponibles des le premier lancement</p>
+                </div>
+                <span class="settings-static-chip on">Actif</span>
+              </div>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Vrai / faux apres erreur</strong>
+                  <p>Relance simplifiee a la fin du quiz</p>
+                </div>
+                <span class="settings-static-chip on">Automatique</span>
+              </div>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Suppression de reponses fausses</strong>
+                  <p>Activee apres deux erreurs consecutives</p>
+                </div>
+                <span class="settings-static-chip on">Activee</span>
+              </div>
+
+              <div class="settings-row">
+                <div>
+                  <strong>Statistiques post-quiz</strong>
+                  <p>Resume visible dans l'espace aidant</p>
+                </div>
+                <span class="settings-static-chip on">Visible</span>
+              </div>
+            </section>
+
+            <section class="settings-panel">
+              <div class="settings-panel-head">
+                <h2 class="section-title">Securite</h2>
+                <span class="badge badge-gray">Apercu</span>
+              </div>
+
+              <div class="security-grid">
+                <article class="security-card">
+                  <strong>Mot de passe</strong>
+                  <p>Derniere mise a jour il y a 41 jours</p>
+                </article>
+                <article class="security-card">
+                  <strong>Appareil principal</strong>
+                  <p>MacBook de Sophie Martin</p>
+                </article>
+                <article class="security-card">
+                  <strong>Derniere connexion</strong>
+                  <p>Hier a 18h24 depuis Nice</p>
+                </article>
+              </div>
+
+              <div class="logout-box">
+                <h3 class="section-title small">Session</h3>
+                <p>
+                  La deconnexion manuelle et la reinitialisation du mot de passe seront branchees
+                  dans une iteration suivante.
+                </p>
+                <span class="settings-static-chip muted">Action manuelle a venir</span>
+              </div>
+            </section>
+
+            <section class="settings-panel">
+              <div class="settings-panel-head">
+                <h2 class="section-title">Export et rapports</h2>
+                <span class="badge badge-gray">Pret pour design</span>
+              </div>
+
+              <p class="page-subtitle settings-panel-subtitle">
+                Generez et partagez des resumes de suivi pour la famille et les professionnels.
+              </p>
+
+              <div class="export-list">
+                <div class="export-item">
+                  <span class="icon">
+                    <span data-app-icon="download" data-app-icon-size="16"></span>
+                  </span>
+                  <div class="export-copy">
+                    <h4>Resume hebdomadaire</h4>
+                    <p>Rapport PDF de la semaine en cours</p>
+                  </div>
+                  <span class="badge badge-gray">PDF</span>
+                  <span class="settings-static-chip on">Pret</span>
+                </div>
+
+                <div class="export-item">
+                  <span class="icon">
+                    <span data-app-icon="stats" data-app-icon-size="16"></span>
+                  </span>
+                  <div class="export-copy">
+                    <h4>Export des statistiques</h4>
+                    <p>Toutes les donnees de performance en CSV</p>
+                  </div>
+                  <span class="badge badge-gray">CSV</span>
+                  <span class="settings-static-chip on">Pret</span>
+                </div>
+
+                <div class="export-item">
+                  <span class="icon">
+                    <span data-app-icon="calendar" data-app-icon-size="16"></span>
+                  </span>
+                  <div class="export-copy">
+                    <h4>Rapport mensuel</h4>
+                    <p>Vue d'ensemble du mois avec synthese visuelle</p>
+                  </div>
+                  <span class="badge badge-gray">PDF</span>
+                  <span class="settings-static-chip muted">Bientot</span>
+                </div>
+
+                <div class="export-item">
+                  <span class="icon">
+                    <span data-app-icon="quiz" data-app-icon-size="16"></span>
+                  </span>
+                  <div class="export-copy">
+                    <h4>Historique des quiz</h4>
+                    <p>Detail des quiz joues et points de vigilance</p>
+                  </div>
+                  <span class="badge badge-gray">XLSX</span>
+                  <span class="settings-static-chip muted">Bientot</span>
+                </div>
+              </div>
+            </section>
+          </div>
         </section>
       </main>
     </div>

@@ -1,7 +1,7 @@
 .welcome-card {
   padding: 24px 28px;
   margin-bottom: 24px;
-  background: rgba(77, 217, 222, 0.17);
+  background: #4dd9de2b;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
