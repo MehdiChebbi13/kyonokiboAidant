@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kyonokibo Aidant - Stats</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="./stats.css">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./stats.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -18,39 +18,689 @@
             <p class="page-subtitle">Suivi cognitif de Jean Martin</p>
           </div>
           <div class="stats-head-actions">
-            <button class="btn btn-ghost" type="button">
-              <span class="btn-label">
-                <span data-app-icon="download" data-app-icon-size="14"></span>
-                <span>Exporter</span>
-              </span>
-            </button>
+            <p class="stats-head-note">
+              <span
+                data-app-icon="download"
+                data-app-icon-size="14"
+                data-app-icon-color="var(--text-secondary)"
+              ></span>
+              <span>Vue exportable du suivi hebdomadaire</span>
+            </p>
           </div>
         </header>
 
-        <section class="stats-kpi-bento" id="stats-kpis"></section>
+        <section class="stats-kpi-bento">
+          <article class="card kpi-card">
+            <div class="stats-kpi-head">
+              <span class="kpi-label">Taux de reussite</span>
+              <span
+                class="icon-badge"
+                style="
+                  background: color-mix(in srgb, var(--primary) 14%, white 86%);
+                  color: var(--primary);
+                "
+              >
+                <span
+                  data-app-icon="stats"
+                  data-app-icon-size="16"
+                  data-app-icon-color="var(--primary)"
+                ></span>
+              </span>
+            </div>
+            <div class="kpi-value">68 %</div>
+            <div class="kpi-sub">4 pts sous la semaine precedente</div>
+          </article>
+
+          <article class="card kpi-card">
+            <div class="stats-kpi-head">
+              <span class="kpi-label">Sans indice</span>
+              <span
+                class="icon-badge"
+                style="
+                  background: color-mix(
+                    in srgb,
+                    var(--secondary) 14%,
+                    white 86%
+                  );
+                  color: var(--secondary);
+                "
+              >
+                <span
+                  data-app-icon="hint"
+                  data-app-icon-size="16"
+                  data-app-icon-color="var(--secondary)"
+                ></span>
+              </span>
+            </div>
+            <div class="kpi-value">45 %</div>
+            <div class="kpi-sub">2 pts au-dessus de la semaine precedente</div>
+          </article>
+
+          <article class="card kpi-card">
+            <div class="stats-kpi-head">
+              <span class="kpi-label">Premier essai</span>
+              <span
+                class="icon-badge"
+                style="
+                  background: color-mix(in srgb, var(--accent) 14%, white 86%);
+                  color: var(--accent);
+                "
+              >
+                <span
+                  data-app-icon="check"
+                  data-app-icon-size="16"
+                  data-app-icon-color="var(--accent)"
+                ></span>
+              </span>
+            </div>
+            <div class="kpi-value">52 %</div>
+            <div class="kpi-sub">12 pts sous la semaine precedente</div>
+          </article>
+
+          <article class="card kpi-card">
+            <div class="stats-kpi-head">
+              <span class="kpi-label">Temps moyen</span>
+              <span
+                class="icon-badge"
+                style="
+                  background: color-mix(
+                    in srgb,
+                    var(--accent-alt) 14%,
+                    white 86%
+                  );
+                  color: var(--accent-alt);
+                "
+              >
+                <span
+                  data-app-icon="time"
+                  data-app-icon-size="16"
+                  data-app-icon-color="var(--accent-alt)"
+                ></span>
+              </span>
+            </div>
+            <div class="kpi-value">4m 24s</div>
+            <div class="kpi-sub">40 secondes de plus par quiz</div>
+          </article>
+        </section>
 
         <section class="stats-bento">
           <article class="card stats-card stats-card-chart">
             <div class="stats-card-head chart-card-head">
-              <h2 class="section-title small">Score dans le temps</h2>
-              <div class="chart-range-tabs" id="chart-range-tabs"></div>
+              <div class="chart-head-copy">
+                <h2 class="section-title small">Score dans le temps</h2>
+                <p class="chart-subtitle">Vue fixe sur les 7 derniers jours</p>
+              </div>
+              <div class="range-tabs">
+                <button class="range-tab active" data-range="week">7j</button>
+                <button class="range-tab inactive" data-range="month">
+                  30j
+                </button>
+                <button class="range-tab inactive" data-range="all">
+                  Tout
+                </button>
+              </div>
             </div>
-            <div class="line-chart-wrap" id="line-chart-root"></div>
-            <div class="weekly-summary" id="weekly-summary"></div>
+            <div class="line-chart-wrap">
+              <svg viewBox="0 0 560 190" aria-label="Graphique des scores">
+                <defs>
+                  <linearGradient
+                    id="score-line-gradient-static"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#7BA7BC"
+                      stop-opacity="0.18"
+                    ></stop>
+                    <stop
+                      offset="100%"
+                      stop-color="#7BA7BC"
+                      stop-opacity="0"
+                    ></stop>
+                  </linearGradient>
+                </defs>
+
+                <g>
+                  <line
+                    x1="36"
+                    y1="162"
+                    x2="544"
+                    y2="162"
+                    stroke="#F0F4F8"
+                    stroke-width="1"
+                    stroke-dasharray="4 4"
+                  ></line>
+                  <text
+                    x="30"
+                    y="166"
+                    font-size="10"
+                    fill="#C0CDD8"
+                    text-anchor="end"
+                  >
+                    0
+                  </text>
+                </g>
+                <g>
+                  <line
+                    x1="36"
+                    y1="124.5"
+                    x2="544"
+                    y2="124.5"
+                    stroke="#F0F4F8"
+                    stroke-width="1"
+                    stroke-dasharray="4 4"
+                  ></line>
+                  <text
+                    x="30"
+                    y="128.5"
+                    font-size="10"
+                    fill="#C0CDD8"
+                    text-anchor="end"
+                  >
+                    25
+                  </text>
+                </g>
+                <g>
+                  <line
+                    x1="36"
+                    y1="87"
+                    x2="544"
+                    y2="87"
+                    stroke="#F0F4F8"
+                    stroke-width="1"
+                    stroke-dasharray="4 4"
+                  ></line>
+                  <text
+                    x="30"
+                    y="91"
+                    font-size="10"
+                    fill="#C0CDD8"
+                    text-anchor="end"
+                  >
+                    50
+                  </text>
+                </g>
+                <g>
+                  <line
+                    x1="36"
+                    y1="49.5"
+                    x2="544"
+                    y2="49.5"
+                    stroke="#F0F4F8"
+                    stroke-width="1"
+                    stroke-dasharray="4 4"
+                  ></line>
+                  <text
+                    x="30"
+                    y="53.5"
+                    font-size="10"
+                    fill="#C0CDD8"
+                    text-anchor="end"
+                  >
+                    75
+                  </text>
+                </g>
+                <g>
+                  <line
+                    x1="36"
+                    y1="12"
+                    x2="544"
+                    y2="12"
+                    stroke="#F0F4F8"
+                    stroke-width="1"
+                    stroke-dasharray="4 4"
+                  ></line>
+                  <text
+                    x="30"
+                    y="16"
+                    font-size="10"
+                    fill="#C0CDD8"
+                    text-anchor="end"
+                  >
+                    100
+                  </text>
+                </g>
+
+                <path
+                  d="M36,69 L120.66666666666666,55.5 L205.33333333333331,75 L290,49.5 L374.66666666666663,42 L459.33333333333337,60 L544,54.00000000000001 L544,162 L36,162 Z"
+                  fill="url(#score-line-gradient-static)"
+                ></path>
+                <path
+                  d="M36,69 L120.66666666666666,55.5 L205.33333333333331,75 L290,49.5 L374.66666666666663,42 L459.33333333333337,60 L544,54.00000000000001"
+                  fill="none"
+                  stroke="#7BA7BC"
+                  stroke-width="2.5"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                ></path>
+
+                <g>
+                  <circle
+                    cx="36"
+                    cy="69"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="36"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Lun
+                  </text>
+                </g>
+                <g>
+                  <circle
+                    cx="120.66666666666666"
+                    cy="55.5"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="120.66666666666666"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Mar
+                  </text>
+                </g>
+                <g>
+                  <circle
+                    cx="205.33333333333331"
+                    cy="75"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="205.33333333333331"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Mer
+                  </text>
+                </g>
+                <g>
+                  <circle
+                    cx="290"
+                    cy="49.5"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="290"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Jeu
+                  </text>
+                </g>
+                <g>
+                  <circle
+                    cx="374.66666666666663"
+                    cy="42"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="374.66666666666663"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Ven
+                  </text>
+                </g>
+                <g>
+                  <circle
+                    cx="459.33333333333337"
+                    cy="60"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="459.33333333333337"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Sam
+                  </text>
+                </g>
+                <g>
+                  <circle
+                    cx="544"
+                    cy="54.00000000000001"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#7BA7BC"
+                    stroke-width="2.5"
+                  ></circle>
+                  <text
+                    x="544"
+                    y="178"
+                    font-size="10"
+                    fill="#B0BEC5"
+                    text-anchor="middle"
+                  >
+                    Dim
+                  </text>
+                </g>
+              </svg>
+            </div>
+            <div class="weekly-summary">
+              <div class="weekly-item">
+                <div class="weekly-label">Semaine 1</div>
+                <div class="weekly-value weekly-mid">52%</div>
+              </div>
+              <div class="weekly-item">
+                <div class="weekly-label">Semaine 2</div>
+                <div class="weekly-value weekly-mid">67%</div>
+              </div>
+              <div class="weekly-item">
+                <div class="weekly-label">Semaine 3</div>
+                <div class="weekly-value weekly-good">76%</div>
+              </div>
+              <div class="weekly-item">
+                <div class="weekly-label">Semaine 4</div>
+                <div class="weekly-value weekly-good">81%</div>
+              </div>
+            </div>
           </article>
 
           <article class="card stats-card stats-card-radar">
-            <h2 class="section-title small">Repartition des reponses</h2>
-            <div id="radar-root" class="radar-root"></div>
+            <div class="stats-card-head">
+              <div>
+                <h2 class="section-title small">Repartition des reponses</h2>
+                <p class="chart-subtitle">
+                  Lecture rapide des formats les mieux reussis
+                </p>
+              </div>
+            </div>
+            <div class="radar-root">
+              <div class="radar-chart-shell">
+                <div class="radar-visual">
+                  <svg viewBox="0 0 280 250" aria-label="Radar des reponses">
+                    <polygon
+                      points="140,97.5 160.5,118 140,138.5 119.5,118"
+                      fill="none"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></polygon>
+                    <polygon
+                      points="140,77 181,118 140,159 99,118"
+                      fill="none"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></polygon>
+                    <polygon
+                      points="140,56.5 201.5,118 140,179.5 78.5,118.00000000000001"
+                      fill="none"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></polygon>
+                    <polygon
+                      points="140,36 222,118 140,200 58,118.00000000000001"
+                      fill="none"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></polygon>
+
+                    <line
+                      x1="140"
+                      y1="118"
+                      x2="140"
+                      y2="36"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></line>
+                    <line
+                      x1="140"
+                      y1="118"
+                      x2="222"
+                      y2="118"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></line>
+                    <line
+                      x1="140"
+                      y1="118"
+                      x2="140"
+                      y2="200"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></line>
+                    <line
+                      x1="140"
+                      y1="118"
+                      x2="58"
+                      y2="118.00000000000001"
+                      stroke="#E7EEF4"
+                      stroke-width="1"
+                    ></line>
+
+                    <text
+                      x="140"
+                      y="91.5"
+                      font-size="9"
+                      fill="#C0CDD8"
+                      text-anchor="middle"
+                    >
+                      25
+                    </text>
+                    <text
+                      x="140"
+                      y="71"
+                      font-size="9"
+                      fill="#C0CDD8"
+                      text-anchor="middle"
+                    >
+                      50
+                    </text>
+                    <text
+                      x="140"
+                      y="50.5"
+                      font-size="9"
+                      fill="#C0CDD8"
+                      text-anchor="middle"
+                    >
+                      75
+                    </text>
+                    <text
+                      x="140"
+                      y="30"
+                      font-size="9"
+                      fill="#C0CDD8"
+                      text-anchor="middle"
+                    >
+                      100
+                    </text>
+
+                    <path
+                      d="M140,70.44 L206.42000000000002,118 L140,178.68 L89.16,118 Z"
+                      fill="#7BA7BC"
+                      opacity="0.18"
+                    ></path>
+                    <path
+                      d="M140,70.44 L206.42000000000002,118 L140,178.68 L89.16,118 Z"
+                      fill="none"
+                      stroke="#7BA7BC"
+                      stroke-width="2.5"
+                      stroke-linejoin="round"
+                      stroke-linecap="round"
+                    ></path>
+
+                    <circle
+                      cx="140"
+                      cy="70.44"
+                      r="4.5"
+                      fill="#ffffff"
+                      stroke="#7BA7BC"
+                      stroke-width="2.5"
+                    ></circle>
+                    <circle
+                      cx="206.42000000000002"
+                      cy="118"
+                      r="4.5"
+                      fill="#ffffff"
+                      stroke="#7BA7BC"
+                      stroke-width="2.5"
+                    ></circle>
+                    <circle
+                      cx="140"
+                      cy="178.68"
+                      r="4.5"
+                      fill="#ffffff"
+                      stroke="#7BA7BC"
+                      stroke-width="2.5"
+                    ></circle>
+                    <circle
+                      cx="89.16"
+                      cy="118"
+                      r="4.5"
+                      fill="#ffffff"
+                      stroke="#7BA7BC"
+                      stroke-width="2.5"
+                    ></circle>
+
+                    <text
+                      x="140"
+                      y="4"
+                      font-size="10"
+                      fill="#8FA1B1"
+                      text-anchor="middle"
+                    >
+                      Texte
+                    </text>
+                    <text
+                      x="246"
+                      y="122"
+                      font-size="10"
+                      fill="#8FA1B1"
+                      text-anchor="start"
+                    >
+                      Image
+                    </text>
+                    <text
+                      x="140"
+                      y="234"
+                      font-size="10"
+                      fill="#8FA1B1"
+                      text-anchor="middle"
+                    >
+                      Indice
+                    </text>
+                    <text
+                      x="34"
+                      y="122.00000000000001"
+                      font-size="10"
+                      fill="#8FA1B1"
+                      text-anchor="end"
+                    >
+                      Relance
+                    </text>
+                  </svg>
+                </div>
+                <div class="radar-legend">
+                  <div class="radar-legend-item">
+                    <span
+                      class="radar-legend-swatch"
+                      style="background: var(--primary)"
+                    ></span>
+                    <div class="radar-legend-copy">
+                      <strong>Texte</strong>
+                    </div>
+                    <strong class="radar-legend-score">58%</strong>
+                  </div>
+                  <div class="radar-legend-item">
+                    <span
+                      class="radar-legend-swatch"
+                      style="background: var(--secondary)"
+                    ></span>
+                    <div class="radar-legend-copy">
+                      <strong>Image</strong>
+                    </div>
+                    <strong class="radar-legend-score">81%</strong>
+                  </div>
+                  <div class="radar-legend-item">
+                    <span
+                      class="radar-legend-swatch"
+                      style="background: var(--accent-alt)"
+                    ></span>
+                    <div class="radar-legend-copy">
+                      <strong>Indice</strong>
+                    </div>
+                    <strong class="radar-legend-score">74%</strong>
+                  </div>
+                  <div class="radar-legend-item">
+                    <span
+                      class="radar-legend-swatch"
+                      style="background: var(--accent)"
+                    ></span>
+                    <div class="radar-legend-copy">
+                      <strong>Relance</strong>
+                    </div>
+                    <strong class="radar-legend-score">62%</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
 
           <article class="card stats-card stats-card-indicators">
             <h2 class="section-title small">Indicateurs cles</h2>
-            <div id="indicators-root"></div>
+            <div class="indicator-row">
+              <span>Quiz completes</span>
+              <strong>5 / 7</strong>
+            </div>
+            <div class="indicator-row">
+              <span>Quiz abandonnes</span>
+              <strong>1</strong>
+            </div>
+            <div class="indicator-row">
+              <span>Indices utilises</span>
+              <strong>12</strong>
+            </div>
+            <div class="indicator-row">
+              <span>Questions transformees en V/F</span>
+              <strong>8</strong>
+            </div>
+            <div class="indicator-row">
+              <span>Temps total moyen / quiz</span>
+              <strong>9 min</strong>
+            </div>
+            <!-- <div class="indicator-row">
+              <span>Questions les plus difficiles</span>
+              <strong>Famille elargie</strong>
+            </div> -->
           </article>
 
           <article class="card stats-card stats-card-breakdown">
-            <h2 class="section-title small">Recapitulatif par quiz</h2>
+            <h2 class="section-title small">Recapitulatif par thème de quiz</h2>
             <div class="breakdown-table">
               <div class="breakdown-head">
                 <span>Quiz</span>
@@ -58,14 +708,82 @@
                 <span>Parties</span>
                 <span>Tendance</span>
               </div>
-              <div id="breakdown-body"></div>
+              <div class="breakdown-row">
+                <span class="breakdown-name">La famille proche</span>
+                <span class="score-line">
+                  <span class="score-bar">
+                    <span
+                      class="score-fill"
+                      style="width: 87%; background: var(--primary)"
+                    ></span>
+                  </span>
+                  <strong>87%</strong>
+                </span>
+                <span class="breakdown-plays">14x</span>
+                <span class="trend up">Hausse</span>
+              </div>
+              <div class="breakdown-row">
+                <span class="breakdown-name">Souvenirs d'enfance</span>
+                <span class="score-line">
+                  <span class="score-bar">
+                    <span
+                      class="score-fill"
+                      style="width: 72%; background: var(--secondary)"
+                    ></span>
+                  </span>
+                  <strong>72%</strong>
+                </span>
+                <span class="breakdown-plays">9x</span>
+                <span class="trend flat">Stable</span>
+              </div>
+              <div class="breakdown-row">
+                <span class="breakdown-name">La maison et les objets</span>
+                <span class="score-line">
+                  <span class="score-bar">
+                    <span
+                      class="score-fill"
+                      style="width: 61%; background: var(--accent)"
+                    ></span>
+                  </span>
+                  <strong>61%</strong>
+                </span>
+                <span class="breakdown-plays">7x</span>
+                <span class="trend down">Baisse</span>
+              </div>
+              <div class="breakdown-row">
+                <span class="breakdown-name">Les animaux favoris</span>
+                <span class="score-line">
+                  <span class="score-bar">
+                    <span
+                      class="score-fill"
+                      style="width: 94%; background: var(--primary)"
+                    ></span>
+                  </span>
+                  <strong>94%</strong>
+                </span>
+                <span class="breakdown-plays">11x</span>
+                <span class="trend up">Hausse</span>
+              </div>
             </div>
           </article>
 
-          <article class="card stats-card stats-card-insights">
+          <!-- <article class="card stats-card stats-card-insights">
             <h2 class="section-title small">Observations</h2>
-            <div class="insight-grid" id="insights-root"></div>
-          </article>
+            <div class="insight-grid">
+              <article class="insight">
+                Les quiz sur la famille proche obtiennent les meilleurs scores (+23% vs moyenne).
+              </article>
+              <article class="insight peach">
+                Le taux de bonnes reponses au premier essai est en baisse cette semaine (52% vs 64%).
+              </article>
+              <article class="insight blue">
+                Les questions avec image sont mieux reussies que les questions textuelles (81% vs 58%).
+              </article>
+              <article class="insight peach">
+                Jean utilise davantage les indices en apres-midi qu'en matinee.
+              </article>
+            </div>
+          </article> -->
         </section>
       </main>
     </div>
