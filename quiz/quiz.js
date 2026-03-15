@@ -31,6 +31,12 @@
     truefalse: false,
     removeFalse: false,
   };
+  const LEGACY_COVER_TOKEN_MAP = {
+    FAM: 0,
+    FLR: 1,
+    HSE: 2,
+    CAT: 3,
+  };
   const BUILDER_CONFIG_OPTIONS = [
     {
       key: "hints",
@@ -289,6 +295,26 @@
     };
   }
 
+  function normalizeQuizCover(rawQuiz = {}) {
+    const token = String(rawQuiz.cover || "")
+      .trim()
+      .toUpperCase();
+
+    if (Object.prototype.hasOwnProperty.call(LEGACY_COVER_TOKEN_MAP, token)) {
+      const coverFromToken = COVER_EMOJIS[LEGACY_COVER_TOKEN_MAP[token]];
+      if (coverFromToken) {
+        return coverFromToken;
+      }
+    }
+
+    const providedCover = String(rawQuiz.cover || rawQuiz.emoji || "").trim();
+    if (providedCover) {
+      return providedCover;
+    }
+
+    return "📝";
+  }
+
   function normalizeQuestion(question = {}) {
     const answers = Array.isArray(question.answers)
       ? question.answers.slice(0, 4).map((answer) => String(answer || ""))
@@ -378,7 +404,7 @@
       id: rawQuiz.id || getNextQuizId(),
       title: String(rawQuiz.title || "Sans titre"),
       desc: String(rawQuiz.desc || ""),
-      cover: String(rawQuiz.cover || rawQuiz.emoji || "📝"),
+      cover: normalizeQuizCover(rawQuiz),
       questionItems,
       questions: questionItems.length,
       config: normalizeConfig(rawQuiz.config || preset?.config),
