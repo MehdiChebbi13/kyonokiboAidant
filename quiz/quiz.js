@@ -31,6 +31,12 @@
     truefalse: false,
     removeFalse: false,
   };
+  const LEGACY_COVER_TOKEN_MAP = {
+    FAM: 0,
+    FLR: 1,
+    HSE: 2,
+    CAT: 3,
+  };
   const BUILDER_CONFIG_OPTIONS = [
     {
       key: "hints",
@@ -58,7 +64,6 @@
     { id: "text-text", label: "Texte -> Texte", icon: "📝" },
     { id: "text-image", label: "Texte -> Images", icon: "📝🖼" },
     { id: "image-text", label: "Image -> Texte", icon: "🖼📝" },
-    { id: "image-image", label: "Image -> Images", icon: "🖼🖼" },
   ];
   const PRESET_QUIZ_DETAILS = {
     1: {
@@ -199,7 +204,6 @@
   const tabs = document.getElementById("quiz-tabs");
   const dailySection = document.getElementById("daily-section");
   const customSection = document.getElementById("custom-section");
-  const createTop = document.getElementById("create-quiz-top");
   const dailyConfigList = document.getElementById("daily-config-list");
   const dailyFlowList = document.getElementById("daily-flow-list");
   const weekSummaryList = document.getElementById("week-summary-list");
@@ -288,6 +292,26 @@
           ? config.removeFalse
           : DEFAULT_QUIZ_CONFIG.removeFalse,
     };
+  }
+
+  function normalizeQuizCover(rawQuiz = {}) {
+    const token = String(rawQuiz.cover || "")
+      .trim()
+      .toUpperCase();
+
+    if (Object.prototype.hasOwnProperty.call(LEGACY_COVER_TOKEN_MAP, token)) {
+      const coverFromToken = COVER_EMOJIS[LEGACY_COVER_TOKEN_MAP[token]];
+      if (coverFromToken) {
+        return coverFromToken;
+      }
+    }
+
+    const providedCover = String(rawQuiz.cover || rawQuiz.emoji || "").trim();
+    if (providedCover) {
+      return providedCover;
+    }
+
+    return "📝";
   }
 
   function normalizeQuestion(question = {}) {
@@ -379,7 +403,7 @@
       id: rawQuiz.id || getNextQuizId(),
       title: String(rawQuiz.title || "Sans titre"),
       desc: String(rawQuiz.desc || ""),
-      cover: String(rawQuiz.cover || rawQuiz.emoji || "📝"),
+      cover: normalizeQuizCover(rawQuiz),
       questionItems,
       questions: questionItems.length,
       config: normalizeConfig(rawQuiz.config || preset?.config),
@@ -558,12 +582,6 @@
           })
           .join("")}
       </div>
-      <button class="btn btn-primary preview-launch" type="button">
-        <span class="btn-label">
-          ${AppUI.iconHTML("quiz", { size: 15, color: "currentColor" })}
-          <span>Lancer ce quiz avec Marguerite</span>
-        </span>
-      </button>
     `;
     previewModal.classList.remove("hidden");
   }
@@ -580,7 +598,6 @@
     const customActive = state.tab === "custom";
     dailySection.classList.toggle("hidden", customActive);
     customSection.classList.toggle("hidden", !customActive);
-    createTop.classList.toggle("hidden", !customActive);
   }
 
   function renderDailyConfig() {
@@ -670,14 +687,14 @@
   }
 
   function renderCustom() {
-    customCount.textContent = `${state.quizzes.length} quiz cree${state.quizzes.length > 1 ? "s" : ""}`;
+    customCount.textContent = `${state.quizzes.length} quiz crée${state.quizzes.length > 1 ? "s" : ""}`;
 
     if (state.quizzes.length === 0) {
       customGrid.innerHTML = `
         <article class="card quiz-empty-state">
           <div style="font-size:3rem;margin-bottom:12px">📝</div>
-          <strong>Aucun quiz personnalise</strong>
-          <div>Cliquez sur "Creer un quiz" pour commencer.</div>
+          <strong>Aucun quiz personnalisé</strong>
+          <div>Cliquez sur "Créer un quiz" pour commencer.</div>
         </article>
       `;
       return;
@@ -715,7 +732,7 @@
               <button class="btn btn-ghost" data-action="preview" data-id="${quiz.id}" type="button">
                 <span class="btn-label">
                   ${AppUI.iconHTML("eye", { size: 13 })}
-                  <span>Apercu</span>
+                  <span>Aperçu</span>
                 </span>
               </button>
               <button class="btn btn-ghost" data-action="edit" data-id="${quiz.id}" type="button">
@@ -724,10 +741,16 @@
                   <span>Modifier</span>
                 </span>
               </button>
-              <button class="btn btn-danger" data-action="delete" data-id="${quiz.id}" type="button">
+              <button
+                class="btn btn-danger quiz-delete-btn"
+                data-action="delete"
+                data-id="${quiz.id}"
+                type="button"
+                aria-label="Supprimer le quiz"
+                title="Supprimer"
+              >
                 <span class="btn-label">
                   ${AppUI.iconHTML("trash", { size: 13 })}
-                  <span>Suppr.</span>
                 </span>
               </button>
             </div>
@@ -1107,7 +1130,7 @@
     renderDailyFlow();
   });
 
-  [createInline, createTop].forEach((button) =>
+  [createInline].forEach((button) =>
     button.addEventListener("click", () => openQuizModal(null)),
   );
 
