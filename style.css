@@ -90,7 +90,7 @@ a {
 }
 
 .brand-name span {
-  color: var(--secondary);
+  color: var(--primary);
 }
 
 .brand-sub {
@@ -106,7 +106,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--secondary-light);
+  background: var(--primary-light);
   border-radius: var(--radius-sm);
   padding: 10px 12px;
   margin-bottom: 20px;
@@ -161,13 +161,13 @@ a {
 }
 
 .sidebar-link:hover {
-  background: var(--secondary-light);
-  color: var(--secondary-dark);
+  background: var(--primary-light);
+  color: var(--primary-dark);
 }
 
 .sidebar-link.active {
-  background: var(--secondary-light);
-  color: var(--secondary-dark);
+  background: var(--primary-light);
+  color: var(--primary-dark);
   font-weight: 700;
 }
 
@@ -306,12 +306,12 @@ a {
 }
 
 .btn-primary {
-  background: var(--secondary);
+  background: var(--primary);
   color: #ffffff;
 }
 
 .btn-primary:hover {
-  background: var(--secondary-dark);
+  background: var(--primary-dark);
   transform: translateY(-1px);
 }
 
@@ -350,8 +350,8 @@ a {
 }
 
 .badge-green {
-  background: var(--secondary-light);
-  color: var(--secondary-dark);
+  background: var(--primary-light);
+  color: var(--primary-dark);
 }
 
 .badge-accent {
@@ -387,8 +387,8 @@ a {
 }
 
 .input-field:focus {
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 3px rgba(157, 191, 163, 0.17);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(123, 167, 188, 0.2);
 }
 
 textarea.input-field {
@@ -432,7 +432,7 @@ textarea.input-field {
 }
 
 .toggle-wrap input:checked + .toggle-slider {
-  background: var(--secondary);
+  background: var(--primary);
 }
 
 .toggle-wrap input:checked + .toggle-slider::before {
@@ -461,7 +461,7 @@ textarea.input-field {
 
 .tab-btn.active {
   background: #ffffff;
-  color: var(--secondary-dark);
+  color: var(--primary-dark);
   box-shadow: var(--shadow);
 }
 
@@ -495,7 +495,7 @@ textarea.input-field {
   flex: 1;
   min-height: 4px;
   border-radius: 3px 3px 0 0;
-  background: var(--secondary);
+  background: var(--primary);
 }
 
 .bar.low {
@@ -552,9 +552,9 @@ textarea.input-field {
 }
 
 .pill.active {
-  border-color: var(--secondary);
-  color: var(--secondary-dark);
-  background: var(--secondary-light);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  background: var(--primary-light);
   font-weight: 700;
 }
 

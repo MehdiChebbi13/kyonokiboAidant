@@ -107,7 +107,7 @@
 }
 
 .quiz-line.ok i {
-  background: var(--secondary);
+  background: var(--primary);
 }
 
 .quiz-line.ko i {
@@ -125,7 +125,7 @@
 }
 
 .quiz-line.ok strong {
-  color: var(--secondary-dark);
+  color: var(--primary-dark);
 }
 
 .quiz-line.ko strong {
@@ -162,7 +162,7 @@
 }
 
 .flow-step.active .flow-step-index {
-  background: var(--secondary);
+  background: var(--primary);
   color: #ffffff;
 }
 

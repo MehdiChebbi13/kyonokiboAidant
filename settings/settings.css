@@ -25,13 +25,13 @@
 }
 
 .settings-tab:hover {
-  background: var(--secondary-light);
-  color: var(--secondary-dark);
+  background: var(--primary-light);
+  color: var(--primary-dark);
 }
 
 .settings-tab.active {
-  background: var(--secondary-light);
-  color: var(--secondary-dark);
+  background: var(--primary-light);
+  color: var(--primary-dark);
   font-weight: 700;
 }
 

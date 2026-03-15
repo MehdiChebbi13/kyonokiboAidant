@@ -56,16 +56,16 @@
 }
 
 .calendar-day:hover {
-  background: var(--secondary-light);
+  background: var(--primary-light);
 }
 
 .calendar-day.has-events {
-  background: color-mix(in srgb, var(--secondary) 8%, white 92%);
+  background: color-mix(in srgb, var(--primary) 8%, white 92%);
 }
 
 .calendar-day.selected {
-  border-color: var(--secondary);
-  background: var(--secondary-light);
+  border-color: var(--primary);
+  background: var(--primary-light);
 }
 
 .calendar-day.today {
@@ -100,8 +100,8 @@
 }
 
 .day-chip.normal {
-  background: color-mix(in srgb, var(--secondary) 20%, white 80%);
-  color: var(--secondary-dark);
+  background: color-mix(in srgb, var(--primary) 20%, white 80%);
+  color: var(--primary-dark);
 }
 
 .calendar-legend {
@@ -127,7 +127,7 @@
 }
 
 .dot.normal {
-  background: var(--secondary);
+  background: var(--primary);
 }
 
 .calendar-side {

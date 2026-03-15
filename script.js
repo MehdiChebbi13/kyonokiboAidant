@@ -155,12 +155,12 @@
 
   function avatarHTML(name, options = {}) {
     const sizeClass = options.sizeClass || "small";
-    const bg = options.bg || "var(--secondary-light)";
-    const color = options.color || "var(--secondary-dark)";
+    const bg = options.bg || "var(--primary-light)";
+    const color = options.color || "var(--primary-dark)";
     return `<span class="avatar ${sizeClass}" style="background:${bg};color:${color}">${initials(name)}</span>`;
   }
 
-  function kpiCardHTML({ label, value, sub, icon, accent = "var(--secondary)" }) {
+  function kpiCardHTML({ label, value, sub, icon, accent = "var(--primary)" }) {
     return `
       <article class="card kpi-card">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
@@ -173,7 +173,7 @@
     `;
   }
 
-  function circleProgressHTML({ value, label, color = "var(--secondary)", size = 68, stroke = 7 }) {
+  function circleProgressHTML({ value, label, color = "var(--primary)", size = 68, stroke = 7 }) {
     const radius = (size - stroke * 2) / 2;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (value / 100) * circumference;

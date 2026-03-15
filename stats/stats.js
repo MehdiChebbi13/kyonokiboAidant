@@ -27,14 +27,14 @@
         value: `${AppData.weekStats.correctRate} %`,
         sub: "↓ −4% vs semaine passée",
         icon: "🎯",
-        accent: "var(--secondary)"
+        accent: "var(--primary)"
       },
       {
         label: "Sans indice",
         value: `${AppData.weekStats.noHintRate} %`,
         sub: "↑ +2% vs semaine passée",
         icon: "💡",
-        accent: "var(--primary)"
+        accent: "var(--secondary)"
       },
       {
         label: "Premier essai",
@@ -61,8 +61,8 @@
 
   function renderRings() {
     const ringData = [
-      { label: "Questions texte", correct: 58, color: "var(--secondary)" },
-      { label: "Questions image", correct: 81, color: "var(--primary)" },
+      { label: "Questions texte", correct: 58, color: "var(--primary)" },
+      { label: "Questions image", correct: 81, color: "var(--secondary)" },
       { label: "Avec indice", correct: 74, color: "var(--accent-alt)" },
       { label: "Après erreur", correct: 62, color: "var(--accent)" }
     ];
@@ -84,10 +84,10 @@
 
   function scoreColor(score) {
     if (score > 80) {
-      return "var(--secondary)";
+      return "var(--primary)";
     }
     if (score > 65) {
-      return "var(--primary)";
+      return "var(--secondary)";
     }
     return "var(--accent)";
   }
@@ -164,3 +164,4 @@
 
   renderAll();
 })();
+

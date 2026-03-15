@@ -164,10 +164,10 @@
 }
 
 .insight {
-  border-left: 3px solid var(--secondary);
+  border-left: 3px solid var(--primary);
   border-radius: 0 8px 8px 0;
   padding: 12px 15px;
-  background: var(--secondary-light);
+  background: var(--primary-light);
   font-size: 0.84rem;
   line-height: 1.5;
   color: #54677a;

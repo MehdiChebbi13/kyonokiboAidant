@@ -44,14 +44,14 @@
         value: "Terminé ✓",
         sub: "Score : 7/10 • 9 min 32 s",
         icon: "📝",
-        accent: "var(--secondary)"
+        accent: "var(--primary)"
       },
       {
         label: "Tâches du jour",
         value: `${doneCount} / ${state.tasks.length}`,
         sub: `${state.tasks.length - doneCount} restante(s)`,
         icon: "✓",
-        accent: "var(--secondary)"
+        accent: "var(--primary)"
       },
       {
         label: "Taux de réussite",
@@ -112,8 +112,8 @@
 
   function renderMemorySummary() {
     memoryRoot.innerHTML = [
-      AppUI.circleProgressHTML({ value: AppData.weekStats.correctRate, label: "réussite", color: "var(--secondary)", size: 62 }),
-      AppUI.circleProgressHTML({ value: AppData.weekStats.noHintRate, label: "sans indice", color: "var(--primary)", size: 62 }),
+      AppUI.circleProgressHTML({ value: AppData.weekStats.correctRate, label: "réussite", color: "var(--primary)", size: 62 }),
+      AppUI.circleProgressHTML({ value: AppData.weekStats.noHintRate, label: "sans indice", color: "var(--secondary)", size: 62 }),
       AppUI.circleProgressHTML({ value: AppData.weekStats.firstTryRate, label: "1er essai", color: "var(--accent)", size: 62 })
     ].join("");
     avgTime.textContent = AppData.weekStats.avgTime;
@@ -159,3 +159,4 @@
 
   renderAll();
 })();
+
