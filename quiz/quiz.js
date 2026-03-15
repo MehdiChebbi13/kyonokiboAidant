@@ -199,7 +199,6 @@
   const tabs = document.getElementById("quiz-tabs");
   const dailySection = document.getElementById("daily-section");
   const customSection = document.getElementById("custom-section");
-  const createTop = document.getElementById("create-quiz-top");
   const dailyConfigList = document.getElementById("daily-config-list");
   const dailyFlowList = document.getElementById("daily-flow-list");
   const weekSummaryList = document.getElementById("week-summary-list");
@@ -580,7 +579,6 @@
     const customActive = state.tab === "custom";
     dailySection.classList.toggle("hidden", customActive);
     customSection.classList.toggle("hidden", !customActive);
-    createTop.classList.toggle("hidden", !customActive);
   }
 
   function renderDailyConfig() {
@@ -670,14 +668,14 @@
   }
 
   function renderCustom() {
-    customCount.textContent = `${state.quizzes.length} quiz cree${state.quizzes.length > 1 ? "s" : ""}`;
+    customCount.textContent = `${state.quizzes.length} quiz crée${state.quizzes.length > 1 ? "s" : ""}`;
 
     if (state.quizzes.length === 0) {
       customGrid.innerHTML = `
         <article class="card quiz-empty-state">
           <div style="font-size:3rem;margin-bottom:12px">📝</div>
-          <strong>Aucun quiz personnalise</strong>
-          <div>Cliquez sur "Creer un quiz" pour commencer.</div>
+          <strong>Aucun quiz personnalisé</strong>
+          <div>Cliquez sur "Créer un quiz" pour commencer.</div>
         </article>
       `;
       return;
@@ -715,7 +713,7 @@
               <button class="btn btn-ghost" data-action="preview" data-id="${quiz.id}" type="button">
                 <span class="btn-label">
                   ${AppUI.iconHTML("eye", { size: 13 })}
-                  <span>Apercu</span>
+                  <span>Aperçu</span>
                 </span>
               </button>
               <button class="btn btn-ghost" data-action="edit" data-id="${quiz.id}" type="button">
@@ -1107,7 +1105,7 @@
     renderDailyFlow();
   });
 
-  [createInline, createTop].forEach((button) =>
+  [createInline].forEach((button) =>
     button.addEventListener("click", () => openQuizModal(null)),
   );
 
