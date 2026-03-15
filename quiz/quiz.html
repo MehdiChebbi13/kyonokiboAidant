@@ -16,14 +16,24 @@
           <div>
             <h1 class="page-title">Quiz</h1>
             <p class="page-subtitle">
-              Quiz du jour et quiz personnalises de Jean
+              Quiz du jour et quiz personnalisés de Jean
             </p>
           </div>
+          <button class="btn btn-primary hidden" id="create-quiz-top">
+            <span class="btn-label">
+              <span
+                data-app-icon="plus"
+                data-app-icon-size="15"
+                data-app-icon-color="currentColor"
+              ></span>
+              <span>Créer un quiz</span>
+            </span>
+          </button>
         </header>
 
         <nav class="tab-switch" id="quiz-tabs">
           <button class="tab-btn active" data-tab="daily">Quiz du jour</button>
-          <button class="tab-btn" data-tab="custom">Quiz personnalises</button>
+          <button class="tab-btn" data-tab="custom">Quiz personnalisés</button>
         </nav>
 
         <section class="quiz-section" id="daily-section">
