@@ -6,6 +6,7 @@
     currentDate: new Date(2025, 5, 1),
     selectedDay: null,
     editingId: null,
+    formReminders: [],
     events: AppUtils.clone(AppData.calendarEvents)
   };
 
@@ -20,6 +21,12 @@
   const closeModalButton = document.getElementById("close-event-modal");
   const cancelEventButton = document.getElementById("cancel-event");
   const eventForm = document.getElementById("event-form");
+  const saveEventButton = document.getElementById("save-event");
+  const importantPanel = document.getElementById("event-important-row");
+  const remindersGroup = document.getElementById("event-reminders-group");
+  const reminderButtons = Array.from(
+    eventForm.querySelectorAll("[data-reminder]")
+  );
 
   function eventDateKey(year, month, day) {
     return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
@@ -35,21 +42,46 @@
   function openModal(event = null, forcedDate = "") {
     state.editingId = event ? event.id : null;
     modalTitle.textContent = event ? "Modifier l'evenement" : "Nouvel evenement";
+    saveEventButton.textContent = event ? "Enregistrer" : "Creer l'evenement";
 
     eventForm.title.value = event ? event.title : "";
     eventForm.date.value = event ? event.date : forcedDate;
     eventForm.time.value = event ? event.time : "";
     eventForm.lieu.value = event ? event.lieu : "";
-    eventForm.reminders.value = event ? (event.reminders || []).join(", ") : "";
+    eventForm.description.value = event ? event.description || "" : "";
     eventForm.important.checked = Boolean(event && event.important);
+    state.formReminders = event && Array.isArray(event.reminders)
+      ? [...event.reminders]
+      : [];
 
+    syncEventModalUi();
+    syncSaveButtonState();
     modal.classList.remove("hidden");
   }
 
   function closeModal() {
     state.editingId = null;
+    state.formReminders = [];
     modal.classList.add("hidden");
     eventForm.reset();
+    syncEventModalUi();
+  }
+
+  function syncEventModalUi() {
+    const important = eventForm.important.checked;
+
+    importantPanel.classList.toggle("is-important", important);
+    remindersGroup.classList.toggle("hidden", !important);
+
+    reminderButtons.forEach((button) => {
+      const active = state.formReminders.includes(button.dataset.reminder);
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+
+  function syncSaveButtonState() {
+    saveEventButton.disabled = !String(eventForm.title.value || "").trim();
   }
 
   function renderCalendar() {
@@ -275,13 +307,27 @@
     }
   });
 
+  eventForm.important.addEventListener("change", () => {
+    syncEventModalUi();
+  });
+
+  eventForm.title.addEventListener("input", syncSaveButtonState);
+
+  reminderButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const value = button.dataset.reminder;
+      if (state.formReminders.includes(value)) {
+        state.formReminders = state.formReminders.filter((item) => item !== value);
+      } else {
+        state.formReminders = [...state.formReminders, value];
+      }
+      syncEventModalUi();
+    });
+  });
+
   eventForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(eventForm);
-    const reminders = String(formData.get("reminders") || "")
-      .split(",")
-      .map((item) => item.trim())
-      .filter(Boolean);
 
     const payload = {
       id: state.editingId || Date.now(),
@@ -289,9 +335,10 @@
       date: String(formData.get("date") || ""),
       time: String(formData.get("time") || ""),
       lieu: String(formData.get("lieu") || ""),
+      description: String(formData.get("description") || "").trim(),
       important: formData.get("important") === "on",
       color: formData.get("important") === "on" ? "#e07840" : "#9dbfa3",
-      reminders
+      reminders: [...state.formReminders]
     };
 
     if (!payload.title) {
