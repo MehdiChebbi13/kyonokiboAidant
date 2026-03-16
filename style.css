@@ -36,6 +36,15 @@
 
 html {
   font-size: 15px;
+  zoom: 1.2;
+}
+
+@supports not (zoom: 1.2) {
+  body {
+    transform: scale(1.2);
+    transform-origin: top left;
+    width: calc(100% / 1.2);
+  }
 }
 
 body {
