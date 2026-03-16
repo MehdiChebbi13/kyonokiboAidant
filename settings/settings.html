@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kyonokibo Aidant - Settings</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="./settings.css">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./settings.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -15,20 +15,16 @@
         <header class="page-header">
           <div>
             <h1 class="page-title">Parametres</h1>
-            <p class="page-subtitle">Personnalisez votre espace et celui de Jean</p>
+            <p class="page-subtitle">
+              Personnalisez votre espace et celui de Jean
+            </p>
           </div>
         </header>
 
         <section class="settings-layout">
           <nav class="card settings-nav">
-            <p class="settings-nav-eyebrow">Vue MVP</p>
-            <h2 class="section-title small">Rubriques</h2>
-            <p class="settings-nav-note">
-              Version statique pour cadrer les reglages principaux avant branchement complet.
-            </p>
-
             <div class="settings-nav-list">
-              <div class="settings-tab active">
+              <a class="settings-tab active" href="#settings-caregiver">
                 <span class="settings-tab-icon">
                   <span data-app-icon="user" data-app-icon-size="16"></span>
                 </span>
@@ -36,9 +32,9 @@
                   <strong>Profil aidant</strong>
                   <span>Coordonnees et role</span>
                 </div>
-              </div>
+              </a>
 
-              <div class="settings-tab">
+              <a class="settings-tab" href="#settings-patient">
                 <span class="settings-tab-icon">
                   <span data-app-icon="star" data-app-icon-size="16"></span>
                 </span>
@@ -46,9 +42,9 @@
                   <strong>Profil patient</strong>
                   <span>Informations de suivi</span>
                 </div>
-              </div>
+              </a>
 
-              <div class="settings-tab">
+              <a class="settings-tab" href="#settings-preferences">
                 <span class="settings-tab-icon">
                   <span data-app-icon="settings" data-app-icon-size="16"></span>
                 </span>
@@ -56,9 +52,9 @@
                   <strong>Preferences</strong>
                   <span>Langue et affichage</span>
                 </div>
-              </div>
+              </a>
 
-              <div class="settings-tab">
+              <a class="settings-tab" href="#settings-quiz">
                 <span class="settings-tab-icon">
                   <span data-app-icon="quiz" data-app-icon-size="16"></span>
                 </span>
@@ -66,9 +62,9 @@
                   <strong>Quiz</strong>
                   <span>Reglages par defaut</span>
                 </div>
-              </div>
+              </a>
 
-              <div class="settings-tab">
+              <a class="settings-tab" href="#settings-security">
                 <span class="settings-tab-icon">
                   <span data-app-icon="lock" data-app-icon-size="16"></span>
                 </span>
@@ -76,9 +72,9 @@
                   <strong>Securite</strong>
                   <span>Acces et session</span>
                 </div>
-              </div>
+              </a>
 
-              <div class="settings-tab">
+              <a class="settings-tab" href="#settings-export">
                 <span class="settings-tab-icon">
                   <span data-app-icon="download" data-app-icon-size="16"></span>
                 </span>
@@ -86,19 +82,26 @@
                   <strong>Export</strong>
                   <span>Rapports et partages</span>
                 </div>
-              </div>
+              </a>
             </div>
           </nav>
 
           <div class="settings-content-stack">
-            <section class="settings-panel">
+            <section class="settings-panel" id="settings-caregiver">
               <div class="settings-panel-head">
                 <h2 class="section-title">Profil aidant</h2>
                 <span class="badge badge-gray">MVP</span>
               </div>
 
               <div class="profile-head neutral">
-                <span class="avatar large" style="background: var(--secondary-light); color: var(--secondary-dark);">SM</span>
+                <span
+                  class="avatar large"
+                  style="
+                    background: var(--secondary-light);
+                    color: var(--secondary-dark);
+                  "
+                  >SM</span
+                >
                 <div>
                   <h3 class="profile-name">Sophie Martin</h3>
                   <p class="profile-role">Sa fille - Aidante principale</p>
@@ -129,14 +132,21 @@
               </div>
             </section>
 
-            <section class="settings-panel">
+            <section class="settings-panel" id="settings-patient">
               <div class="settings-panel-head">
                 <h2 class="section-title">Profil patient</h2>
                 <span class="badge badge-accent">Suivi actif</span>
               </div>
 
               <div class="profile-head primary">
-                <span class="avatar large" style="background: var(--primary-light); color: var(--primary-dark);">JM</span>
+                <span
+                  class="avatar large"
+                  style="
+                    background: var(--primary-light);
+                    color: var(--primary-dark);
+                  "
+                  >JM</span
+                >
                 <div>
                   <h3 class="profile-name">Jean Martin</h3>
                   <p class="profile-role">Maladie d'Alzheimer - stade leger</p>
@@ -158,7 +168,9 @@
                 </div>
                 <div class="static-field">
                   <span class="label">Centres d'interet</span>
-                  <strong class="field-value">Musique classique, jardin, famille</strong>
+                  <strong class="field-value"
+                    >Musique classique, jardin, famille</strong
+                  >
                 </div>
                 <div class="static-field">
                   <span class="label">Rythme de visite</span>
@@ -167,11 +179,12 @@
               </div>
 
               <p class="info-note">
-                Jean reagit mieux aux questions visuelles et aux rappels relies a la famille proche.
+                Jean reagit mieux aux questions visuelles et aux rappels relies
+                a la famille proche.
               </p>
             </section>
 
-            <section class="settings-panel">
+            <section class="settings-panel" id="settings-preferences">
               <div class="settings-panel-head">
                 <h2 class="section-title">Preferences generales</h2>
                 <span class="badge badge-gray">Lecture simple</span>
@@ -213,14 +226,15 @@
               </div>
             </section>
 
-            <section class="settings-panel">
+            <section class="settings-panel" id="settings-quiz">
               <div class="settings-panel-head">
                 <h2 class="section-title">Parametres quiz</h2>
                 <span class="badge badge-green">Par defaut</span>
               </div>
 
               <p class="info-note">
-                Ces reglages servent de base a la creation des prochains quiz personnalises.
+                Ces reglages servent de base a la creation des prochains quiz
+                personnalises.
               </p>
 
               <div class="settings-row">
@@ -256,7 +270,7 @@
               </div>
             </section>
 
-            <section class="settings-panel">
+            <section class="settings-panel" id="settings-security">
               <div class="settings-panel-head">
                 <h2 class="section-title">Securite</h2>
                 <span class="badge badge-gray">Apercu</span>
@@ -280,27 +294,33 @@
               <div class="logout-box">
                 <h3 class="section-title small">Session</h3>
                 <p>
-                  La deconnexion manuelle et la reinitialisation du mot de passe seront branchees
-                  dans une iteration suivante.
+                  La deconnexion manuelle et la reinitialisation du mot de passe
+                  seront branchees dans une iteration suivante.
                 </p>
-                <span class="settings-static-chip muted">Action manuelle a venir</span>
+                <span class="settings-static-chip muted"
+                  >Action manuelle a venir</span
+                >
               </div>
             </section>
 
-            <section class="settings-panel">
+            <section class="settings-panel" id="settings-export">
               <div class="settings-panel-head">
                 <h2 class="section-title">Export et rapports</h2>
                 <span class="badge badge-gray">Pret pour design</span>
               </div>
 
               <p class="page-subtitle settings-panel-subtitle">
-                Generez et partagez des resumes de suivi pour la famille et les professionnels.
+                Generez et partagez des resumes de suivi pour la famille et les
+                professionnels.
               </p>
 
               <div class="export-list">
                 <div class="export-item">
                   <span class="icon">
-                    <span data-app-icon="download" data-app-icon-size="16"></span>
+                    <span
+                      data-app-icon="download"
+                      data-app-icon-size="16"
+                    ></span>
                   </span>
                   <div class="export-copy">
                     <h4>Resume hebdomadaire</h4>
@@ -324,7 +344,10 @@
 
                 <div class="export-item">
                   <span class="icon">
-                    <span data-app-icon="calendar" data-app-icon-size="16"></span>
+                    <span
+                      data-app-icon="calendar"
+                      data-app-icon-size="16"
+                    ></span>
                   </span>
                   <div class="export-copy">
                     <h4>Rapport mensuel</h4>
