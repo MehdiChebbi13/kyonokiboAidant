@@ -1,3 +1,12 @@
+.settings-layout,
+.settings-panel {
+  scroll-margin-top: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 .settings-layout {
   display: grid;
   grid-template-columns: 250px minmax(0, 1fr);
@@ -44,6 +53,16 @@
   align-items: flex-start;
   gap: 10px;
   color: var(--text-secondary);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.settings-tab:hover {
+  background: #f7fbff;
+  color: var(--primary-dark);
+  border-color: #e5eef6;
 }
 
 .settings-tab.active {
@@ -86,6 +105,12 @@
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 24px;
+}
+
+.settings-panel:target {
+  box-shadow:
+    0 0 0 2px rgba(123, 167, 188, 0.22),
+    var(--shadow);
 }
 
 .settings-panel-head {
