@@ -12,37 +12,232 @@
       <aside id="app-sidebar"></aside>
 
       <main class="main-content">
-        <!-- <header class="page-header">
-          <div>
-            <h1 class="page-title">Dashboard</h1>
-            <p class="page-subtitle">Suivi quotidien de Jean Martin</p>
+        <section class="card welcome-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-size:0.78rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">
+                lundi 16 mars 2026
+              </div>
+              <h1 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:#1A2535;margin-bottom:6px">
+                Bonjour, Sophie 👋
+              </h1>
+              <p style="color:var(--text-secondary);font-size:0.9rem">
+                Jean a complete son quiz du matin avec un bon score.
+                <strong>2/5</strong> taches accomplies aujourd'hui.
+              </p>
+            </div>
+            <div style="text-align:right">
+              <div class="badge badge-green" style="font-size:0.8rem;padding:6px 14px">Journee sereine &#10022;</div>
+            </div>
           </div>
-          <a class="btn btn-primary" href="../quiz/quiz.html">
-            <span class="btn-label">
-              <span data-app-icon="quiz" data-app-icon-size="15" data-app-icon-color="currentColor"></span>
-              <span>Ouvrir les quiz</span>
-            </span>
-          </a>
-        </header> -->
+        </section>
 
-        <section class="card welcome-card" id="welcome-card"></section>
-        <section class="kpi-grid" id="dashboard-kpis"></section>
+        <section class="kpi-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
+          <div class="card" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em">Quiz du jour</span>
+              <div style="width:34px;height:34px;border-radius:10px;background:color-mix(in srgb, var(--primary) 14%, white 86%);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1rem">
+                📝
+              </div>
+            </div>
+            <div>
+              <div style="font-size:1.6rem;font-weight:700;color:#1A2535;font-family:'Cormorant Garamond',serif;line-height:1">Termine ✓</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Score : 7/10 • 9 min 32 s</div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em">Taches du jour</span>
+              <div style="width:34px;height:34px;border-radius:10px;background:color-mix(in srgb, var(--secondary) 14%, white 86%);display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:1rem">
+                ✓
+              </div>
+            </div>
+            <div>
+              <div style="font-size:1.6rem;font-weight:700;color:#1A2535;font-family:'Cormorant Garamond',serif;line-height:1">2 / 5</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">3 restante(s)</div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em">Taux de reussite</span>
+              <div style="width:34px;height:34px;border-radius:10px;background:color-mix(in srgb, var(--accent) 14%, white 86%);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1rem">
+                📊
+              </div>
+            </div>
+            <div>
+              <div style="font-size:1.6rem;font-weight:700;color:#1A2535;font-family:'Cormorant Garamond',serif;line-height:1">68 %</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Cette semaine • -4% vs semaine passee</div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em">Temps moyen</span>
+              <div style="width:34px;height:34px;border-radius:10px;background:color-mix(in srgb, var(--accent-alt) 14%, white 86%);display:flex;align-items:center;justify-content:center;color:var(--accent-alt);font-size:1rem">
+                ⏱
+              </div>
+            </div>
+            <div>
+              <div style="font-size:1.6rem;font-weight:700;color:#1A2535;font-family:'Cormorant Garamond',serif;line-height:1">1m 24s</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Par question aujourd'hui</div>
+            </div>
+          </div>
+        </section>
 
         <section class="dashboard-main">
-          <article class="card checklist-card" id="checklist-card"></article>
+          <article class="card checklist-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+              <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--text-primary)">Checklist du jour</h2>
+              <div style="display:flex;gap:6px;align-items:center">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></div>
+                <span style="font-size:0.78rem;color:var(--text-muted)">2 / 5 effectuees</span>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);background:var(--secondary-light);border:1px solid color-mix(in srgb, var(--secondary) 30%, white 70%);opacity:0.75">
+                <div style="width:20px;height:20px;border-radius:6px;border:2px solid var(--secondary);background:var(--secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:0.72rem;font-weight:700">✓</div>
+                <span style="font-size:0.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums;width:36px;flex-shrink:0">08:30</span>
+                <span style="flex:1;font-size:0.88rem;font-weight:500;color:var(--text-muted);text-decoration:line-through">Medicaments du matin</span>
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0" title="Important"></div>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);background:var(--secondary-light);border:1px solid color-mix(in srgb, var(--secondary) 30%, white 70%);opacity:0.75">
+                <div style="width:20px;height:20px;border-radius:6px;border:2px solid var(--secondary);background:var(--secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:0.72rem;font-weight:700">✓</div>
+                <span style="font-size:0.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums;width:36px;flex-shrink:0">10:00</span>
+                <span style="flex:1;font-size:0.88rem;font-weight:500;color:var(--text-muted);text-decoration:line-through">Quiz du jour</span>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);background:#f8f9fa;border:1px solid var(--border)">
+                <div style="width:20px;height:20px;border-radius:6px;border:2px solid var(--text-muted);background:#ffffff;display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
+                <span style="font-size:0.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums;width:36px;flex-shrink:0">14:30</span>
+                <span style="flex:1;font-size:0.88rem;font-weight:500;color:var(--text-primary)">Kinesitherapie - Dr. Martin</span>
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0" title="Important"></div>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);background:#f8f9fa;border:1px solid var(--border)">
+                <div style="width:20px;height:20px;border-radius:6px;border:2px solid var(--text-muted);background:#ffffff;display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
+                <span style="font-size:0.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums;width:36px;flex-shrink:0">16:00</span>
+                <span style="flex:1;font-size:0.88rem;font-weight:500;color:var(--text-primary)">Appel de Pierre (fils)</span>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);background:#f8f9fa;border:1px solid var(--border)">
+                <div style="width:20px;height:20px;border-radius:6px;border:2px solid var(--text-muted);background:#ffffff;display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
+                <span style="font-size:0.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums;width:36px;flex-shrink:0">19:00</span>
+                <span style="flex:1;font-size:0.88rem;font-weight:500;color:var(--text-primary)">Medicaments du soir</span>
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0" title="Important"></div>
+              </div>
+            </div>
+          </article>
 
           <aside class="dashboard-side">
-            <article class="card next-event-card" id="next-event"></article>
+            <article class="card next-event-card">
+              <div style="font-size:0.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">⚡ Prochain evenement important</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:#1A2535;margin-bottom:4px">Kinesitherapie</div>
+              <div style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:8px">3 juin a 14:30</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">📍 Cabinet Dr. Martin</div>
+            </article>
 
-            <article class="card memory-card" id="memory-card"></article>
+            <article class="card memory-card">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:14px">Resume cognitif</div>
+              <div style="display:flex;justify-content:space-around;margin-bottom:14px">
+                <div style="position:relative;width:84px;height:84px;flex-shrink:0">
+                  <svg width="84" height="84" class="progress-ring">
+                    <circle cx="42" cy="42" r="35" fill="none" stroke="var(--primary-light)" stroke-width="7"></circle>
+                    <circle cx="42" cy="42" r="35" fill="none" stroke="var(--secondary)" stroke-width="7" stroke-linecap="round" stroke-dasharray="219.9114857512855" stroke-dashoffset="70.37167544041136" style="transition:stroke-dashoffset 1s ease"></circle>
+                  </svg>
+                  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                    <span style="font-size:20.16px;font-weight:700;color:var(--text-primary)">68%</span>
+                    <span style="font-size:11.76px;color:var(--text-muted);margin-top:1px">reussite</span>
+                  </div>
+                </div>
+
+                <div style="position:relative;width:84px;height:84px;flex-shrink:0">
+                  <svg width="84" height="84" class="progress-ring">
+                    <circle cx="42" cy="42" r="35" fill="none" stroke="var(--primary-light)" stroke-width="7"></circle>
+                    <circle cx="42" cy="42" r="35" fill="none" stroke="var(--primary)" stroke-width="7" stroke-linecap="round" stroke-dasharray="219.9114857512855" stroke-dashoffset="120.95131716320703" style="transition:stroke-dashoffset 1s ease"></circle>
+                  </svg>
+                  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                    <span style="font-size:20.16px;font-weight:700;color:var(--text-primary)">45%</span>
+                    <span style="font-size:11.76px;color:var(--text-muted);margin-top:1px">sans indice</span>
+                  </div>
+                </div>
+
+                <div style="position:relative;width:84px;height:84px;flex-shrink:0">
+                  <svg width="84" height="84" class="progress-ring">
+                    <circle cx="42" cy="42" r="35" fill="none" stroke="var(--primary-light)" stroke-width="7"></circle>
+                    <circle cx="42" cy="42" r="35" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-dasharray="219.9114857512855" stroke-dashoffset="105.55751316061703" style="transition:stroke-dashoffset 1s ease"></circle>
+                  </svg>
+                  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                    <span style="font-size:20.16px;font-weight:700;color:var(--text-primary)">52%</span>
+                    <span style="font-size:11.76px;color:var(--text-muted);margin-top:1px">1er essai</span>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#f8f9fa;border-radius:var(--radius-sm);padding:10px 12px;font-size:0.8rem;color:var(--text-secondary)">
+                ⏱ Temps moyen : <strong style="color:#6B7A8D">1m 24s</strong> par question
+              </div>
+            </article>
           </aside>
         </section>
 
-        <section class="card activity-card" id="activity-card"></section>
+        <section class="card activity-card">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--text-primary);margin-bottom:18px">Activite recente</h2>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--primary-light)">
+              <div style="width:32px;height:32px;border-radius:10px;background:color-mix(in srgb, #9DBFA3 16%, white 84%);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#9DBFA3;flex-shrink:0;font-weight:700">✓</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:0.87rem;font-weight:500;color:var(--text-primary)">Quiz du jour termine</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">Score : 7/10 • 9 min 32 sec</div>
+              </div>
+              <span style="font-size:0.75rem;color:var(--text-muted);flex-shrink:0">10h42</span>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--primary-light)">
+              <div style="width:32px;height:32px;border-radius:10px;background:color-mix(in srgb, #9DBFA3 16%, white 84%);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#9DBFA3;flex-shrink:0;font-weight:700">?</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:0.87rem;font-weight:500;color:var(--text-primary)">Question difficile : "Qui est Pierre ?"</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">Quiz personnalise - Famille proche</div>
+              </div>
+              <span style="font-size:0.75rem;color:var(--text-muted);flex-shrink:0">hier 15h</span>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--primary-light)">
+              <div style="width:32px;height:32px;border-radius:10px;background:color-mix(in srgb, #9DBFA3 16%, white 84%);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#9DBFA3;flex-shrink:0;font-weight:700">✓</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:0.87rem;font-weight:500;color:var(--text-primary)">Medicaments du matin pris</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">Tache marquee comme realisee</div>
+              </div>
+              <span style="font-size:0.75rem;color:var(--text-muted);flex-shrink:0">hier 08h</span>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--primary-light)">
+              <div style="width:32px;height:32px;border-radius:10px;background:color-mix(in srgb, #E07840 16%, white 84%);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#E07840;flex-shrink:0;font-weight:700">!</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:0.87rem;font-weight:500;color:var(--text-primary)">Rendez-vous Dr. Renaud non effectue</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">Mercredi 12 mars</div>
+              </div>
+              <span style="font-size:0.75rem;color:var(--text-muted);flex-shrink:0">il y a 3j</span>
+            </div>
+
+            <div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:0;margin-bottom:0;border-bottom:none">
+              <div style="width:32px;height:32px;border-radius:10px;background:color-mix(in srgb, #C4A882 16%, white 84%);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:#C4A882;flex-shrink:0;font-weight:700">◆</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:0.87rem;font-weight:500;color:var(--text-primary)">Anniversaire de Claude approche</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">Dans 4 jours</div>
+              </div>
+              <span style="font-size:0.75rem;color:var(--text-muted);flex-shrink:0">il y a 4j</span>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
 
     <script src="../script.js"></script>
-    <script src="./dashboard.js"></script>
+    <script>
+      window.AppUI.mountSidebar("dashboard", { fromSubpage: true });
+    </script>
   </body>
 </html>
