@@ -14,7 +14,7 @@
       <main class="main-content">
         <header class="page-header">
           <div>
-            <h1 class="page-title">Parametres</h1>
+            <h1 class="page-title">Paramètres</h1>
             <p class="page-subtitle">
               Personnalisez votre espace et celui de Jean
             </p>
@@ -189,7 +189,15 @@
                   <strong>Indices actifs</strong>
                   <p>Disponibles des le premier lancement</p>
                 </div>
-                <span class="settings-static-chip on">Actif</span>
+                <label class="toggle-wrap">
+                  <input
+                    type="checkbox"
+                    name="settings-quiz-hints"
+                    aria-label="Activer les indices"
+                    checked
+                  />
+                  <span class="toggle-slider"></span>
+                </label>
               </div>
 
               <div class="settings-row">
@@ -197,7 +205,15 @@
                   <strong>Vrai / faux après erreur</strong>
                   <p>Relance simplifiée à la fin du quiz</p>
                 </div>
-                <span class="settings-static-chip on">Automatique</span>
+                <label class="toggle-wrap">
+                  <input
+                    type="checkbox"
+                    name="settings-quiz-truefalse"
+                    aria-label="Activer le mode vrai ou faux apres erreur"
+                    checked
+                  />
+                  <span class="toggle-slider"></span>
+                </label>
               </div>
 
               <div class="settings-row">
@@ -205,7 +221,15 @@
                   <strong>Suppression de réponses fausses</strong>
                   <p>Activee apres deux erreurs consecutives</p>
                 </div>
-                <span class="settings-static-chip on">Activee</span>
+                <label class="toggle-wrap">
+                  <input
+                    type="checkbox"
+                    name="settings-quiz-remove-false"
+                    aria-label="Activer la suppression de reponses fausses"
+                    checked
+                  />
+                  <span class="toggle-slider"></span>
+                </label>
               </div>
 
               <div class="settings-row">
@@ -213,7 +237,15 @@
                   <strong>Statistiques post-quiz</strong>
                   <p>Resume visible dans l'espace aidant</p>
                 </div>
-                <span class="settings-static-chip on">Visible</span>
+                <label class="toggle-wrap">
+                  <input
+                    type="checkbox"
+                    name="settings-quiz-stats"
+                    aria-label="Afficher les statistiques apres le quiz"
+                    checked
+                  />
+                  <span class="toggle-slider"></span>
+                </label>
               </div>
             </section>
 

@@ -185,10 +185,15 @@ html {
 .settings-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px solid #edf3f9;
+}
+
+.settings-row .toggle-wrap {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .settings-row:last-child {
