@@ -44,16 +44,6 @@
                 </div>
               </a>
 
-              <a class="settings-tab" href="#settings-preferences">
-                <span class="settings-tab-icon">
-                  <span data-app-icon="settings" data-app-icon-size="16"></span>
-                </span>
-                <div>
-                  <strong>Preferences</strong>
-                  <span>Langue et affichage</span>
-                </div>
-              </a>
-
               <a class="settings-tab" href="#settings-quiz">
                 <span class="settings-tab-icon">
                   <span data-app-icon="quiz" data-app-icon-size="16"></span>
@@ -74,15 +64,6 @@
                 </div>
               </a>
 
-              <a class="settings-tab" href="#settings-export">
-                <span class="settings-tab-icon">
-                  <span data-app-icon="download" data-app-icon-size="16"></span>
-                </span>
-                <div>
-                  <strong>Export</strong>
-                  <span>Rapports et partages</span>
-                </div>
-              </a>
             </div>
           </nav>
 
@@ -90,7 +71,6 @@
             <section class="settings-panel" id="settings-caregiver">
               <div class="settings-panel-head">
                 <h2 class="section-title">Profil aidant</h2>
-                <span class="badge badge-gray">MVP</span>
               </div>
 
               <div class="profile-head neutral">
@@ -100,8 +80,13 @@
                     background: var(--secondary-light);
                     color: var(--secondary-dark);
                   "
-                  >SM</span
                 >
+                  <img
+                    class="avatar-image"
+                    src="../public/image-fille2.png"
+                    alt="Sophie Martin"
+                  />
+                </span>
                 <div>
                   <h3 class="profile-name">Sophie Martin</h3>
                   <p class="profile-role">Sa fille - Aidante principale</p>
@@ -135,7 +120,6 @@
             <section class="settings-panel" id="settings-patient">
               <div class="settings-panel-head">
                 <h2 class="section-title">Profil patient</h2>
-                <span class="badge badge-accent">Suivi actif</span>
               </div>
 
               <div class="profile-head primary">
@@ -145,8 +129,13 @@
                     background: var(--primary-light);
                     color: var(--primary-dark);
                   "
-                  >JM</span
                 >
+                  <img
+                    class="avatar-image"
+                    src="../public/image-Jean.png"
+                    alt="Jean Martin"
+                  />
+                </span>
                 <div>
                   <h3 class="profile-name">Jean Martin</h3>
                   <p class="profile-role">Maladie d'Alzheimer - stade leger</p>
@@ -174,66 +163,24 @@
                 </div>
                 <div class="static-field">
                   <span class="label">Rythme de visite</span>
-                  <strong class="field-value">Week-end avec Sophie</strong>
+                  <strong class="field-value">Quotiden</strong>
                 </div>
               </div>
 
               <p class="info-note">
-                Jean reagit mieux aux questions visuelles et aux rappels relies
-                a la famille proche.
+                Jean reagit mieux aux questions visuelles et aux rappels reliés
+                à la famille proche.
               </p>
-            </section>
-
-            <section class="settings-panel" id="settings-preferences">
-              <div class="settings-panel-head">
-                <h2 class="section-title">Preferences generales</h2>
-                <span class="badge badge-gray">Lecture simple</span>
-              </div>
-
-              <div class="settings-row">
-                <div>
-                  <strong>Langue</strong>
-                  <p>Langue principale de l'interface</p>
-                </div>
-                <div class="pill-group static-pills">
-                  <span class="pill active">Francais</span>
-                  <span class="pill">English</span>
-                </div>
-              </div>
-
-              <div class="settings-row">
-                <div>
-                  <strong>Theme visuel</strong>
-                  <p>Palette recommandee pour la lecture quotidienne</p>
-                </div>
-                <div class="pill-group static-pills">
-                  <span class="pill active">Clair</span>
-                  <span class="pill">Contraste</span>
-                  <span class="pill">Sombre</span>
-                </div>
-              </div>
-
-              <div class="settings-row">
-                <div>
-                  <strong>Taille d'affichage</strong>
-                  <p>Densite de contenu et lisibilite</p>
-                </div>
-                <div class="pill-group static-pills">
-                  <span class="pill">Compact</span>
-                  <span class="pill active">Normal</span>
-                  <span class="pill">Large</span>
-                </div>
-              </div>
             </section>
 
             <section class="settings-panel" id="settings-quiz">
               <div class="settings-panel-head">
-                <h2 class="section-title">Parametres quiz</h2>
-                <span class="badge badge-green">Par defaut</span>
+                <h2 class="section-title">Paramètres quiz</h2>
+                <span class="badge badge-green">Par défaut</span>
               </div>
 
               <p class="info-note">
-                Ces reglages servent de base a la creation des prochains quiz
+                Ces réglages servent de base à la création des prochains quiz
                 personnalises.
               </p>
 
@@ -247,15 +194,15 @@
 
               <div class="settings-row">
                 <div>
-                  <strong>Vrai / faux apres erreur</strong>
-                  <p>Relance simplifiee a la fin du quiz</p>
+                  <strong>Vrai / faux après erreur</strong>
+                  <p>Relance simplifiée à la fin du quiz</p>
                 </div>
                 <span class="settings-static-chip on">Automatique</span>
               </div>
 
               <div class="settings-row">
                 <div>
-                  <strong>Suppression de reponses fausses</strong>
+                  <strong>Suppression de réponses fausses</strong>
                   <p>Activee apres deux erreurs consecutives</p>
                 </div>
                 <span class="settings-static-chip on">Activee</span>
@@ -272,21 +219,21 @@
 
             <section class="settings-panel" id="settings-security">
               <div class="settings-panel-head">
-                <h2 class="section-title">Securite</h2>
-                <span class="badge badge-gray">Apercu</span>
+                <h2 class="section-title">Sécurité</h2>
+                <span class="badge badge-gray">Aperçu</span>
               </div>
 
               <div class="security-grid">
                 <article class="security-card">
                   <strong>Mot de passe</strong>
-                  <p>Derniere mise a jour il y a 41 jours</p>
+                  <p>Dernière mise à jour il y a 41 jours</p>
                 </article>
                 <article class="security-card">
                   <strong>Appareil principal</strong>
                   <p>MacBook de Sophie Martin</p>
                 </article>
                 <article class="security-card">
-                  <strong>Derniere connexion</strong>
+                  <strong>Dernière connexion</strong>
                   <p>Hier a 18h24 depuis Nice</p>
                 </article>
               </div>
@@ -294,80 +241,12 @@
               <div class="logout-box">
                 <h3 class="section-title small">Session</h3>
                 <p>
-                  La deconnexion manuelle et la reinitialisation du mot de passe
-                  seront branchees dans une iteration suivante.
+                  La déconnexion manuelle et la reinitialisation du mot de passe
+                  seront branchées dans une iteration suivante.
                 </p>
                 <span class="settings-static-chip muted"
                   >Action manuelle a venir</span
                 >
-              </div>
-            </section>
-
-            <section class="settings-panel" id="settings-export">
-              <div class="settings-panel-head">
-                <h2 class="section-title">Export et rapports</h2>
-                <span class="badge badge-gray">Pret pour design</span>
-              </div>
-
-              <p class="page-subtitle settings-panel-subtitle">
-                Generez et partagez des resumes de suivi pour la famille et les
-                professionnels.
-              </p>
-
-              <div class="export-list">
-                <div class="export-item">
-                  <span class="icon">
-                    <span
-                      data-app-icon="download"
-                      data-app-icon-size="16"
-                    ></span>
-                  </span>
-                  <div class="export-copy">
-                    <h4>Resume hebdomadaire</h4>
-                    <p>Rapport PDF de la semaine en cours</p>
-                  </div>
-                  <span class="badge badge-gray">PDF</span>
-                  <span class="settings-static-chip on">Pret</span>
-                </div>
-
-                <div class="export-item">
-                  <span class="icon">
-                    <span data-app-icon="stats" data-app-icon-size="16"></span>
-                  </span>
-                  <div class="export-copy">
-                    <h4>Export des statistiques</h4>
-                    <p>Toutes les donnees de performance en CSV</p>
-                  </div>
-                  <span class="badge badge-gray">CSV</span>
-                  <span class="settings-static-chip on">Pret</span>
-                </div>
-
-                <div class="export-item">
-                  <span class="icon">
-                    <span
-                      data-app-icon="calendar"
-                      data-app-icon-size="16"
-                    ></span>
-                  </span>
-                  <div class="export-copy">
-                    <h4>Rapport mensuel</h4>
-                    <p>Vue d'ensemble du mois avec synthese visuelle</p>
-                  </div>
-                  <span class="badge badge-gray">PDF</span>
-                  <span class="settings-static-chip muted">Bientot</span>
-                </div>
-
-                <div class="export-item">
-                  <span class="icon">
-                    <span data-app-icon="quiz" data-app-icon-size="16"></span>
-                  </span>
-                  <div class="export-copy">
-                    <h4>Historique des quiz</h4>
-                    <p>Detail des quiz joues et points de vigilance</p>
-                  </div>
-                  <span class="badge badge-gray">XLSX</span>
-                  <span class="settings-static-chip muted">Bientot</span>
-                </div>
               </div>
             </section>
           </div>
