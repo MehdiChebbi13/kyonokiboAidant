@@ -121,6 +121,14 @@ html {
   margin-bottom: 16px;
 }
 
+#settings-security .settings-panel-head {
+  margin-bottom: 8px;
+}
+
+#settings-security .section-title {
+  margin-bottom: 0;
+}
+
 .settings-panel-subtitle {
   margin-top: 0;
   margin-bottom: 16px;
@@ -282,18 +290,6 @@ html {
   color: var(--text-muted);
   font-size: 0.78rem;
   line-height: 1.5;
-}
-
-.logout-box {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #edf3f9;
-}
-
-.logout-box p {
-  margin: 0 0 12px;
-  color: var(--text-muted);
-  font-size: 0.84rem;
 }
 
 .export-list {
