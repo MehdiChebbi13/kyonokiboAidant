@@ -284,18 +284,6 @@ html {
   line-height: 1.5;
 }
 
-.logout-box {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #edf3f9;
-}
-
-.logout-box p {
-  margin: 0 0 12px;
-  color: var(--text-muted);
-  font-size: 0.84rem;
-}
-
 .export-list {
   display: flex;
   flex-direction: column;
