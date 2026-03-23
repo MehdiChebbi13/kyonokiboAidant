@@ -272,6 +272,14 @@ html {
   gap: 12px;
 }
 
+#settings-security .settings-panel-head {
+  margin-bottom: 8px;
+}
+
+#settings-security .settings-panel-head .section-title {
+  margin-bottom: 0;
+}
+
 .security-card {
   padding: 15px 16px;
   border: 1px solid #edf3f9;
